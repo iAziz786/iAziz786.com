@@ -2,17 +2,17 @@ import Typography from "typography"
 import "../fonts/fonts.css"
 
 export const fonts = {
-  thin: "Inter",
+  thin: "Inter Thin",
   // thinItalic: 'Inter Thin Italic',
-  light: "Inter",
+  light: "Inter Light",
   // lightItalic: 'Inter Light Italic',
-  regular: "Inter",
+  regular: "Inter Regular",
   // regularItalic: 'Inter Regular Italic',
-  // medium: 'Inter Medium',
+  medium: "Inter Medium",
   // mediumItalic: 'Inter Medium Italic',
-  semibold: "Inter",
+  semibold: "Inter Semi Bold",
   // semiboldItalic: 'Inter Semibold Italic',
-  bold: "Inter",
+  bold: "Inter Bold",
   // boldItalic: 'Inter Bold Italic',
 }
 

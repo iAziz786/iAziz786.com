@@ -1,0 +1,18 @@
+@import "variables";
+
+.link {
+  padding: 5px 10px;
+  color: $primary-color;
+}
+
+.nav-link-primary {
+  @extend .link;
+  background-color: rgb(78, 9, 148);
+  color: white !important;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.nav-link-primary:hover {
+  background-color: rgb(65, 5, 124);
+}

@@ -38,12 +38,12 @@ function Bio() {
               }}
             />
             <p>
-              Written by <strong>{author}</strong> who lives and works in Pune
-              and building useful things.
-              {` `}
+              This post is written by{" "}
               <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
+                Mohammad Aziz
               </a>
+              <br />
+              <span>I like explaining things about software.</span>
             </p>
           </div>
         )

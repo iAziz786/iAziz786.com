@@ -7,12 +7,12 @@
 
 .nav-link-primary {
   @extend .link;
-  background-color: rgb(78, 9, 148);
+  background-color: #388e3c;
   color: white !important;
   border-radius: 5px;
   text-decoration: none;
 }
 
 .nav-link-primary:hover {
-  background-color: rgb(65, 5, 124);
+  background-color: #2e7d32;
 }

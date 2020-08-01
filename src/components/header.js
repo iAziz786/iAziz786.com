@@ -5,7 +5,7 @@ import { Link, NavLink } from "./links"
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `#4CAF50`,
+      background: `#ed8936`,
       marginBottom: `1.45rem`,
     }}
   >

@@ -5,7 +5,7 @@ module.exports = {
     title: `Mohammad Aziz`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@iaziz786`,
-    siteUrl: `https://aziz.js.org`,
+    siteUrl: `https://iAziz786.com`,
     social: {
       twitter: config.twitterHandle,
     },
@@ -63,6 +63,7 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -91,5 +92,5 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
   ],
-  pathPrefix: "/aziz.js.org",
+  pathPrefix: "/iaziz786.com",
 }

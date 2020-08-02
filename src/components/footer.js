@@ -1,6 +1,7 @@
 import React from "react"
 import { StaticQuery, Link } from "gatsby"
 import Image from "gatsby-image"
+import { graphql } from "gatsby"
 import { rhythm } from "../utils/typography"
 
 function Footer() {

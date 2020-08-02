@@ -1,11 +1,20 @@
 const config = require("./config/website")
 
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = "https://iaziz786.com",
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === "production"
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
+
 module.exports = {
   siteMetadata: {
     title: `Mohammad Aziz`,
     description: `Learn to build valuable software for a great user experience`,
     author: `@iaziz786`,
-    siteUrl: `https://iAziz786.com`,
+    siteUrl,
     social: {
       twitter: config.twitterHandle,
     },
@@ -97,6 +106,28 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: "*", allow: "/" }],
+            sitemap: null,
+          },
+          "branch-deploy": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+            sitemap: null,
+            host: null,
+          },
+          "deploy-preview": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+            sitemap: null,
+            host: null,
+          },
+        },
+      },
+    },
   ],
   pathPrefix: "/iaziz786.com",
 }

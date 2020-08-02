@@ -1,9 +1,28 @@
 @tailwind base;
+
+h1 {
+  @apply text-3xl;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-xl;
+}
+
+a {
+  @apply text-orange-500;
+}
+
+p {
+  @apply pt-5;
+}
+
 @tailwind components;
 @tailwind utilities;
 
 body {
-  background-color: #282c35;
+  @apply bg-gray-900;
   color: white;
 }
 
@@ -11,24 +30,6 @@ h1,
 h2,
 h3 {
   color: white;
-}
-
-/* Fixing parentheses issue in text */
-body:lang(fa) .language-text,
-body:lang(ar) .language-text,
-body:lang(he) .language-text {
-  display: inline-block;
-}
-
-body:lang(fa) blockquote,
-body:lang(ar) blockquote,
-body:lang(he) blockquote {
-  border-left: unset;
-  border-right: 0.32813rem solid hsla(0, 0%, 0%, 0.9);
-  padding-right: 1.42188rem;
-  padding-left: unset;
-  margin-left: 0.75rem;
-  margin-right: -1.75rem;
 }
 
 /**

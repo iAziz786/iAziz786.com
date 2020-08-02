@@ -3,7 +3,7 @@ const config = require("./config/website")
 module.exports = {
   siteMetadata: {
     title: `Mohammad Aziz`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Learn to build valuable software for a great user experience`,
     author: `@iaziz786`,
     siteUrl: `https://iAziz786.com`,
     social: {

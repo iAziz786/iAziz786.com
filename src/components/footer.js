@@ -8,7 +8,7 @@ function Footer() {
   return (
     <StaticQuery
       query={footerQuery}
-      render={data => {
+      render={(data) => {
         const { author } = data.site.siteMetadata
         return (
           <div className="bg-gray-800">

@@ -1,5 +1,5 @@
 import React from "react"
-import { StaticQuery } from "gatsby"
+import { StaticQuery, Link } from "gatsby"
 import Image from "gatsby-image"
 import { rhythm } from "../utils/typography"
 
@@ -12,7 +12,10 @@ function Footer() {
         return (
           <div className="bg-gray-800">
             <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
-              <a className="flex title-font font-medium items-center md:justify-start justify-center text-white">
+              <Link
+                to="/"
+                className="flex title-font font-medium items-center md:justify-start justify-center text-white"
+              >
                 <Image
                   fixed={data.avatar.childImageSharp.fixed}
                   alt={author}
@@ -27,7 +30,7 @@ function Footer() {
                   }}
                 />
                 <span className="ml-3 text-xl">Mohammad Aziz</span>
-              </a>
+              </Link>
               <p className="text-sm text-gray-600 sm:ml-6 sm:mt-0 mt-4">
                 <a
                   href="https://twitter.com/iaziz786"

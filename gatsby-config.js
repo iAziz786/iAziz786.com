@@ -58,6 +58,12 @@ module.exports = {
           },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+              trackingId: `UA-101748088-1`,
+            },
+          },
         ],
       },
     },

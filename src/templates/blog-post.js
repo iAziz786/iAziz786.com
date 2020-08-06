@@ -1,9 +1,11 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Image from "gatsby-image"
+import ReactMarkdown from "react-markdown"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -16,18 +18,23 @@ class BlogPostTemplate extends React.Component {
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
+          keywords={post.frontmatter.keywords}
         />
-        <div className="pt-5">
-          <h1>{post.frontmatter.title}</h1>
-          <span
-            style={{
-              ...scale(-1 / 5),
-              display: `block`,
-              color: "gray",
-            }}
-          >
-            {post.frontmatter.date}
-          </span>
+        <div className="pt-8">
+          <div className="text-center">
+            <h1 className="font-bold">{post.frontmatter.title}</h1>
+            <span className="text-gray-600 text-sm">
+              {post.frontmatter.date}
+            </span>
+          </div>
+          <Image
+            className="mt-4"
+            fluid={post.frontmatter.banner.childImageSharp.fluid}
+            alt="Introduction Coffee"
+          />
+          <ReactMarkdown className="text-center text-gray-600">
+            {post.frontmatter.credits}
+          </ReactMarkdown>
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
@@ -82,6 +89,11 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        keywords
+        credits
+        banner {
+          ...bannerImage720
+        }
       }
     }
   }

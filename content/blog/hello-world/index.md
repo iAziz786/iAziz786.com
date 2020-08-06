@@ -1,9 +1,14 @@
 ---
-title: Hello Internet
+title: Hello Internet!
 slug: hello-internet
 date: "2020-08-01"
 category: "introduction"
 description: "This is my first blog post about launching my first site"
+banner: "./images/coffee-intro.jpg"
+credits: "Photo by [Danielle MacInnes](https://unsplash.com/@dsmacinnes?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/welcome?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)"
+keywords:
+  - introduction
+  - first-blog
 ---
 
 Hello World! Welcome to my space on the Internet. My name is Mohammad Aziz I'm a

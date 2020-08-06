@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Image from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -18,6 +19,7 @@ class BlogIndex extends React.Component {
         />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
+          console.log(node.frontmatter.banner)
           return (
             <section
               className="text-gray-500 bg-gray-900 body-font overflow-hidden"
@@ -27,14 +29,17 @@ class BlogIndex extends React.Component {
                 <div className="-my-8">
                   <div className="py-8 flex flex-wrap md:flex-no-wrap">
                     <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                      <span className="mt-1 text-gray-600 text-sm">
-                        {node.frontmatter.date}
-                      </span>
+                      <Image
+                        fluid={node.frontmatter.banner.childImageSharp.fluid}
+                      />
                     </div>
-                    <div className="md:flex-grow">
+                    <div className="md:flex-grow md:pl-4">
                       <h2 className="text-2xl font-medium text-white title-font mb-2">
                         {title}
                       </h2>
+                      <span className="mt-1 text-gray-600 text-sm">
+                        {node.frontmatter.date}
+                      </span>
                       <p
                         className="leading-relaxed"
                         dangerouslySetInnerHTML={{
@@ -91,6 +96,9 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            banner {
+              ...bannerImage260
+            }
           }
         }
       }

@@ -1,6 +1,7 @@
 ---
 title: Hello Internet!
 slug: hello-internet
+author: Mohammad Aziz
 date: "2020-08-01"
 category: "introduction"
 description: "This is my first blog post about launching my first site"

@@ -19,51 +19,50 @@ class BlogIndex extends React.Component {
         />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
-          console.log(node.frontmatter.banner)
           return (
-            <section
-              className="text-gray-500 bg-gray-900 body-font overflow-hidden"
-              key={title}
-            >
-              <div className="container px-5 py-12 mx-auto">
-                <div className="-my-8">
-                  <div className="py-8 flex flex-wrap md:flex-no-wrap">
-                    <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
-                      <Image
-                        fluid={node.frontmatter.banner.childImageSharp.fluid}
-                      />
-                    </div>
-                    <div className="md:flex-grow md:pl-4">
-                      <h2 className="text-2xl font-medium text-white title-font mb-2">
-                        {title}
-                      </h2>
-                      <span className="mt-1 text-gray-600 text-sm">
-                        {node.frontmatter.date}
-                      </span>
-                      <p
-                        className="leading-relaxed"
-                        dangerouslySetInnerHTML={{
-                          __html: node.frontmatter.description || node.excerpt,
-                        }}
-                      ></p>
-                      <Link
-                        className="text-orange-500 inline-flex items-center mt-4"
-                        to={node.fields.slug}
-                      >
-                        Learn More
-                        <svg
-                          className="w-4 h-4 ml-2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M5 12h14"></path>
-                          <path d="M12 5l7 7-7 7"></path>
-                        </svg>
+            <section className="body-font overflow-hidden" key={title}>
+              <div className="container grid lg:grid-cols-2 px-5 py-12 mx-auto">
+                <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                  <div className="flex-shrink-0">
+                    <Image
+                      className="h-48 w-full object-cover"
+                      fluid={node.frontmatter.banner.childImageSharp.fluid}
+                      alt={"banner"}
+                    />
+                  </div>
+                  <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+                    <div className="flex-1">
+                      <Link to={node.fields.slug} className="block">
+                        <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
+                          {title}
+                        </h3>
+                        <p className="mt-3 text-base font-normal leading-6 text-gray-500">
+                          {node.frontmatter.description}
+                        </p>
                       </Link>
+                    </div>
+                    <div className="mt-6 flex items-center">
+                      <div className="flex-shrink-0">
+                        <Image
+                          className="h-10 w-10 rounded-full"
+                          fluid={data.avatar.childImageSharp.fixed}
+                          alt={"lol"}
+                        />
+                      </div>
+                      <div className="ml-3">
+                        <span className="text-sm leading-5 font-medium text-gray-900">
+                          <Link to={"/about"} className="hover:underline">
+                            {node.frontmatter.author}
+                          </Link>
+                        </span>
+                        <div className="flex text-sm leading-5 text-gray-500">
+                          <time dateTime="2020-03-16">
+                            {node.frontmatter.date}
+                          </time>
+                          <span className="mx-1">·</span>
+                          <span>{node.fields.readingTime.text}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -85,17 +84,29 @@ export const pageQuery = graphql`
         title
       }
     }
+    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      childImageSharp {
+        fixed(width: 50, height: 50) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           excerpt
           fields {
             slug
+            readingTime {
+              text
+            }
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            author
+            keywords
             banner {
               ...bannerImage260
             }

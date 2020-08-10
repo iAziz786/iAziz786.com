@@ -16,11 +16,16 @@ module.exports = {
     author: `@iaziz786`,
     siteUrl,
     social: {
-      twitter: config.twitterHandle,
+      twitter: config.twitter,
+      github: config.github,
+      facebook: config.facebook,
+      devTo: config.devTo,
+      instagram: config.instagram,
     },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -73,6 +78,7 @@ module.exports = {
               trackingId: `UA-101748088-1`,
             },
           },
+          `gatsby-remark-reading-time`,
         ],
       },
     },
@@ -95,12 +101,6 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

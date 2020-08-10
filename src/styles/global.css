@@ -11,25 +11,55 @@ h3 {
 }
 
 a {
-  @apply text-orange-500;
+  @apply text-indigo-600;
+  @apply font-medium;
 }
 
 p {
-  @apply pt-5;
+  @apply leading-7;
+  @apply mt-6;
 }
 
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply bg-gray-900;
-  color: white;
+  @apply bg-gray-100;
 }
 
-h1,
-h2,
-h3 {
-  color: white;
+.wave {
+  animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s; /* Change to speed up or slow down */
+  animation-iteration-count: infinite; /* Never stop waving :) */
+  transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  } /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  } /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 /**

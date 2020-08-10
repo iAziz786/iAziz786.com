@@ -24,20 +24,15 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 800,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
-          }}
-        >
-          <main>{children}</main>
-          <Footer />
+        <div className="min-h-screen">
+          <Header siteTitle={data.site.siteMetadata.title} />
+          <div className="container max-w-2xl mx-auto">
+            <main>{children}</main>
+          </div>
         </div>
+        <Footer />
       </>
     )}
   />

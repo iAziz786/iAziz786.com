@@ -113,7 +113,7 @@ module.exports = {
         env: {
           production: {
             policy: [{ userAgent: "*", allow: "/" }],
-            sitemap: null,
+            sitemap: `${siteUrl}/sitemap.xml`,
           },
           "branch-deploy": {
             policy: [{ userAgent: "*", disallow: ["/"] }],
@@ -128,6 +128,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-sitemap`,
   ],
   pathPrefix: "/iaziz786.com",
 }

@@ -1,0 +1,55 @@
+h2 {
+  @apply text-3xl;
+  @apply font-semibold;
+  @apply text-gray-700;
+  @apply mt-6;
+}
+
+h3 {
+  @apply text-2xl;
+  @apply font-semibold;
+  @apply text-gray-700;
+  @apply mt-6;
+}
+
+p {
+  @apply text-lg;
+  @apply text-gray-800;
+  @apply mt-6;
+}
+
+ol > li,
+ul > li {
+  list-style-type: "ℹ️";
+  @apply ml-4;
+  @apply mt-6;
+  @apply text-lg;
+  @apply text-gray-800;
+}
+
+blockquote > p {
+  @apply mb-6;
+  @apply font-serif;
+  @apply text-center;
+  @apply text-2xl;
+}
+
+blockquote {
+  @apply mt-6;
+}
+
+blockquote::before {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 3em;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+blockquote::after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 3em;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+}

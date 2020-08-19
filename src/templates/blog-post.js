@@ -6,13 +6,16 @@ import ReactMarkdown from "react-markdown"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import { siteURL } from "../../config/website"
+
 import "../styles/blog.css"
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const blogPostURL = `${window.location.href}`
+    const { slug } = this.props.pageContext
+    const { title: siteTitle } = this.props.data.site.siteMetadata
+    const blogPostURL = `${siteURL}${slug}`
 
     return (
       <Layout location={this.props.location} title={siteTitle}>

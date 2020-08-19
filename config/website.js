@@ -1,4 +1,5 @@
 module.exports = {
+  siteURL: process.env.BASE_URL || "https://iaziz786.com",
   twitter: "https://twitter.com/iAziz786",
   twitterHandle: "iAziz786",
   facebook: "https://www.facebook.com/iAziz786/",

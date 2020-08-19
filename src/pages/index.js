@@ -181,8 +181,8 @@ const IndexPage = ({
                   <div>
                     <img
                       className="h-8 w-auto"
-                      src="/images/gatsby-icon"
-                      alt=""
+                      src="/images/logo.svg"
+                      alt="logo"
                     />
                   </div>
                   <div className="-mr-2">

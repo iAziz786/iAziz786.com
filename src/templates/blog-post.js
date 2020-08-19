@@ -6,10 +6,16 @@ import ReactMarkdown from "react-markdown"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import { siteURL } from "../../config/website"
+
+import "../styles/blog.css"
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
+    const { slug } = this.props.pageContext
+    const { title: siteTitle } = this.props.data.site.siteMetadata
+    const blogPostURL = `${siteURL}${slug}`
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -39,13 +45,18 @@ class BlogPostTemplate extends React.Component {
               fluid={post.frontmatter.banner.childImageSharp.fluid}
               alt="Introduction Coffee"
             />
-            <ReactMarkdown className="text-center text-gray-600">
+            <ReactMarkdown className="text-center text-gray-600 mt-2">
               {post.frontmatter.credits}
             </ReactMarkdown>
             <div
-              className="prose prose-lg text-gray-600 mx-auto"
+              className="mt-4 text-gray-600 mx-auto"
               dangerouslySetInnerHTML={{ __html: post.html }}
             ></div>
+            <div className="text-center mt-6">
+              <a href={`https://twitter.com/search?q=${blogPostURL}`}>
+                Discuss on Twitter
+              </a>
+            </div>
           </div>
         </div>
       </Layout>

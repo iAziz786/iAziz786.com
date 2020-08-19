@@ -17,7 +17,6 @@ a {
 
 p {
   @apply leading-7;
-  @apply mt-6;
 }
 
 @tailwind components;
@@ -211,6 +210,7 @@ pre[data-line] {
   background: #011627;
   -webkit-overflow-scrolling: touch;
   overflow: auto;
+  @apply mt-6;
 }
 
 @media (max-width: 672px) {

@@ -27,12 +27,15 @@ class BlogIndex extends React.Component {
             `data-structure`,
           ]}
         />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <section className="body-font overflow-hidden" key={title}>
-              <div className="container grid lg:grid-cols-2 px-5 py-12 mx-auto">
-                <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+        <section>
+          <div className="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-2 lg:max-w-none">
+            {posts.map(({ node }) => {
+              const title = node.frontmatter.title || node.fields.slug
+              return (
+                <div
+                  className="flex flex-col rounded-lg shadow-lg overflow-hidden"
+                  key={title}
+                >
                   <div className="flex-shrink-0">
                     <Image
                       className="h-48 w-full object-cover"
@@ -76,10 +79,10 @@ class BlogIndex extends React.Component {
                     </div>
                   </div>
                 </div>
-              </div>
-            </section>
-          )
-        })}
+              )
+            })}
+          </div>
+        </section>
       </Layout>
     )
   }

@@ -1,5 +1,5 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "iaziz786.com",
   "private": true,
   "description": "A personal site for Mohammad Aziz and his thoughts",
   "version": "0.1.0",
@@ -62,9 +62,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/iAziz786/iAziz786.com"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/iAziz786/iAziz786.com/issues"
   }
 }

@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 
 const Header = () => {
   return (
-    <header className="border-b-2 bg-indigo-600">
+    <header className="bg-indigo-600">
       <div className="flex items-center justify-between mx-auto max-w-screen-md py-4 px-2">
         <h1 className="text-base">
           <Link to="/" className="text-white">
@@ -18,9 +18,9 @@ const Header = () => {
             getProps={({ isPartiallyCurrent }) => {
               return isPartiallyCurrent
                 ? {
-                    className:
-                      "px-4 py-1 text-white font-normal bg-indigo-700 rounded-full",
-                  }
+                  className:
+                    "px-4 py-1 text-white font-normal bg-indigo-700 rounded-full",
+                }
                 : {}
             }}
           >

@@ -59,7 +59,7 @@ class BlogIndex extends React.Component {
                         <Image
                           className="h-10 w-10 rounded-full"
                           fluid={data.avatar.childImageSharp.fixed}
-                          alt={"lol"}
+                          alt={"avatar"}
                         />
                       </div>
                       <div className="ml-3">
@@ -97,7 +97,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+    avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
       childImageSharp {
         fixed(width: 50, height: 50) {
           ...GatsbyImageSharpFixed

@@ -2,8 +2,12 @@ import React from "react"
 import Footer from "../components/footer"
 import Header from "../components/header"
 import SEO from "../components/seo"
+import { graphql } from "gatsby"
+import Image from "gatsby-image"
 
-function About() {
+function About(props) {
+  const { data } = props
+
   return (
     <>
       <div className="min-h-screen">
@@ -15,7 +19,7 @@ function About() {
         />
         <div className="flex items-center justify-center mx-2 md:mx-0" style={{ minHeight: "calc(100vh - 30em)" }}>
           <div className="mr-3">
-            <img className="rounded-full object-scale-down" style={{ height: '100px' }} alt="profile" src="https://avatars2.githubusercontent.com/u/17024120?s=400&u=e6a9b25f424c50a7483fc824aabe70d78904ae4d&v=4" />
+            <Image className="rounded-full" fixed={data.avatar.childImageSharp.fixed} alt="profile" />
           </div>
           <div>
             <h2 className="mt-0 text-4xl">Mohammad Aziz</h2>
@@ -25,8 +29,8 @@ function About() {
         <div className="flex flex-col items-center justify-center mx-2 md:mx-0">
           <h3 className="uppercase">About Me</h3>
           <p>I am a full stack developer.</p>
-          <p>I like swimming 🏊</p>
-          <p>I love to solve problems through software 👨‍💻</p>
+          <p>I like swimming <span role="img" aria-label="swimming">🏊</span></p>
+          <p>I love to solve problems through software <span role="img" aria-label="programming">👨‍💻</span></p>
         </div>
       </div>
       <Footer />
@@ -35,3 +39,15 @@ function About() {
 }
 
 export default About
+
+export const pageQuery = graphql`
+  query {
+    avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
+      childImageSharp {
+        fixed(width: 100, height: 100) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`

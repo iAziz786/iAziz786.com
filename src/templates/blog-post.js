@@ -23,6 +23,7 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
           keywords={post.frontmatter.keywords}
+          ogImage={post.frontmatter.banner.childImageSharp.fluid.src}
         />
         <div className="relative py-6 bg-white overflow-hidden">
           <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">

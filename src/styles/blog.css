@@ -12,17 +12,31 @@ h3 {
   @apply mt-6;
 }
 
+h3 {
+  @apply text-xl;
+  @apply font-semibold;
+  @apply text-gray-700;
+  @apply mt-6;
+}
+
 p {
   @apply text-lg;
   @apply text-gray-800;
   @apply mt-6;
 }
 
-ol > li,
 ul > li {
-  list-style-type: "ℹ️";
-  @apply ml-4;
-  @apply mt-6;
+  list-style-type: disc;
+  @apply ml-6;
+  @apply mt-4;
+  @apply text-lg;
+  @apply text-gray-800;
+}
+
+ol > li {
+  list-style-type: decimal;
+  @apply ml-6;
+  @apply mt-4;
   @apply text-lg;
   @apply text-gray-800;
 }

@@ -6,7 +6,7 @@ date: "2020-12-17"
 category: "golang"
 description: "Know how borrowing a type can give you clean code"
 banner: "./images/golang-embedding-og.png"
-credits: "Photo by [Philipp Berndt](https://unsplash.com/@philberndt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/clean?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)"
+credits: "Photo by [Amir Esrafili](https://unsplash.com/@amirvisuals?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/abstract-background?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)"
 keywords:
   - golang
   - embedding

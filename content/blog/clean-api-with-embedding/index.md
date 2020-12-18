@@ -29,7 +29,7 @@ Go is cleaner because it doesn't support many of the features that tradition OO 
 
 ## What is embedding
 
-You can "borrow" the functionality of a struct or interface into an another struct and interface respectively is called embedding. You can not embed an interface into a struct or vice versa.
+You can "borrow" the functionality of a struct or interface into another struct and interface respectively is called embedding. You can not embed an interface into a struct or vice versa.
 
 ## How to create embedding
 

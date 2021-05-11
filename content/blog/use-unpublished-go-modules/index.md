@@ -130,6 +130,8 @@ valid IP =  true
 valid IP =  false
 ```
 
+**Note**: Make sure to remove the replace directive from go.mod of the tester module before you commit your changes, otherwise `go get` will break in non-local environment.
+
 ## Conclusion
 
 We have used the golang's module [replace directive](https://golang.org/ref/mod#go-mod-file-replace) to use the local go module which is not a published module to import it into the other projects.

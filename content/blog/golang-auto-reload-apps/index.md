@@ -19,7 +19,7 @@ You wanted to develop quick, you wanted to develop fast and there is
 nothing more tedious for a developer than doing the same thing again
 and again.
 
-I really _HATE_ doing repetitive work.
+I really _HATE_ doing repetitive work. Probably that's why I become a programmer to automate the boring stuff.
 
 ## Foundation (a server)
 
@@ -43,7 +43,7 @@ func main() {
 }
 ```
 
-The above code creates a simple server which listens on port 3000 and if
+The above code creates a simple server that listens on port 3000 and if
 you hit `http://localhost:3000/echo` you will receive "hello" as a message.
 
 To run the go server we should run the command below
@@ -61,10 +61,52 @@ Now, if you do any changes to the code you have run the "tedious code" again, an
 
 You get it 🙄
 
-If you are a lazy developer you must be thinking what is the
+If you are a lazy developer you must be thinking about what is the
 the better way to do it?
 
 Your computer can help you will that for sure.
+
+## Conventional way
+
+One of the most popular ways to auto-reload your application on any kind of change is by using [air](https://github.com/cosmtrek/air).
+
+It is written in, no surprise, Go.
+
+To install head over to their [installation](https://github.com/cosmtrek/air#installation) section. Do it, so that you can follow along. If you are feeling lazy then last time when I check their docs this was the command to do it.
+
+```sh
+curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
+```
+
+Is it done? Good.
+
+This command has two parts. First, to download the binary and second, to move the binary to Go's binary path. The binary path is at `$(go env GOPATH)/bin`.
+
+With all the things in place, you might be ready to start using the `air` command. But let's verify it first. Does the below command works?
+
+```sh
+air -v
+```
+
+If it is, great! If not and you might be getting a command not found error. Most probably the Go binary is not set to your shell's path. Usually, it's fixed by adding the below command to your shell's resource file (e.g. `.zshrc`, `.bashrc`):
+
+```sh
+export PATH=$PATH:$(go env GOPATH)/bin
+```
+
+Open a new shell after adding the above line so new changes are reflected. Now the previous command should be working.
+
+The next step, run the application! Move to the application which you want to run with the auto-reload feature and just start it with the command mentioned:
+
+```sh
+air
+```
+
+This will start your application and when you make any changes it will listen to those and reload it automatically.
+
+## Unconventional way
+
+If you are/were a JavaScript developer you might be familiar with the steps mentioned onwards.
 
 Firstly, you need to install [Node.js](https://nodejs.org/en/download/).
 
@@ -92,10 +134,8 @@ nodemon --exec go run . --ext go
 Let's break it down.
 
 It will watch for any files with `.go` extension in the current directory and if
-any change in the go files it will execute the `go run .` command again.
+any change in the go files will execute the `go run .` command again.
 
 ## Summary
 
-By using nodemon you can reload your any application, not just Go, by providing the command
-to run in the `--exec` command and specifying which extensions to watch and
-if there is any change in the provided extensions, nodemon will execute the command specified in the `--exec` again.
+You can reload your server apps or any other app which needs a constant restart to reflect the changes by using tools like [air](https://github.com/cosmtrek/air) and [nodemon](https://nodemon.io/). Although both methods get your job done I personally use the `air` cli to reload my app because I find it fast and easier to use.

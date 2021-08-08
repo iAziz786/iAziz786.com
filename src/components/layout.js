@@ -26,7 +26,7 @@ const Layout = ({ children }) => (
     `}
     render={(data) => (
       <>
-        <div className="min-h-screen">
+        <div className="min-h-screen dark:bg-gray-800">
           <Header siteTitle={data.site.siteMetadata.title} />
           <div className="container max-w-2xl mx-auto">
             <main>{children}</main>

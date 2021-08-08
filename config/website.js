@@ -10,4 +10,6 @@ module.exports = {
   githubUsername: "iAziz786",
   instagram: "https://www.instagram.com/iaziz786/",
   instagramUsername: "iaziz786",
+  linkedIn: "https://www.linkedin.com/in/iaziz786/",
+  linkedInUsername: "iaziz786",
 }

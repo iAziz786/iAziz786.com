@@ -28,7 +28,7 @@ class BlogIndex extends React.Component {
           ]}
         />
         <section>
-          <div className="mt-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-2 lg:max-w-none">
+          <div className="my-12 grid gap-5 max-w-lg mx-auto lg:grid-cols-2 lg:max-w-none">
             {posts.map(({ node }) => {
               const title = node.frontmatter.title || node.fields.slug
               return (
@@ -43,13 +43,13 @@ class BlogIndex extends React.Component {
                       alt={"banner"}
                     />
                   </div>
-                  <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+                  <div className="flex-1 bg-white dark:bg-gray-700 p-6 flex flex-col justify-between">
                     <div className="flex-1">
                       <Link to={node.fields.slug} className="block">
-                        <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900">
+                        <h3 className="mt-2 text-xl leading-7 font-semibold text-gray-900 dark:text-gray-50">
                           {title}
                         </h3>
-                        <p className="mt-3 text-base font-normal leading-6 text-gray-500">
+                        <p className="mt-3 text-base font-normal leading-6 text-gray-500 dark:text-gray-400">
                           {node.frontmatter.description}
                         </p>
                       </Link>
@@ -68,7 +68,7 @@ class BlogIndex extends React.Component {
                             {node.frontmatter.author}
                           </Link>
                         </span>
-                        <div className="flex text-sm leading-5 text-gray-500">
+                        <div className="flex text-sm leading-5 text-gray-500 dark:text-gray-400">
                           <time dateTime="2020-03-16">
                             {node.frontmatter.date}
                           </time>

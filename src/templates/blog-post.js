@@ -26,19 +26,19 @@ class BlogPostTemplate extends React.Component {
           // TODO: add support for default og image
           ogImage={`${siteUrl}${post.frontmatter.banner.childImageSharp.fluid.src}`}
         />
-        <div className="relative py-6 bg-white overflow-hidden">
+        <div className="relative py-6 bg-white dark:bg-gray-700 overflow-hidden">
           <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
             <div className="relative h-full text-lg max-w-prose mx-auto"></div>
           </div>
           <div className="relative px-4 sm:px-6 lg:px-8">
             <div className="text-lg max-w-prose mx-auto mb-6">
-              <p className="text-base text-center leading-6 text-indigo-600 font-semibold tracking-wide uppercase">
+              <p className="text-base text-center leading-6 text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide uppercase">
                 {post.frontmatter.date}
               </p>
-              <h1 className="mt-2 mb-8 text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
+              <h1 className="mt-2 mb-8 text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl sm:leading-10">
                 {post.frontmatter.title}
               </h1>
-              <p className="text-xl text-center text-gray-500 leading-8">
+              <p className="text-xl text-center text-gray-500 dark:text-gray-100 leading-8">
                 {post.frontmatter.description}
               </p>
             </div>
@@ -51,7 +51,7 @@ class BlogPostTemplate extends React.Component {
               {post.frontmatter.credits}
             </ReactMarkdown>
             <div
-              className="mt-4 text-gray-600 mx-auto"
+              className="mt-4 mx-auto"
               dangerouslySetInnerHTML={{ __html: post.html }}
             ></div>
             <div className="text-center mt-6">

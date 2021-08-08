@@ -21,6 +21,7 @@ module.exports = {
       facebook: config.facebook,
       devTo: config.devTo,
       instagram: config.instagram,
+      linkedIn: config.linkedIn,
     },
   },
   plugins: [

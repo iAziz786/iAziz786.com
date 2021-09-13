@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/blog/use-unpublished-go-modules"
+  to = "/blog/import-local-package-in-go"
+  status = 301

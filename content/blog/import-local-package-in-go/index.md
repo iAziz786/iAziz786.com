@@ -1,6 +1,6 @@
 ---
-title: How to Use Unpublished Go Modules in Your Local Projects?
-slug: use-unpublished-go-modules
+title: How to Import Local Package in Golang?
+slug: import-local-package-in-go
 author: Mohammad Aziz
 date: "2021-05-10"
 category: "golang"
@@ -12,6 +12,10 @@ keywords:
   - go
   - modules
   - unpublished
+  - import-local-package
+  - import
+  - local
+  - package
   - replace
   - go modules
 ---

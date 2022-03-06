@@ -85,27 +85,24 @@ function Footer() {
   )
 }
 
-const footerQuery = graphql`
-  query FooterQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
-      childImageSharp {
-        fixed(width: 50, height: 50) {
-          ...GatsbyImageSharpFixed
-        }
-      }
+const footerQuery = graphql`query FooterQuery {
+  avatar: file(absolutePath: {regex: "/profile-pic.png/"}) {
+    childImageSharp {
+      gatsbyImageData(width: 50, height: 50, layout: FIXED)
     }
-    site {
-      siteMetadata {
-        author
-        title
-        social {
-          twitter
-          github
-          linkedIn
-        }
+  }
+  site {
+    siteMetadata {
+      author
+      title
+      social {
+        twitter
+        github
+        linkedIn
       }
     }
   }
+}
 `
 
 export default Footer

@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import ReactMarkdown from "react-markdown"
 
 import Layout from "../components/layout"
@@ -24,7 +24,7 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
           keywords={post.frontmatter.keywords}
           // TODO: add support for default og image
-          ogImage={`${siteUrl}${post.frontmatter.banner.childImageSharp.fluid.src}`}
+          ogImage={`${siteUrl}${post.frontmatter.banner.childImageSharp.gatsbyImageData.src}`}
         />
         <div className="relative py-6 bg-white dark:bg-gray-700 overflow-hidden">
           <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
@@ -42,11 +42,10 @@ class BlogPostTemplate extends React.Component {
                 {post.frontmatter.description}
               </p>
             </div>
-            <Image
+            <GatsbyImage
+              image={post.frontmatter.banner.childImageSharp.gatsbyImageData}
               className="mt-4"
-              fluid={post.frontmatter.banner.childImageSharp.fluid}
-              alt="Introduction Coffee"
-            />
+              alt="Introduction Coffee" />
             <ReactMarkdown className="text-center text-gray-600 mt-2">
               {post.frontmatter.credits}
             </ReactMarkdown>
@@ -62,7 +61,7 @@ class BlogPostTemplate extends React.Component {
           </div>
         </div>
       </Layout>
-    )
+    );
   }
 }
 

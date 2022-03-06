@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -37,11 +37,10 @@ class BlogIndex extends React.Component {
                   key={title}
                 >
                   <div className="flex-shrink-0">
-                    <Image
+                    <GatsbyImage
+                      image={node.frontmatter.banner.childImageSharp.gatsbyImageData}
                       className="h-48 w-full object-cover"
-                      fluid={node.frontmatter.banner.childImageSharp.fluid}
-                      alt={"banner"}
-                    />
+                      alt={"banner"} />
                   </div>
                   <div className="flex-1 bg-white dark:bg-gray-700 p-6 flex flex-col justify-between">
                     <div className="flex-1">
@@ -56,11 +55,10 @@ class BlogIndex extends React.Component {
                     </div>
                     <div className="mt-6 flex items-center">
                       <div className="flex-shrink-0">
-                        <Image
+                        <GatsbyImage
+                          image={data.avatar.childImageSharp.gatsbyImageData}
                           className="h-10 w-10 rounded-full"
-                          fluid={data.avatar.childImageSharp.fixed}
-                          alt={"avatar"}
-                        />
+                          alt={"avatar"} />
                       </div>
                       <div className="ml-3">
                         <span className="text-sm leading-5 font-medium text-gray-900">
@@ -79,53 +77,50 @@ class BlogIndex extends React.Component {
                     </div>
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
         </section>
       </Layout>
-    )
+    );
   }
 }
 
 export default BlogIndex
 
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
+export const pageQuery = graphql`{
+  site {
+    siteMetadata {
+      title
     }
-    avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
-      childImageSharp {
-        fixed(width: 50, height: 50) {
-          ...GatsbyImageSharpFixed
-        }
-      }
+  }
+  avatar: file(absolutePath: {regex: "/profile-pic.png/"}) {
+    childImageSharp {
+      gatsbyImageData(width: 50, height: 50, layout: FIXED)
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-            readingTime {
-              text
-            }
+  }
+  allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+    edges {
+      node {
+        excerpt
+        fields {
+          slug
+          readingTime {
+            text
           }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-            author
-            keywords
-            banner {
-              ...bannerImage260
-            }
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+          author
+          keywords
+          banner {
+            ...bannerImage260
           }
         }
       }
     }
   }
+}
 `

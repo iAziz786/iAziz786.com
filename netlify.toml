@@ -1,0 +1,12 @@
+[[redirects]]
+  from = "/blog/use-unpublished-go-modules"
+  to = "/blog/import-local-package-in-go"
+  status = 301
+
+[build]
+  command = "hugo --gc --minify"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.98.0"
+  HUGO_ENV = "production"

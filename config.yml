@@ -1,0 +1,74 @@
+baseURL: "https://iaziz786.com/"
+languageCode: en-us
+title: Mohammad Aziz
+theme: PaperMod
+
+# For rendering profile at the first page
+params:
+  profileMode:
+    enabled: true
+    title: "Hi! I'm Aziz 👋" # optional default will be site title
+    subtitle: ""
+    imageUrl: "./images/profile-pic.png" # optional
+    imageTitle: "Image of Mohammad Aziz" # optional
+    imageWidth: 120 # custom size
+    imageHeight: 120 # custom size
+    buttons:
+      - name: Blog
+        url: "/blog"
+      - name: About Me
+        url: "/about"
+
+  socialIcons: # optional
+    - name: "Twitter"
+      url: "https://twitter.com/iAziz786"
+    - name: "GitHub"
+      url: "https://github.com/iAziz786"
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/in/iaziz786/"
+
+  cover:
+    responsiveImages: true
+
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # is necessary
+
+markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    hl_Lines: ""
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: monokai
+
+menu:
+  main:
+    - identifiers: about
+      name: About
+      url: /about
+    - identifiers: blog
+      name: Blog
+      url: /blog
+    - identifiers: categories
+      name: Categories
+      url: /categories
+    - identifiers: search
+      name: Search
+      url: /search
+    - identifiers: tags
+      name: Tags
+      url: /tags

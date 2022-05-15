@@ -2,6 +2,7 @@ baseURL: "https://iaziz786.com/"
 languageCode: en-us
 title: Mohammad Aziz
 theme: PaperMod
+favicon: "images/favicon.svg"
 
 # For rendering profile at the first page
 params:
@@ -26,6 +27,13 @@ params:
       url: "https://github.com/iAziz786"
     - name: "LinkedIn"
       url: "https://www.linkedin.com/in/iaziz786/"
+
+  assets:
+    favicon: "/favicon.svg"
+    favicon16x16: "/favicon.svg"
+    favicon32x32: "/favicon.svg"
+    apple_touch_icon: "/favicon.svg"
+    safari_pinned_tab: "/favicon.svg"
 
   cover:
     responsiveImages: true

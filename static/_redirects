@@ -4,6 +4,6 @@
 
 # Redirect default Netlify subdomain to primary domain
 
-http://iaziz786.netlify.com/* http://aziz.js.org/:splat 301!
+https://iaziz786.netlify.com/* https://aziz.js.org/:splat 301!
 
 /blog/use-unpublished-go-modules /blog/import-local-package-in-go 301

@@ -71,4 +71,8 @@ say through this blog. Don't pick things because some shining-looking company ha
 
 The company is WhatsApp by the way.
 
+### Reference
+
+https://developers.facebook.com/videos/f8-2016/a-look-at-whatsapp-engineering-for-success-at-scale/
+
 --

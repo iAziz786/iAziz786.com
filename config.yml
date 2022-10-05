@@ -68,17 +68,25 @@ menu:
     - identifiers: about
       name: About
       url: /about
+      weight: 1
     - identifiers: blog
       name: Blog
       url: /blog
+      weight: 2
     - identifiers: categories
       name: Categories
       url: /categories
+      weight: 3
     - identifiers: search
       name: Search
       url: /search
+      weight: 4
     - identifiers: tags
       name: Tags
       url: /tags
+      weight: 5
+    - name: +
+      url: https://iaziz786.com/writing
+      weight: 0
 
 googleAnalytics: G-02VGR1GQZK

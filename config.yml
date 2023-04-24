@@ -10,7 +10,7 @@ params:
     enabled: true
     title: "Hi! I'm Aziz 👋" # optional default will be site title
     subtitle: ""
-    imageUrl: "./images/profile-pic.png" # optional
+    imageUrl: "./images/profile-pic.jpeg" # optional
     imageTitle: "Image of Mohammad Aziz" # optional
     imageWidth: 120 # custom size
     imageHeight: 120 # custom size

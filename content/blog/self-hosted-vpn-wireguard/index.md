@@ -152,6 +152,6 @@ I'm getting **197.32 Mbps** download and **143.42 Mbps** upload speed out of my 
 
 #### Speed with VPN
 
-I'm getting **177.80 Mbps** download and **66.52 Mbps** upload speed out of my 200 Mbps connection without any VPN in place.
+I'm getting **177.80 Mbps** download and **66.52 Mbps** upload speed out of my 200 Mbps connection with any VPN in place.
 
 👋🏼

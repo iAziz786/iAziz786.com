@@ -81,10 +81,10 @@ menu:
       name: Search
       url: /search
       weight: 4
-    - identifiers: tags
-      name: Tags
-      url: /tags
-      weight: 5
+    - identifiers: projects
+      name: Projects
+      url: /projects
+      weight: 6
     - name: +
       url: https://iaziz786.com/writing
       weight: 0

@@ -2,8 +2,6 @@
 {{- if (not site.Params.disableThemeToggle) }}
 {{- /* theme is light */}}
 {{- if (eq site.Params.defaultTheme "light") }}
-{{ template "_internal/google_analytics.html" . }}
-{{ template "_internal/google_analytics_async.html" . }}
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');

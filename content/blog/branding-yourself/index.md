@@ -4,8 +4,6 @@ slug: branding-yourself
 author: Mohammad Aziz
 date: "2023-04-28"
 description: "Developing Your Ethical Framework."
-categories:
-  - "branding"
 tags:
   - brand
   - marketing

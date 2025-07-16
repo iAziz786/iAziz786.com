@@ -4,8 +4,6 @@ slug: import-local-package-in-go
 author: Mohammad Aziz
 date: "2021-05-10"
 description: "When you are developing a module, learn how you can import and test them in other go projects before publishing it."
-categories:
-  - "golang"
 tags:
   - golang
   - go

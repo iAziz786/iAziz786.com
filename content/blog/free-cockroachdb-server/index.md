@@ -4,8 +4,6 @@ slug: free-cockroachdb-server
 author: Mohammad Aziz
 date: "2022-07-02"
 description: "Relation databases are fit for more general workload than NoSQL database. Know how you can get your own  PostgreSQL* server for free."
-categories:
-  - "database"
 tags:
   - postgres
   - postgresql

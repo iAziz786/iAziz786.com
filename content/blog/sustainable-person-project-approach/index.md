@@ -4,8 +4,6 @@ slug: sustainable-person-project-approach
 author: Mohammad Aziz
 date: "2022-03-07"
 description: "Build tools for you"
-categories:
-  - "productivity"
 tags:
   - open-source
   - projects

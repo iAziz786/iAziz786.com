@@ -4,9 +4,6 @@ slug: small-simple-solutions-scale
 author: Mohammad Aziz
 date: "2022-10-02"
 description: You don't need to complicate to scale to billions of people.
-categories:
-    - engineering
-    - software
 tags:
     - scale
     - software engineering

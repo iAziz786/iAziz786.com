@@ -4,8 +4,6 @@ slug: golang-auto-reload-apps
 author: Mohammad Aziz
 date: "2020-11-30"
 description: "Learn how to reload golang applications without too much manual work"
-categories:
-  - "golang"
 tags:
   - golang
   - reload

@@ -4,8 +4,6 @@ slug: publish-first-rust-crate
 author: Mohammad Aziz
 date: "2021-11-17"
 description: "With crates, you share your work with other developers, learn how to publish your first crate."
-categories:
-  - "rust"
 tags:
   - rust
   - crate

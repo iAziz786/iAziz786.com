@@ -4,9 +4,6 @@ slug: merge-sort-in-go
 author: Mohammad Aziz
 date: "2020-08-16"
 description: "Using divide and conquer to build merge sort in Go"
-categories:
-  - "algorithms"
-  - "golang"
 tags:
   - sorting
   - merge-sort

@@ -4,8 +4,6 @@ slug: self-hosted-vpn-wireguard
 author: Mohammad Aziz
 date: "2023-05-25"
 description: "You don't need to buy a VPN provider to get high performance VPN server."
-categories:
-  - "vpn"
 tags:
   - vpn
   - wireguard

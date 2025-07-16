@@ -73,10 +73,6 @@ menu:
       name: Blog
       url: /blog
       weight: 2
-    - identifiers: categories
-      name: Categories
-      url: /categories
-      weight: 3
     - identifiers: search
       name: Search
       url: /search

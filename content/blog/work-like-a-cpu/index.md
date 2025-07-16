@@ -4,8 +4,6 @@ slug: work-like-a-cpu
 author: Mohammad Aziz
 date: "2023-05-11"
 description: "More focused, more efficient"
-categories:
-  - "productivity"
 tags:
   - cpu
   - productivity

@@ -4,8 +4,6 @@ slug: golang-arbitrary-json
 author: Mohammad Aziz
 date: "2020-12-30"
 description: "Many times you come across JSON which has very arbitrary in structure, Learn how you can handle them to get to in Go"
-categories:
-  - "golang"
 tags:
   - golang
   - json

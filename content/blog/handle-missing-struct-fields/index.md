@@ -4,8 +4,6 @@ slug: handle-missing-struct-fields
 author: Mohammad Aziz
 date: "2020-12-09"
 description: "If you want to remove the struct field which is not present while unmarshalling JSON"
-categories:
-  - "golang"
 tags:
   - golang
   - struct

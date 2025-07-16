@@ -4,8 +4,6 @@ slug: self-hosted-smtp-haraka
 author: Mohammad Aziz
 date: "2023-04-24"
 description: "Send thousands of emails per second at the cost of pennies."
-categories:
-  - "smtp"
 tags:
   - smtp
   - haraka

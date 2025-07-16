@@ -3,8 +3,6 @@ title: How to Use Embedding to Write Cleaner Code in Go?
 slug: clean-code-with-embedding-in-go
 author: Mohammad Aziz
 date: "2020-12-17"
-categories:
-  - "golang"
 description: "Know how borrowing a type can give you clean code"
 tags:
   - golang

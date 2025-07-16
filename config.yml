@@ -86,7 +86,7 @@ menu:
       url: /projects
       weight: 6
     - name: +
-      url: https://iaziz786.com/writing
+      url: /writing/
       weight: 0
 
 googleAnalytics: G-02VGR1GQZK

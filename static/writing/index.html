@@ -76,10 +76,126 @@ html { font-family: sans-serif; }
 .dark-mode .wmd-prompt-dialog input { background-color: #212121; color: #FAFAFA; }
 .dark-mode #wmd-preview blockquote { background-color: #00796B; border-color: #004D40; }
 
+/* Metadata fields styling */
+#metadata-container { 
+    background: #f9f9f9;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: none;
+}
+.dark-mode #metadata-container { 
+    background-color: #2a2a2a;
+    border-color: #757575;
+}
+.metadata-field {
+    margin-bottom: 10px;
+}
+.metadata-field label {
+    display: inline-block;
+    width: 100px;
+    font-size: 14px;
+    color: #555;
+}
+.dark-mode .metadata-field label {
+    color: #ccc;
+}
+.metadata-field input {
+    width: calc(100% - 110px);
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+.dark-mode .metadata-field input {
+    background-color: #212121;
+    color: #FAFAFA;
+    border-color: #757575;
+}
+#metadata-toggle {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    color: #ccc;
+    font-family: sans-serif;
+    width: 80px;
+    text-align: center;
+}
+#metadata-toggle:hover {
+    color: #999;
+}
+.dark-mode #metadata-toggle {
+    color: #ccc;
+}
+.dark-mode #metadata-toggle:hover {
+    color: #fff;
+}
+#publish-btn {
+    position: absolute;
+    top: 5px;
+    right: 100px;
+    padding: 6px 12px;
+    background: #333;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #fff;
+    font-family: sans-serif;
+    min-width: 60px;
+    text-align: center;
+}
+#publish-btn:hover {
+    background: #000;
+}
+#publish-btn.publishing {
+    background: #666;
+    cursor: not-allowed;
+}
+.dark-mode #publish-btn {
+    background: #fff;
+    color: #333;
+}
+.dark-mode #publish-btn:hover {
+    background: #e0e0e0;
+}
+.dark-mode #publish-btn.publishing {
+    background: #999;
+    color: #666;
+}
+
 </style>
 
 </head>
 <body class="fixedheight">
+<div id="metadata-container">
+    <div class="metadata-field">
+        <label for="meta-title">Title:</label>
+        <input type="text" id="meta-title" placeholder="Enter post title">
+    </div>
+    <div class="metadata-field">
+        <label for="meta-slug">Slug:</label>
+        <input type="text" id="meta-slug" placeholder="url-friendly-slug">
+    </div>
+    <div class="metadata-field">
+        <label for="meta-author">Author:</label>
+        <input type="text" id="meta-author" value="Mohammad Aziz">
+    </div>
+    <div class="metadata-field">
+        <label for="meta-description">Description:</label>
+        <input type="text" id="meta-description" placeholder="Brief description of the post">
+    </div>
+    <div class="metadata-field">
+        <label for="meta-tags">Tags:</label>
+        <input type="text" id="meta-tags" placeholder="tag1, tag2, tag3 (comma separated)">
+    </div>
+</div>
+<button id="metadata-toggle">Metadata</button>
+<button id="publish-btn">Publish</button>
 <script type="text/javascript" src="Markdown.Converter.js"></script>
 <script type="text/javascript" src="Markdown.Sanitizer.js"></script>
 <script type="text/javascript" src="Markdown.Editor.js"></script>
@@ -328,6 +444,103 @@ var mjpd1 = new mjpd();
 togglemathjax(latexenabled);
 toggledarkmode(darkmodeenabled);
 editor.run();
+
+// Metadata and publish functionality
+$('#metadata-toggle').click(function() {
+    var btn = $(this);
+    var container = $('#metadata-container');
+    
+    if (container.is(':visible')) {
+        container.slideUp();
+        btn.text('Metadata');
+    } else {
+        container.slideDown();
+        btn.text('Hide Metadata');
+    }
+});
+
+// Auto-generate slug from title
+$('#meta-title').on('input', function() {
+    var title = $(this).val();
+    var slug = title.toLowerCase()
+        .replace(/[^\w\s-]/g, '') // Remove special characters
+        .replace(/\s+/g, '-')      // Replace spaces with -
+        .replace(/-+/g, '-')       // Replace multiple - with single -
+        .trim();
+    $('#meta-slug').val(slug);
+});
+
+$('#publish-btn').click(function() {
+    var btn = $(this);
+    
+    // Validate required fields
+    var title = $('#meta-title').val().trim();
+    var slug = $('#meta-slug').val().trim();
+    var author = $('#meta-author').val().trim();
+    var description = $('#meta-description').val().trim();
+    var content = $('#wmd-input').val().trim();
+    
+    if (!title || !slug || !content) {
+        alert('Please fill in Title, Slug, and Content before publishing.');
+        return;
+    }
+    
+    // Show publishing state
+    btn.text('Publishing...').addClass('publishing');
+    
+    // Generate front matter
+    var frontMatter = '---\n';
+    frontMatter += 'title: "' + title + '"\n';
+    frontMatter += 'slug: ' + slug + '\n';
+    frontMatter += 'author: ' + author + '\n';
+    frontMatter += 'date: "' + new Date().toISOString().split('T')[0] + '"\n';
+    if (description) {
+        frontMatter += 'description: "' + description + '"\n';
+    }
+    
+    // Handle tags
+    var tags = $('#meta-tags').val().trim();
+    if (tags) {
+        var tagArray = tags.split(',').map(function(tag) { return tag.trim(); }).filter(Boolean);
+        if (tagArray.length > 0) {
+            frontMatter += 'tags:\n';
+            tagArray.forEach(function(tag) {
+                frontMatter += '  - ' + tag + '\n';
+            });
+        }
+    }
+    
+    frontMatter += '---\n\n';
+    
+    // Combine front matter with content
+    var fullContent = frontMatter + content;
+    
+    // Encode content for URL
+    var encodedContent = encodeURIComponent(fullContent);
+    
+    // Get repository info (you mentioned iAziz786/iAziz786.com)
+    var repo = 'iAziz786/iAziz786.com';
+    var branch = slug; // Use slug as branch name
+    var filePath = 'content/blog/' + slug + '/index.md';
+    
+    // Construct GitHub URL for creating a PR
+    // This will open GitHub's file creation page with the content pre-filled
+    var githubUrl = 'https://github.com/' + repo + '/new/main?filename=' + encodeURIComponent(filePath) + 
+                    '&value=' + encodedContent + 
+                    '&message=' + encodeURIComponent('Add blog post: ' + title) +
+                    '&target_branch=' + encodeURIComponent(branch) +
+                    '&quick_pull=1' +
+                    '&pr_title=' + encodeURIComponent(title) +
+                    '&pr_body=' + encodeURIComponent(description || 'New blog post: ' + title);
+    
+    // Reset button state
+    setTimeout(function() {
+        btn.text('Publish').removeClass('publishing');
+    }, 1000);
+    
+    // Open GitHub in new tab
+    window.open(githubUrl, '_blank');
+});
 </script>
     
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2312083-14"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'UA-2312083-14');</script>

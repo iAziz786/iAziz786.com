@@ -10,8 +10,6 @@ tags:
   - tension
 ---
 
-# Boring Work Needs Tension
-
 We are all moved by great movies, cinematography, and stories. Watching them is fun because you can imagine yourself resonating with a character. You are thrilled by the tension the story creates and curious how it will be resolved.
 
 Many find software development a dull job where you have to write exactly what your PM or client asks for. It’s exciting at first, but it can become boring after a few iterations.

@@ -9,8 +9,6 @@ tags:
   - oop
 ---
 
-# OOP is not Design Patterns
-
 The OO concepts like inheritance, polymorphism, etc. they only provide you the building blocks. They don’t provide you with the ways of structuring your code. The design patterns are good at this. Not always, but certainly can help.
 
 Using design patterns you develop a common language with your stakeholders. Instead of lengthy explanation, you just provide a name which immediately clicks to their mind.

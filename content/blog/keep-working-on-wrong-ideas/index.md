@@ -23,7 +23,7 @@ You tell me. I won’t judge, and neither should others.
 
 > Without hard work, there are no wrong ideas.
 
-The good “wrong ideas” are the ones you **discover**, not the ones you **ruminate** on.
+The good “wrong ideas” are the ones you **discover**, not the ones you ruminate on.
 
 And you discover them through the sheer amount of hard work you put in.
 You can’t just come on day 4 and decide it isn’t worth it
@@ -62,12 +62,10 @@ But the mantra is clear:
 ## Thik about the antidote
 
 Who are you doing all this for?
-At least let it be for **yourself**.
+At least let it be for yourself.
 
-People might not use what you build.
-**Antidote**: Build for yourself.
+People might not use what you build. Build for yourself.
 
-My writing might suck, and people might not read it.
-**Antidote**: Write for yourself.
+My writing might suck, and people might not read it. Write for yourself.
 
-If judgment is your problem, then **building for yourself** is the solution.
+If judgment is your problem, then building for _yourself_ is the solution.

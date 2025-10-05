@@ -10,56 +10,64 @@ tags:
   - persistence
 ---
 
-It is important to ask _what_ you should be working on, but since most side projects are abandon is that even the right question at start?
+It’s important to ask what you should be working on.
+But since most side projects are abandoned — is that even the right question to start with?
 
-If you are not pushing you work beyond finish line, how do you know it is good or bad? The excitement fades away and you start questionning is this a wrong idea?
+If you’re not pushing your work beyond the finish line, how do you know whether it’s good or bad? The excitement fades away, and you start questioning — is this a wrong idea?
 
-I want to tell you that you should keep working on your wrong ideas.
+I want to tell you — you should **keep working on your wrong ideas**.
 
 ## What is a wrong idea?
 
-You tell me. I won't judge and neither should others.
+You tell me. I won’t judge, and neither should others.
 
-> Without hard work there are no wrong ideas
+> Without hard work, there are no wrong ideas.
 
-The good "wrong ideas" are the ones you discover, not the one you ruminate.
+The good “wrong ideas” are the ones you **discover**, not the ones you **ruminate** on.
 
-And you discover by sheer amount of hard work you put on them. You can't just come on day 4 and say it isn't worth it.
+And you discover them through the sheer amount of hard work you put in.
+You can’t just come on day 4 and decide it isn’t worth it
 
 ## Over emphesize it!
 
-If you are a builder, over emphasize the output of your work. I have made the mistake by being very rational about it. It won't pay you as much as overstating it.
+If you’re a builder, overemphasize the output of your work.
+I’ve made the mistake of being too rational about it — it doesn’t pay as much as overstating it.
 
-Remember, over emphasize doesn't mean being blind about it. Always critiqute your work first.
+Remember, _overemphasize_ doesn’t mean being blind about it.
+Always critique your work first.
 
-This is the path of developing self belief.
+This is the path to developing **self-belief**.
 
-I mean sure some ideas will be garbage but you still complete it. Why are you missing the return on investment?
+Sure, some ideas will be garbage — but you should still complete them.
+Why miss out on the return on investment?
 
-> The wrong ideas teaches you more than any other good ideas.
+> The wrong ideas teach you more than the good ones ever will.
 
-This is what matters the most, learning from them.
+And that’s what matters the most — **learning from them**.
 
 ## Build crapy things and iterate
 
-I don't expect myself to create best work in the first go. If I would do that I will become lucky but also doubtful.
+I don’t expect myself to create my best work on the first go.
+If I did, I’d be lucky — but also doubtful.
 
-Like this blog post itself, I know it's has many flaws but I wanted to get it out. I will do that later = I will do that never.
+Like this blog post itself — I know it has many flaws, but I wanted to get it out.
+“I’ll do it later” usually means _I’ll never do it_.
 
-This isn't written on stones so I will keep updating if I find something I don't like.
+This isn’t written in stone, so I’ll keep updating it whenever I find something I don’t like.
 
-But mantra is clear:
+But the mantra is clear:
 
-> Ship it and iterate fast
+> Ship it and iterate fast.
 
 ## Thik about the antidote
 
-For whom you're doing all this? At least let that be for yourself.
+Who are you doing all this for?
+At least let it be for **yourself**.
 
-What you will build people won't use it.
-Antidote: Build for yourself.
+People might not use what you build.
+**Antidote**: Build for yourself.
 
-My writing sucks and people won't read it.
-Antidote: Write for yourself.
+My writing might suck, and people might not read it.
+**Antidote**: Write for yourself.
 
-If the judgement is your problem then _building for yourself_ is the solution.
+If judgment is your problem, then **building for yourself** is the solution.

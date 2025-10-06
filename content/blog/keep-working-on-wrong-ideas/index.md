@@ -20,7 +20,7 @@ questioning — is this a wrong idea?
 
 I want to tell you — you should **keep working on your wrong ideas**.
 
-## But Why!?
+## But why!?
 
 I don’t know — maybe I’m an idiot.
 An idiot who knows he’s not going to create something new or revolutionary.

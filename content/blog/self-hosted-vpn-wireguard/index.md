@@ -141,7 +141,7 @@ Restart the WireGuard service to apply the changes:
 
 ### Speed Differences
 
-Depending upon the various factors you speed might vary with the VPN. Let's see how does the speed looks like for me. My VPN server is hosted in **Finland** and I'm using it form **India** so definitely there will be some latencies.
+Depending upon the various factors you speed might vary with the VPN. Let's see how does the speed looks like for me. My VPN server is hosted in **Finland** and I'm using it from **India** so definitely there will be some latencies.
 
 #### Speed without VPN
 

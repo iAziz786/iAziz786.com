@@ -1,6 +1,6 @@
 ---
-title: "Your Next Idea Is Already Open in a Tab"
-slug: your-next-idea-is-already-open-in-a-tab
+title: "Your Next Idea Isn't in Your Head, It's in Your Browser Tabs"
+slug: your-next-idea-isnt-in-your-head-its-in-your-browser-tabs
 author: Mohammad Aziz
 date: "2026-04-28"
 description: "A nice way to get unstuck about finding good ideas"
@@ -9,6 +9,8 @@ tags:
   - startup
   - community
   - tab
+cover:
+  image: "blog/your-next-idea-isnt-in-your-head-its-in-your-browser-tabs/images/browser-tabs.png"
 ---
 
 I’m going to show you how to find great ideas, the kind that are already hiding in plain sight, right next to you.
@@ -24,7 +26,7 @@ After thinking about this a lot, I realized something simple:
 
 So instead of chasing ideas, start noticing problems.
 
-Here’s a simple system that worked surprisingly well for me.
+Here's a simple system that worked surprisingly well for me.
 
 ## A Tab at a Time
 

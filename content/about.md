@@ -7,12 +7,12 @@ ShowPostNavLinks: false
 
 ## Mohammad Aziz
 
-Full Stack Developer, [ZOOP.ONE](https://zoop.one)
+co-founder, [selfhost.dev](https://selfhost.dev) | solving pains of cloud
 
 ### About Me
 
-I am a full stack developer.
+I'm from Midnapore, WB, India.
 
-I like swimming 🏊
+I love problem solving. 👨‍💻
 
-I love to solve problems through software 👨‍💻
+Also, love to swim, sing, code, and play sports.

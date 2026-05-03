@@ -1,0 +1,14 @@
+<nav class="terminal-post-nav" aria-label="Post navigation">
+  {{ with .NextInSection }}
+  <div class="terminal-post-nav__item {{ if not $.PrevInSection }}terminal-post-nav__item--only{{ end }}">
+    <span class="terminal-post-nav__label">← prev</span>
+    <a href="{{ .Permalink }}" class="terminal-post-nav__link" rel="prev">{{ .Title }}</a>
+  </div>
+  {{ end }}
+  {{ with .PrevInSection }}
+  <div class="terminal-post-nav__item terminal-post-nav__item--right {{ if not $.NextInSection }}terminal-post-nav__item--only{{ end }}">
+    <span class="terminal-post-nav__label">next →</span>
+    <a href="{{ .Permalink }}" class="terminal-post-nav__link" rel="next">{{ .Title }}</a>
+  </div>
+  {{ end }}
+</nav>

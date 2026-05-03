@@ -1,0 +1,13 @@
+name = "Terminal"
+license = "MIT"
+licenselink = "https://github.com/iAziz786/iAziz786.com/blob/main/LICENSE"
+description = "A terminal-inspired monospace theme for Hugo"
+homepage = "https://iaziz786.com"
+demosite = "https://iaziz786.com"
+tags = ["blog", "minimal", "monospace", "terminal", "dark"]
+features = ["blog", "search", "keyboard-navigation"]
+min_version = "0.112.0"
+
+[author]
+  name = "Mohammad Aziz"
+  homepage = "https://iaziz786.com"

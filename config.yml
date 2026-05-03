@@ -1,56 +1,30 @@
 baseURL: "https://iaziz786.com/"
 languageCode: en-us
 title: Mohammad Aziz
-theme: PaperMod
+theme: terminal
 favicon: "images/favicon.svg"
 
-# For rendering profile at the first page
 params:
-  profileMode:
-    enabled: true
-    title: "Hi! I'm Aziz 👋" # optional default will be site title
-    subtitle: ""
-    imageUrl: "./images/profile-pic.jpeg" # optional
-    imageTitle: "Image of Mohammad Aziz" # optional
-    imageWidth: 120 # custom size
-    imageHeight: 120 # custom size
-    buttons:
-      - name: Blog
-        url: "/blog"
-      - name: About Me
-        url: "/about"
-
-  socialIcons: # optional
-    - name: "Twitter"
-      url: "https://twitter.com/iAziz786"
-    - name: "GitHub"
+  socialIcons:
+    - name: "x.com"
+      url: "https://x.com/iAziz786"
+    - name: "github"
       url: "https://github.com/iAziz786"
-    - name: "LinkedIn"
-      url: "https://www.linkedin.com/in/iaziz786/"
-
-  assets:
-    favicon: "/favicon.svg"
-    favicon16x16: "/favicon.svg"
-    favicon32x32: "/favicon.svg"
-    apple_touch_icon: "/favicon.svg"
-    safari_pinned_tab: "/favicon.svg"
-
-  cover:
-    responsiveImages: true
-
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  ShowToc: true
-  ShowReadingTime: true
-  ShowPostNavLinks: true
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/iAziz786"
 
 outputs:
   home:
     - HTML
     - RSS
-    - JSON # is necessary
+    - JSON
+  page:
+    - HTML
 
 markup:
+  goldmark:
+    renderer:
+      unsafe: true
   highlight:
     anchorLineNos: false
     codeFences: true
@@ -65,23 +39,19 @@ markup:
 
 menu:
   main:
-    - identifiers: about
-      name: About
-      url: /about
+    - identifiers: home
+      name: home
+      url: /
       weight: 1
     - identifiers: blog
-      name: Blog
-      url: /blog
+      name: blog
+      url: /blog/
       weight: 2
-    - identifiers: search
-      name: Search
-      url: /search
-      weight: 4
     - identifiers: projects
-      name: Projects
-      url: /projects
-      weight: 6
-    - name: +
-      url: /writing/
-      weight: 0
-
+      name: projects
+      url: /projects/
+      weight: 3
+    - identifiers: about
+      name: about
+      url: /about/
+      weight: 4

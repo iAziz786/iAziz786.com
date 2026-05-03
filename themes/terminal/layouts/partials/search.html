@@ -1,0 +1,27 @@
+<div 
+  class="terminal-search" 
+  data-search-overlay
+  data-search-endpoint="/index.json"
+  data-search-min-length="2"
+  data-search-max-results="10"
+  role="dialog" 
+  aria-modal="true" 
+  aria-label="{{ .Site.Params.terminal.searchLabel | default "Search" }}"
+  aria-hidden="true"
+>
+  <div class="terminal-search__prompt">search:// <span class="terminal-prompt__cursor"></span></div>
+  <input 
+    type="text" 
+    class="terminal-search__input" 
+    placeholder="{{ .Site.Params.terminal.searchPlaceholder | default "type to search..." }}" 
+    autocomplete="off"
+    data-search-input
+    aria-label="Search input"
+  >
+  <ul class="terminal-search__results" data-search-results role="listbox"></ul>
+  <div class="terminal-search__help" aria-hidden="true">
+    <span>ESC to close</span>
+    <span>ENTER to select</span>
+    <span>↑↓ to navigate</span>
+  </div>
+</div>

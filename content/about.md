@@ -1,18 +1,17 @@
 ---
+layout: single
+type: about
 ShowToc: false
 ShowBreadCrumbs: false
 ShowReadingTime: false
 ShowPostNavLinks: false
 ---
 
-## Mohammad Aziz
+Grew up in Midnapore, West Bengal, India. Small town which is growing fast.
 
-co-founder, [selfhost.dev](https://selfhost.dev) | solving pains of cloud
+I am curious to learn how the world works. Each day I'm discovering something new. The same curiosity brought me closer to computers. I find them fascinating and no less than magic.
 
-### About Me
+> Do not aim for being right, aim for being less wrong.
 
-I'm from Midnapore, WB, India.
+Running [selfhost.dev](https://selfhost.dev) with my co-founders. We help people host their own stuff without losing their minds.
 
-I love problem solving. 👨‍💻
-
-Also, love to swim, sing, code, and play sports.

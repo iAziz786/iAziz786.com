@@ -1,0 +1,57 @@
+{{ define "main" }}
+<section class="terminal-hero" aria-labelledby="hero-heading">
+  <div class="terminal-hero__header">
+    <div class="terminal-hero__content">
+      <h1 id="hero-heading" class="terminal-hero__command">{{ .Site.Params.terminal.heroCommand | default "cat ~/about.md" }}</h1>
+      <p class="terminal-hero__text">
+        {{ .Site.Params.terminal.heroText | default "I'm trying to make self-hosting the default option. The users should be empowered to have sovereignty, privacy, and effortability." }}
+      </p>
+    </div>
+    <div class="terminal-hero__image">
+      <img src="/images/profile-pic.jpeg" alt="Mohammad Aziz" width="120" height="120">
+    </div>
+  </div>
+  <p class="terminal-hero__link">
+    <a href="https://selfhost.dev">Let's join the journey, at selfhost.dev →</a>
+  </p>
+  <p class="terminal-hero__meta">
+    {{ .Site.Params.terminal.heroMeta | default "From Midnapore, West Bengal, India. Writing code since 2016." }}
+  </p>
+</section>
+
+<section class="terminal-section" aria-labelledby="recent-writing-heading">
+  <h2 id="recent-writing-heading" class="terminal-section__title">Recent writing</h2>
+  <ul class="terminal-post-list" role="list">
+    {{ range first 5 (where .Site.RegularPages "Section" "blog") }}
+    <li class="terminal-post-list__item">
+      <time class="terminal-post-list__date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02" }}</time>
+      <span class="terminal-post-list__title">
+        {{ $permalink := .Permalink }}
+        {{ with .File }}<a href="{{ $permalink }}" class="terminal-post-list__link">{{ .ContentBaseName }}</a>{{ end }}
+      </span>
+      <span class="terminal-post-list__meta">{{ .WordCount }} words</span>
+    </li>
+    {{ end }}
+  </ul>
+  <p class="terminal-section__footer">
+    <a href="/blog/">→ all posts</a>
+  </p>
+</section>
+
+<section class="terminal-section" aria-labelledby="active-projects-heading">
+  <h2 id="active-projects-heading" class="terminal-section__title">Active projects</h2>
+  <ul class="terminal-post-list" role="list">
+    {{ range (where .Site.RegularPages "Type" "projects") }}
+      {{ range .Params.active }}
+      <li class="terminal-post-list__item">
+        <time class="terminal-post-list__date" datetime="{{ .date }}">{{ .date }}</time>
+        <span class="terminal-post-list__title">
+          <a href="/projects/#{{ .id }}" class="terminal-post-list__link">./{{ .name }}</a>
+        </span>
+        <span class="terminal-post-list__meta">{{ .tech }}</span>
+      </li>
+      {{ end }}
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

@@ -90,12 +90,14 @@ Before we do anything let's look at the `go.mod` file of the `tester-module`.
 
 tester-module/go.mod
 
-```
+```go
 module github.com/iAziz786/testermodule
 
 go 1.16
 
 require github.com/iAziz786/wipmodule v0.0.0-unpublished
+
+replace github.com/iAziz786/wipmodule v0.0.0-unpublished => ../wip-module
 ```
 
 Since the module is not published we gave it a version (`v0.0.0-unpublished`) that does not exist yet but to make things work correctly.

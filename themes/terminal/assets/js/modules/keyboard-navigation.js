@@ -41,16 +41,23 @@ class GKeyState {
   #lastKeyG = false;
   #clearTimeout = null;
 
+  #setAttribute(active) {
+    document.body.dataset.gActive = active ? 'true' : 'false';
+  }
+
   activate(timeoutMs, onExpire) {
     this.#lastKeyG = true;
+    this.#setAttribute(true);
     this.#clearTimeout = TimerUtils.createTimeout(() => {
       this.#lastKeyG = false;
+      this.#setAttribute(false);
       onExpire?.();
     }, timeoutMs);
   }
 
   deactivate() {
     this.#lastKeyG = false;
+    this.#setAttribute(false);
     if (this.#clearTimeout) {
       this.#clearTimeout();
       this.#clearTimeout = null;
@@ -192,6 +199,7 @@ export class KeyboardNavigation {
 
     if (event.key === 'g') {
       event.preventDefault();
+      event.stopImmediatePropagation();
       ScrollActions.toTop();
       return true;
     }
@@ -199,6 +207,7 @@ export class KeyboardNavigation {
     const shortcut = this.#config.shortcuts[event.key];
     if (shortcut) {
       event.preventDefault();
+      event.stopImmediatePropagation();
       NavigationActions.to(shortcut);
       return true;
     }

@@ -58,6 +58,7 @@ export class PostNavigation {
 
   #handleKeyDown(event) {
     if (this.#shouldIgnore(event)) return;
+    if (document.body.dataset.gActive === 'true') return;
 
     if (event.key === 'h' && this.#config.hasPrev) {
       event.preventDefault();

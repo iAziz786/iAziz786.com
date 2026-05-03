@@ -1,0 +1,10 @@
+<footer class="terminal-footer">
+  <span>· {{ now.Format (.Site.Params.terminal.footerDateFormat | default "2006-01-02") }} ·</span>
+  {{ with .Site.Params.socialIcons }}
+  <nav class="terminal-footer__social" aria-label="Social links">
+    {{ range . }}
+    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
+    {{ end }}
+  </nav>
+  {{ end }}
+</footer>

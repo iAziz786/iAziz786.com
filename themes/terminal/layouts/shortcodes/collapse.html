@@ -1,0 +1,6 @@
+<details class="terminal-collapse">
+  <summary class="terminal-collapse__summary">{{ .Get "summary" }}</summary>
+  <div class="terminal-collapse__content">
+    {{ .Inner | markdownify }}
+  </div>
+</details>

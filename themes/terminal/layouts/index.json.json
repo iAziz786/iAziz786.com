@@ -1,0 +1,14 @@
+{
+  "items": [
+    {{ range $index, $page := .Site.RegularPages }}
+    {{ if ne $index 0 }},{{ end }}
+    {
+      "title": {{ $page.Title | jsonify }},
+      "content": {{ $page.Content | plainify | jsonify }},
+      "date": {{ $page.Date.Format "2006-01-02" | jsonify }},
+      "permalink": {{ $page.Permalink | jsonify }},
+      "tags": {{ $page.Params.tags | default slice | jsonify }}
+    }
+    {{ end }}
+  ]
+}

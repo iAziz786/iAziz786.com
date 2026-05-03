@@ -1,0 +1,32 @@
+{{ define "main" }}
+<section class="terminal-section" aria-labelledby="list-heading">
+  <h2 id="list-heading" class="terminal-section__title">{{ .Title }}</h2>
+  
+  {{ $wordCount := 0 }}
+  {{ if eq .Section "blog" }}
+    {{ range .Pages }}
+      {{ $wordCount = add $wordCount .WordCount }}
+    {{ end }}
+  {{ end }}
+  
+  <p class="terminal-section__meta">
+    // {{ len .Pages }} entries total
+    {{ if eq .Section "blog" }}
+      // {{ $wordCount }} words written
+    {{ end }}
+  </p>
+  
+  <ul class="terminal-post-list" role="list" data-blog-list>
+    {{ range .Pages }}
+    <li class="terminal-post-list__item" data-blog-list-item>
+      <time class="terminal-post-list__date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02" }}</time>
+      <span class="terminal-post-list__title">
+        {{ $permalink := .Permalink }}
+        {{ with .File }}<a href="{{ $permalink }}" class="terminal-post-list__link">./{{ .ContentBaseName }}</a>{{ end }}
+      </span>
+      <span class="terminal-post-list__meta">{{ .WordCount }} words</span>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

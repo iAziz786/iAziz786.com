@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en" }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+  
+  {{ $style := resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <meta name="color-scheme" content="light dark">
+  
+  {{ range .AlternativeOutputFormats }}
+  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+  {{ end }}
+</head>
+<body 
+  class="terminal-container"
+  data-config='{{ dict "shortcuts" (dict "h" "/" "b" "/blog/" "p" "/projects/" "a" "/about/") | jsonify }}'
+  {{ if eq .Section "blog" }}
+    data-post-nav="true"
+    {{ with .NextInSection }}data-post-prev-url="{{ .Permalink }}"{{ end }}
+    {{ with .PrevInSection }}data-post-next-url="{{ .Permalink }}"{{ end }}
+  {{ end }}
+>
+  <header class="terminal-header">
+    {{ partial "prompt.html" . }}
+    <nav class="terminal-nav" aria-label="Main navigation">
+      <ul class="terminal-nav__list">
+        {{ $menuLen := len .Site.Menus.main }}
+        {{ range $i, $item := .Site.Menus.main }}
+        <li>
+          <a href="{{ $item.URL }}" class="terminal-nav__link" title="{{ $item.Name }}">{{ $item.Name }}</a>
+        </li>
+        {{ if ne (add $i 1) $menuLen }}
+        <li class="terminal-nav__separator" aria-hidden="true">|</li>
+        {{ end }}
+        {{ end }}
+      </ul>
+    </nav>
+  </header>
+
+  <main class="terminal-main">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "footer.html" . }}
+
+  <div class="terminal-keyboard-hint" aria-hidden="true">
+    {{ .Site.Params.terminal.keyboardHint | default "/ to search" }}
+  </div>
+
+  {{ partial "search.html" . }}
+
+  {{ $js := resources.Get "js/main.js" | js.Build | minify | fingerprint }}
+  <script src="{{ $js.RelPermalink }}" type="module"></script>
+</body>
+</html>

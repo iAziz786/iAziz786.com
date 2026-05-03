@@ -1,0 +1,11 @@
+<div class="terminal-post-meta">
+  <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02" }}</time>
+  <span aria-hidden="true"> · </span>
+  <span>{{ .WordCount }} words</span>
+  {{ with .Params.tags }}
+  <span aria-hidden="true"> · </span>
+  <span class="terminal-post-meta__tags">
+    {{ range . }}#{{ . }} {{ end }}
+  </span>
+  {{ end }}
+</div>

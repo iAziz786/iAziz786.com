@@ -1,0 +1,26 @@
+{{- $cover := .Params.cover -}}
+{{- $image := "" -}}
+{{- $caption := "" -}}
+{{- $alt := "" -}}
+
+{{- if $cover -}}
+  {{- $image = $cover.image -}}
+  {{- $caption = $cover.caption -}}
+  {{- $alt = $cover.alt | default $caption | plainify -}}
+{{- else if .Params.image -}}
+  {{- $image = .Params.image -}}
+{{- end -}}
+
+{{- with $image -}}
+<figure class="terminal-cover">
+  {{- $resource := ($.Resources.ByType "image").GetMatch (printf "*%s*" .) -}}
+  {{- if $resource -}}
+    <img src="{{ $resource.Permalink }}" alt="{{ $alt }}" loading="lazy" width="{{ $resource.Width }}" height="{{ $resource.Height }}">
+  {{- else -}}
+    <img src="{{ . | absURL }}" alt="{{ $alt }}" loading="lazy">
+  {{- end -}}
+  {{- with $caption -}}
+    <figcaption>{{ . | markdownify }}</figcaption>
+  {{- end -}}
+</figure>
+{{- end -}}

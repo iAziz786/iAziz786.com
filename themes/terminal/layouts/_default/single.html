@@ -1,0 +1,28 @@
+{{ define "main" }}
+<article class="terminal-article">
+  <header class="terminal-article__header">
+    <h1 class="terminal-article__title">{{ .Title }}</h1>
+    <div class="terminal-article__meta">
+      {{ partial "post-meta.html" . }}
+    </div>
+  </header>
+  
+  {{ partial "cover.html" . }}
+
+  <div class="terminal-article__content">
+    {{ .Content }}
+  </div>
+  
+  {{ if eq .Section "blog" }}
+  {{ if or .NextInSection .PrevInSection }}
+  <footer class="terminal-post-meta">
+    {{ partial "post-nav.html" . }}
+    <div class="terminal-post-meta__footer">
+      <p>Last updated {{ .Lastmod.Format "2006-01-02" }}</p>
+      <p>Spotted something broken? <a href="https://github.com/iAziz786/iAziz786.com/issues">Open an issue</a></p>
+    </div>
+  </footer>
+  {{ end }}
+  {{ end }}
+</article>
+{{ end }}

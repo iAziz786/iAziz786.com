@@ -1,0 +1,40 @@
+{{ define "main" }}
+<section class="terminal-section" aria-labelledby="about-heading">
+  <h2 id="about-heading" class="terminal-section__title">about.txt</h2>
+  
+  <aside class="terminal-now-box" aria-labelledby="live-feed-heading">
+    <h3 id="live-feed-heading" class="terminal-now-box__title">LIVE FEED</h3>
+    <div 
+      id="github-feed" 
+      class="terminal-now-box__content"
+      data-github-feed
+      data-github-user="iAziz786"
+      data-github-repos-count="5"
+      data-github-commits-count="3"
+      data-fallback-commits='[
+        {"date":"2025-05-03","repo":"iAziz786.com","message":"rebuild site with terminal theme"},
+        {"date":"2025-04-28","repo":"dotfiles","message":"update nvim config"},
+        {"date":"2025-04-15","repo":"selfhost.dev","message":"fix auth flow"}
+      ]'
+    >
+      <p class="terminal-text-muted">Loading recent commits...</p>
+    </div>
+  </aside>
+  
+  <div class="terminal-about">
+    {{ .Content }}
+  </div>
+  
+  <aside class="terminal-now-box" aria-labelledby="colour-heading">
+    <h3 id="colour-heading" class="terminal-now-box__title">COLOUR I ACTUALLY WEAR</h3>
+    <p class="terminal-now-box__content">
+      Just like my personality, I prefer to wear SOLID colours.
+    </p>
+  </aside>
+  
+  <footer class="terminal-signature">
+    <p>Signed poorly,</p>
+    <p class="terminal-signature__name">Aziz</p>
+  </footer>
+</section>
+{{ end }}

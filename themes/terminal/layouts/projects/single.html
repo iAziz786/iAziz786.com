@@ -1,0 +1,48 @@
+{{ define "main" }}
+
+{{ if .Params.active }}
+<section class="terminal-section" aria-labelledby="active-heading">
+  <h2 id="active-heading" class="terminal-section__title">Active</h2>
+  <div class="terminal-project-list" role="list">
+    {{ range .Params.active }}
+    <article class="terminal-project" id="{{ .id }}" role="listitem">
+      <h3 class="terminal-project__header">
+        {{ .name }}
+        <span class="terminal-project__status terminal-project__status--active">active</span>
+      </h3>
+      <div class="terminal-project__meta">
+        {{ .date }} · {{ .tech }}
+        {{ if .url }} · <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .url }}</a>{{ end }}
+      </div>
+      <p class="terminal-project__desc">{{ .description }}</p>
+      <p class="terminal-project__note">{{ .note }}</p>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ if .Params.archived }}
+<section class="terminal-section terminal-mt-8" aria-labelledby="archived-heading">
+  <h2 id="archived-heading" class="terminal-section__title">Archived</h2>
+  <p class="terminal-text-muted terminal-text-small terminal-mb-5">Dormant. Last commit more than 2 months ago.</p>
+  <div class="terminal-project-list" role="list">
+    {{ range .Params.archived }}
+    <article class="terminal-project terminal-project--archived" id="{{ .id }}" role="listitem">
+      <h3 class="terminal-project__header">
+        {{ .name }}
+        <span class="terminal-project__status terminal-project__status--archived">archived</span>
+      </h3>
+      <div class="terminal-project__meta">
+        {{ .date }} · {{ .tech }}
+        {{ if .url }} · <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .url }}</a>{{ end }}
+      </div>
+      <p class="terminal-project__desc">{{ .description }}</p>
+      <p class="terminal-project__note">{{ .note }}</p>
+    </article>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+{{ end }}

@@ -307,6 +307,53 @@ a:hover {
   color: var(--color-fg-muted);
 }
 
+/* Hero header with image - side by side layout */
+.terminal-hero__header {
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-start;
+}
+
+.terminal-hero__content {
+  flex: 1;
+}
+
+.terminal-hero__image {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.terminal-hero__image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid var(--color-fg);
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: filter var(--transition-base), transform var(--transition-base);
+}
+
+.terminal-hero__image img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .terminal-hero__header {
+    flex-direction: column-reverse;
+    gap: var(--space-4);
+  }
+  
+  .terminal-hero__image {
+    align-self: center;
+  }
+  
+  .terminal-hero__image img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Post List - Blog listing with vim-like selection
    -------------------------------------------------------------------------- */

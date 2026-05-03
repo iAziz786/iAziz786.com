@@ -1,9 +1,16 @@
 {{ define "main" }}
 <section class="terminal-hero" aria-labelledby="hero-heading">
-  <h1 id="hero-heading" class="terminal-hero__command">{{ .Site.Params.terminal.heroCommand | default "cat ~/about.md" }}</h1>
-  <p class="terminal-hero__text">
-    {{ .Site.Params.terminal.heroText | default "I'm trying to make self-hosting the default option. The users should be empowered to have sovereignty, privacy, and effortability." }}
-  </p>
+  <div class="terminal-hero__header">
+    <div class="terminal-hero__content">
+      <h1 id="hero-heading" class="terminal-hero__command">{{ .Site.Params.terminal.heroCommand | default "cat ~/about.md" }}</h1>
+      <p class="terminal-hero__text">
+        {{ .Site.Params.terminal.heroText | default "I'm trying to make self-hosting the default option. The users should be empowered to have sovereignty, privacy, and effortability." }}
+      </p>
+    </div>
+    <div class="terminal-hero__image">
+      <img src="/images/profile-pic.jpeg" alt="Mohammad Aziz" width="120" height="120">
+    </div>
+  </div>
   <p class="terminal-hero__link">
     <a href="https://selfhost.dev">Let's join the journey, at selfhost.dev →</a>
   </p>

@@ -113,7 +113,7 @@ This will add a replacement in the `go.mod` of the `tester-module`.
 
 tester-module/go.mod
 
-```{7}
+```go
 module github.com/iAziz786/testermodule
 
 go 1.16

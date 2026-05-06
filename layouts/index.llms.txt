@@ -1,0 +1,13 @@
+# {{ .Site.Title }}
+
+> {{ .Site.Params.description | default "Personal blog and projects by Mohammad Aziz" }}
+
+## Blog Posts
+{{ range where .Site.RegularPages "Section" "blog" }}
+- [{{ .Title }}]({{ .Permalink }}index.md): {{ .Params.description | default .Summary | plainify | truncate 120 }}
+{{ end }}
+
+## Pages
+{{ range where .Site.RegularPages "Section" "" }}
+- [{{ .Title }}]({{ .Permalink }}index.md){{ if .Params.description }}: {{ .Params.description }}{{ end }}
+{{ end }}

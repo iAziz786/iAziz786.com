@@ -4,6 +4,25 @@ title: Mohammad Aziz
 theme: terminal
 favicon: "images/favicon.svg"
 
+mediaTypes:
+  text/plain:
+    suffixes:
+      - "txt"
+  text/markdown:
+    suffixes:
+      - "md"
+
+outputFormats:
+  llms:
+    mediaType: "text/plain"
+    baseName: "llms"
+    isPlainText: true
+    notAlternative: true
+  markdown:
+    mediaType: "text/markdown"
+    baseName: "index"
+    isPlainText: true
+
 params:
   socialIcons:
     - name: "x.com"
@@ -18,8 +37,10 @@ outputs:
     - HTML
     - RSS
     - JSON
+    - llms
   page:
     - HTML
+    - markdown
 
 markup:
   goldmark:

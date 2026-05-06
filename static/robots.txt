@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://iaziz786.com/sitemap.xml
-Host: https://iaziz786.com

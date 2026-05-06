@@ -1,0 +1,30 @@
+# {{ .Site.Title }}
+
+> {{ .Site.Params.description | default "Personal blog and projects by Mohammad Aziz" }}
+
+---
+
+{{ range where .Site.RegularPages "Section" "blog" }}
+## {{ .Title }}
+
+Published: {{ .Date.Format "January 2, 2006" }}
+URL: {{ .Permalink }}
+
+{{ .Params.description | default .Summary | plainify }}
+
+{{ .RawContent }}
+
+---
+{{ end }}
+
+## Pages
+
+{{ range where .Site.RegularPages "Section" "" }}
+### {{ .Title }}
+
+URL: {{ .Permalink }}
+
+{{ .RawContent }}
+
+---
+{{ end }}

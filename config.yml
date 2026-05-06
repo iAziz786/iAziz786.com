@@ -18,6 +18,11 @@ outputFormats:
     baseName: "llms"
     isPlainText: true
     notAlternative: true
+  llmsfull:
+    mediaType: "text/plain"
+    baseName: "llms-full"
+    isPlainText: true
+    notAlternative: true
   markdown:
     mediaType: "text/markdown"
     baseName: "index"
@@ -38,6 +43,7 @@ outputs:
     - RSS
     - JSON
     - llms
+    - llmsfull
   page:
     - HTML
     - markdown

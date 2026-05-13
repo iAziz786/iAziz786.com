@@ -14,29 +14,31 @@
 -->
 
 <!DOCTYPE html>
-<html class="fixedheight texroman">
+<html class="fixedheight">
 <head>
 <link rel="icon" href="/favicon.svg" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />  
 <title>Writing</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style type="text/css">
 @font-face { font-family: texroman; src: url(Lora-VariableFont_wght.ttf); font-weight: 400; font-style: normal; font-stretch: normal; }
 @font-face { font-family: texroman; src: url(Lora-VariableFont_wght.ttf); font-weight: 700; font-style: normal; font-stretch: normal; }
 @font-face { font-family: texroman; src: url(Lora-Italic-VariableFont_wght.ttf); font-weight: 400; font-style: italic; font-stretch: normal; }
 @font-face { font-family: texroman; src: url(Lora-Italic-VariableFont_wght.ttf); font-weight: 700; font-style: italic; font-stretch: normal; }
 
-html { font-family: sans-serif; }
+html { font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif; }
 * { margin: 0; padding: 0; border: 0; outline: 0; }
 .texroman { font-family: texroman !important; }    
 .unselectable { -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 .fixedheight { height: 100%; }
 .column { padding: 20px; }
 #wmd-button-bar { display: none; }
-#wmd-input { float: left; box-sizing: border-box; width: 50%; resize: horizontal; font-size: 14px; border-right: 1px solid #ddd; height: 100%; overflow: y-scroll; }
-#wmd-preview { overflow-y: auto; overflow-x: hidden; font-size: 1.3em; height: 100%; box-sizing: border-box; min-height: 100vh; }
+#wmd-input { float: left; box-sizing: border-box; width: 50%; resize: horizontal; font-size: 1.4em; border-right: 1px solid #ddd; height: 100%; overflow: y-scroll; }
+#wmd-preview { overflow-y: auto; overflow-x: hidden; font-size: 1.4em; font-family: 'JetBrains Mono', 'SF Mono', 'Consolas', monospace; height: 100%; box-sizing: border-box; min-height: 100vh; }
 #wmd-preview li { margin-left: 20px; }
-#wmd-preview code, #wmd-input { font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,sans-serif; }
+#wmd-preview code { font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,sans-serif; }
+#wmd-input { font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif; }
 #wmd-preview p code, #wmd-preview li code { background-color: #f5f5f5; white-space: pre-wrap; padding: 3px 5px; font-size: 13px; }
 #wmd-preview pre { background-color: #f5f5f5; padding: 5px; margin: 0.5em 0 1em; overflow-x: auto; word-wrap: normal; font-size: 13px; }
 #wmd-preview blockquote { background-color: #defcff; padding: 10px; margin: 0.5em 0 1em; overflow-x: auto; word-wrap: normal; border-left: 2px solid #0ae2f5; }

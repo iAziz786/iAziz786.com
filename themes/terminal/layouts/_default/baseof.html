@@ -19,7 +19,7 @@
 </head>
 <body 
   class="terminal-container"
-  data-config='{{ dict "shortcuts" (dict "h" "/" "b" "/blog/" "p" "/projects/" "a" "/about/") | jsonify }}'
+  data-config='{{ dict "shortcuts" (dict "h" "/" "b" "/blog/" "p" "/projects/" "w" "/writing/" "a" "/about/") | jsonify }}'
   {{ if eq .Section "blog" }}
     data-post-nav="true"
     {{ with .NextInSection }}data-post-prev-url="{{ .Permalink }}"{{ end }}

@@ -79,7 +79,11 @@ menu:
       name: projects
       url: /projects/
       weight: 3
+    - identifiers: writing
+      name: writing
+      url: /writing/
+      weight: 4
     - identifiers: about
       name: about
       url: /about/
-      weight: 4
+      weight: 5

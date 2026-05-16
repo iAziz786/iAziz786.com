@@ -33,7 +33,7 @@
         {{ $menuLen := len .Site.Menus.main }}
         {{ range $i, $item := .Site.Menus.main }}
         <li>
-          <a href="{{ $item.URL }}" class="terminal-nav__link" title="{{ $item.Name }}">{{ $item.Name }}</a>
+          <a href="{{ $item.URL }}" class="terminal-nav__link{{ if eq $.RelPermalink $item.URL }} terminal-nav__link--active{{ end }}" title="{{ $item.Name }}">{{ $item.Name }}</a>
         </li>
         {{ if ne (add $i 1) $menuLen }}
         <li class="terminal-nav__separator" aria-hidden="true">|</li>

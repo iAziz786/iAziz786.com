@@ -1,2 +1,8 @@
 learning-so-far.pdf
 opencode.json
+
+# Playwright files
+.playwright-cli
+
+# OpenCode config
+opencode.json

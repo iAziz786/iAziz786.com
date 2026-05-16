@@ -37,6 +37,8 @@ params:
       url: "https://github.com/iAziz786"
     - name: "linkedin"
       url: "https://www.linkedin.com/in/iAziz786"
+    - name: "discord"
+      url: "https://discord.gg/Atk6tXXH"
 
 outputs:
   home:

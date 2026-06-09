@@ -13,5 +13,5 @@ I am curious to learn how the world works. Each day I'm discovering something ne
 
 > Do not aim for being right, aim for being less wrong.
 
-Running [selfhost.dev](https://selfhost.dev) with my co-founders. We help people host their own stuff without losing their minds.
+Running [selfhost.dev](https://selfhost.dev?ref=iaziz786.com&utm_source=iaziz786.com&utm_medium=referral) with my co-founders. We help people host their own stuff without losing their minds.
 

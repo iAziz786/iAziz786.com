@@ -10,7 +10,7 @@ active:
     name: selfhost.dev
     date: 2023-10-15
     tech: ruby, hetzner
-    url: https://selfhost.dev
+    url: https://selfhost.dev?ref=iaziz786.com&utm_source=iaziz786.com&utm_medium=referral
     description: Server management platform for self-hosters.
     note: Shipping weekly. Solving my own pain.
   - id: dotfiles

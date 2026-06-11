@@ -30,6 +30,7 @@ outputFormats:
     isPlainText: true
 
 params:
+  plausibleAnalytics: true
   socialIcons:
     - name: "x.com"
       url: "https://x.com/iAziz786"

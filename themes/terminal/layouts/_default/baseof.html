@@ -13,6 +13,10 @@
   <link rel="canonical" href="{{ .Permalink }}">
   <meta name="color-scheme" content="light dark">
   
+  {{ if .Site.Params.plausibleanalytics }}
+  <script async event="{{ .RelPermalink }}" data-api="https://pb.iaziz786.com/api/event" src="https://pb.iaziz786.com/js/pa-6qrdwCn7YGsoEu7XdJWLD.js"></script>
+  {{ end }}
+  
   {{ range .AlternativeOutputFormats }}
   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
   {{ end }}

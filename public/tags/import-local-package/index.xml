@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>import-local-package on Mohammad Aziz</title>
+    <link>https://iaziz786.com/tags/import-local-package/</link>
+    <description>Recent content in import-local-package on Mohammad Aziz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://iaziz786.com/tags/import-local-package/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Import Local Package in Golang?</title>
+      <link>https://iaziz786.com/blog/import-local-package-in-go/</link>
+      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://iaziz786.com/blog/import-local-package-in-go/</guid>
+      <description>Context While developing any go applications you might come into a situation where you need to use a module that is not yet ready to publish. The module might be living on your local machine and you wanted to get the taste of it using with other projects before shipping it. In this post, we will discuss what approach you can take to import a module that is still in development and before publishing it to the package registry.</description>
+    </item>
+    
+  </channel>
+</rss>

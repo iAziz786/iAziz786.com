@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breaking Free: How I Self-Hosted My SMTP Server with Haraka | Mohammad Aziz</title>
+  <meta name="description" content="Send thousands of emails per second at the cost of pennies.">
+  
+  
+  <link rel="stylesheet" href="/css/main.min.065311879e2cc021d15fafb47cd2a4af4962478558606815a14895f383a23652.css">
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://iaziz786.com/blog/self-hosted-smtp-haraka/">
+  <meta name="color-scheme" content="light dark">
+  
+  
+  <script async event="/blog/self-hosted-smtp-haraka/" data-api="https://pb.iaziz786.com/api/event" src="https://pb.iaziz786.com/js/pa-6qrdwCn7YGsoEu7XdJWLD.js"></script>
+  
+  
+  
+  <link rel="alternate" type="text/markdown" href="https://iaziz786.com/blog/self-hosted-smtp-haraka/index.md" title="Mohammad Aziz">
+  
+</head>
+<body 
+  class="terminal-container"
+  data-config='{&#34;shortcuts&#34;:{&#34;a&#34;:&#34;/about/&#34;,&#34;b&#34;:&#34;/blog/&#34;,&#34;h&#34;:&#34;/&#34;,&#34;p&#34;:&#34;/projects/&#34;,&#34;w&#34;:&#34;/writing/&#34;}}'
+  
+    data-post-nav="true"
+    data-post-prev-url="https://iaziz786.com/blog/branding-yourself/"
+    data-post-next-url="https://iaziz786.com/blog/small-simple-solutions-scale/"
+  
+>
+  <header class="terminal-header">
+    <div class="terminal-prompt">
+  <span class="terminal-prompt__user">aziz</span>@<span class="terminal-prompt__host">localhost</span>:<span class="terminal-prompt__path">blog</span>$ <span class="terminal-prompt__cursor"></span>
+</div>
+    <nav class="terminal-nav" aria-label="Main navigation">
+      <ul class="terminal-nav__list">
+        
+        
+        <li>
+          <a href="/" class="terminal-nav__link" title="home">home</a>
+        </li>
+        
+        <li class="terminal-nav__separator" aria-hidden="true">|</li>
+        
+        
+        <li>
+          <a href="/blog/" class="terminal-nav__link" title="blog">blog</a>
+        </li>
+        
+        <li class="terminal-nav__separator" aria-hidden="true">|</li>
+        
+        
+        <li>
+          <a href="/projects/" class="terminal-nav__link" title="projects">projects</a>
+        </li>
+        
+        <li class="terminal-nav__separator" aria-hidden="true">|</li>
+        
+        
+        <li>
+          <a href="/writing/" class="terminal-nav__link" title="writing">writing</a>
+        </li>
+        
+        <li class="terminal-nav__separator" aria-hidden="true">|</li>
+        
+        
+        <li>
+          <a href="/about/" class="terminal-nav__link" title="about">about</a>
+        </li>
+        
+        
+      </ul>
+    </nav>
+  </header>
+
+  <main class="terminal-main">
+    
+<article class="terminal-article">
+  <header class="terminal-article__header">
+    <h1 class="terminal-article__title">Breaking Free: How I Self-Hosted My SMTP Server with Haraka</h1>
+    <div class="terminal-article__meta">
+      <div class="terminal-post-meta">
+  <time datetime="2023-04-24T00:00:00Z">2023-04-24</time>
+  <span aria-hidden="true"> · </span>
+  <span>2053 words</span>
+  
+  <span aria-hidden="true"> · </span>
+  <span class="terminal-post-meta__tags">
+    #smtp #haraka #mail #email #smtp #hetzner 
+  </span>
+  
+</div>
+    </div>
+  </header>
+  
+  <figure class="terminal-cover"><img src="https://iaziz786.com/blog/self-hosted-smtp-haraka/images/free-smtp-email.jpg" alt="Photo by [Daria Nepriakhina 🇺🇦](https://unsplash.com/@epicantus?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/guiQYiRxkZY?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)" loading="lazy"><figcaption>Photo by <a href="https://unsplash.com/@epicantus?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Daria Nepriakhina 🇺🇦</a> on <a href="https://unsplash.com/photos/guiQYiRxkZY?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></figcaption></figure>
+
+  <div class="terminal-article__content">
+    <p>You use SMTP providers to programmatically send emails. I don&rsquo;t like these when using third-party SMTP providers:</p>
+<ol>
+<li>Sending emails is free, I won&rsquo;t pay a penny more than what&rsquo;s minimum.</li>
+<li>One small bug and you sent 10M emails. Oh no! MY MONEY!!!</li>
+<li>I&rsquo;m pissed that Amazon SES rejected my request for an SMTP server. :((</li>
+<li>I won&rsquo;t know the internals&ndash;I know not everyone wants to know how SMTP works, but I do!</li>
+</ol>
+<p>Previously I&rsquo;ve used <a href="https://github.com/postalserver/postal">Postal</a>, which is not simple but okay. Can I do better? Isn&rsquo;t why I&rsquo;m writing this?!</p>
+<p>I found that Zerodha uses <a href="https://github.com/haraka/Haraka">Haraka</a> and <a href="https://mrkaran.dev/">Karan</a>&ndash;their DevOps guy, mentioned it is easy-setup and performant.</p>
+<p>Enough Karan, I&rsquo;m already convinced. Let&rsquo;s do this!!</p>
+<p>So I tried. I must say, it&rsquo;s darn simple!</p>
+<p>Before that, do you know&hellip;</p>
+<h2 id="-the-emails-are-sent-on-outbound-port-25--465-and-they-are-blocked-by-default">📧 The emails are sent on outbound port 25 &amp; 465 and they are blocked by default?</h2>
+<p>Get ready for an email adventure! Imagine sending an email from <em><a href="mailto:you@example.com">you@example.com</a></em> to <em><a href="mailto:myfriend@gmail.com">myfriend@gmail.com</a></em>. By default, your server sends the email to port 25 or 465 of the receiver&rsquo;s email server. It&rsquo;s like a secret handshake between email servers, figuring out the correct address for gmail.com before delivering your message.</p>
+<p>But what if you want to host your own SMTP server to send those emails? Buckle up, because we&rsquo;re diving into the world of cloud providers! I&rsquo;ve been using <a href="https://www.hetzner.com/">Hetzner</a>, a fantastic value-for-money option. Now, most cloud providers are like overprotective parents – they block outbound ports 25 &amp; 465 to prevent spamming.</p>
+<p>No worries, though! With Hetzner, it&rsquo;s like joining an exclusive club. After you pay your first bill, all you need to do is raise a ticket request, and they&rsquo;ll unblock those ports for you, just like that. It&rsquo;s like having the bouncer let you into the coolest party in town.</p>
+<p>So, gear up to host your SMTP server and send emails with freedom and style!</p>
+<h2 id="dns-setup">DNS Setup</h2>
+<p>You need to DNS configuration to send the emails. The <code>MX</code> record should point to the IP of your server. When you send mail to <code>example.com</code>, the <code>MX</code> record is obtained. Wherever the MX records point it will eventually resolve to an IP address.</p>
+<p>That IP is used to send the mail on either port 25 or 465. I used ChatGPT-4 to explain you about MX record &amp; SPF.</p>
+<details class="terminal-collapse">
+  <summary class="terminal-collapse__summary">How do you set up an MX record?</summary>
+  <div class="terminal-collapse__content">
+    <p>An MX (Mail Exchange) record is a type of DNS record that specifies the mail servers responsible for receiving emails on behalf of your domain. To set up an MX record, follow these steps:</p>
+<ol>
+<li>
+<p>Log in to your domain registrar or DNS hosting provider&rsquo;s control panel.</p>
+</li>
+<li>
+<p>Navigate to the DNS management section.</p>
+</li>
+<li>
+<p>Create a new MX record with the following details:</p>
+<ul>
+<li>Name/Host: Leave this field empty, &ldquo;@&rdquo; or enter your domain name, depending on the requirements of your DNS provider. This ensures that the MX record is added to the root level of your domain (e.g., example.com).</li>
+<li>Type: Select &ldquo;MX&rdquo; as the record type.</li>
+<li>Value: Enter the fully qualified domain name (FQDN) of your mail server. For example, &ldquo;mail.example.com&rdquo;.</li>
+<li>Priority: Assign a priority to the mail server. Lower numbers have higher priority. If you have multiple mail servers, the receiving server will attempt to deliver the email to the one with the highest priority first, and then move on to the others in case of failure.</li>
+</ul>
+</li>
+<li>
+<p>Save the MX record: Click on the &ldquo;Save&rdquo; or &ldquo;Add Record&rdquo; button to save the new MX record. The DNS changes may take some time to propagate.</p>
+</li>
+</ol>
+<p>Here&rsquo;s an example of an MX record configuration:</p>
+<ul>
+<li>Name/Host: @ (or your domain name)</li>
+<li>Type: MX</li>
+<li>Value: mail.example.com</li>
+<li>Priority: 10</li>
+</ul>
+<p>If you have multiple mail servers, you can add additional MX records with different priorities. For example:</p>
+<ul>
+<li>Name/Host: @ (or your domain name)</li>
+<li>Type: MX</li>
+<li>Value: backupmail.example.com</li>
+<li>Priority: 20</li>
+</ul>
+<p>In this case, the receiving server would try to deliver emails to &ldquo;mail.example.com&rdquo; first, and if that fails, it would attempt delivery to &ldquo;backupmail.example.com&rdquo;.</p>
+<p>After setting up your MX record, your domain will be able to receive emails through the specified mail servers. Ensure that your mail servers are properly configured to accept emails for your domain and deliver them to the appropriate mailboxes.</p>
+<p><em>&ndash; by ChatGPT</em></p>
+
+  </div>
+</details>
+<p>At this point, it should be enough to add the MX record but we should tackle email spoofing and phishing as well. You require SPF for that. It&rsquo;s one of many methods to prevent those.</p>
+<details class="terminal-collapse">
+  <summary class="terminal-collapse__summary">What is SPF?</summary>
+  <div class="terminal-collapse__content">
+    <p>Sender Policy Framework (SPF) is an email authentication protocol designed to prevent email spoofing and phishing attacks by verifying that an email message is sent from an authorized mail server.</p>
+<p>Here&rsquo;s how SPF helps prevent email spoofing and phishing attacks:</p>
+<ol>
+<li>
+<p>Domain owner publishes an SPF record:
+The domain owner creates an SPF record in their domain&rsquo;s DNS settings. This record lists all the authorized mail servers (IP addresses or hostnames) that are permitted to send emails on behalf of the domain.</p>
+</li>
+<li>
+<p>Email is sent from a mail server:
+When a mail server sends an email on behalf of the domain, the email includes the sender&rsquo;s domain and the IP address of the sending server in the email header.</p>
+</li>
+<li>
+<p>Receiving mail server checks SPF record:
+When the receiving mail server gets the email, it checks the sender&rsquo;s domain for an SPF record. If the SPF record exists, the receiving server compares the sending server&rsquo;s IP address or hostname against the authorized mail servers listed in the SPF record.</p>
+</li>
+<li>
+<p>SPF validation result:
+There are three possible outcomes of the SPF validation:</p>
+<ul>
+<li>Pass: The sending server&rsquo;s IP address or hostname matches an authorized server in the SPF record. The receiving server accepts the email, and it is less likely to be flagged as spam or phishing.</li>
+<li>Fail: The sending server&rsquo;s IP address or hostname does not match any authorized server in the SPF record. This suggests that the email could be a spoof or phishing attempt. The receiving server may reject the email, flag it as spam, or apply additional scrutiny.</li>
+<li>Neutral or other results: In some cases, the SPF record may be misconfigured or not definitive. In these cases, the receiving server may apply other mechanisms to determine the legitimacy of the email, such as DKIM (DomainKeys Identified Mail) and DMARC (Domain-based Message Authentication, Reporting, and Conformance).</li>
+</ul>
+</li>
+</ol>
+<p>By setting up an SPF record, domain owners can help protect their domain from being used in email spoofing and phishing attacks. This makes it more difficult for attackers to impersonate a legitimate domain, ultimately reducing the effectiveness of these types of attacks.</p>
+<p><em>&ndash; by ChatGPT</em></p>
+
+  </div>
+</details>
+<details class="terminal-collapse">
+  <summary class="terminal-collapse__summary">How to add SPF to DNS record?</summary>
+  <div class="terminal-collapse__content">
+    <p>To add an SPF record to your domain&rsquo;s DNS settings, follow these steps:</p>
+<ol>
+<li>
+<p>Log in to your domain registrar or DNS hosting provider&rsquo;s control panel.</p>
+</li>
+<li>
+<p>Navigate to the DNS management section.</p>
+</li>
+<li>
+<p>Create a new TXT record with the following details:</p>
+<ul>
+<li>Name/Host: Leave this field empty, &ldquo;@&rdquo; or enter your domain name, depending on the requirements of your DNS provider. This ensures that the SPF record is added to the root level of your domain (e.g., example.com).</li>
+<li>Type: Select &ldquo;TXT&rdquo; as the record type.</li>
+<li>Value: Add the SPF record value. The value should start with &ldquo;v=spf1&rdquo; and list the authorized mail servers or IP addresses, followed by an action for unauthorized servers.</li>
+</ul>
+</li>
+</ol>
+<p>Here&rsquo;s an example of an SPF record value:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>v=spf1 ip4:192.0.2.0/24 ip4:198.51.100.0/24 include:_spf.example.net -all
+</span></span></code></pre></div><p>This SPF record value has the following components:</p>
+<ul>
+<li><code>v=spf1</code>: This indicates the SPF version being used, which is version 1.</li>
+<li><code>ip4:192.0.2.0/24</code>: This authorizes the IP addresses in the range 192.0.2.0 to 192.0.2.255 to send emails on behalf of the domain.</li>
+<li><code>ip4:198.51.100.0/24</code>: This authorizes the IP addresses in the range 198.51.100.0 to 198.51.100.255 to send emails on behalf of the domain.</li>
+<li><code>include:_spf.example.net</code>: This includes the SPF record of another domain (example.net) and authorizes its mail servers to send emails on behalf of your domain. This is useful when using third-party email services.</li>
+<li><code>-all</code>: This indicates that any mail server not listed in the SPF record is not authorized to send emails on behalf of your domain. The receiving server should mark such emails as a hard fail. If you want a soft fail, use <code>~all</code> instead.</li>
+</ul>
+<ol start="4">
+<li>Save the TXT record: Click on the &ldquo;Save&rdquo; or &ldquo;Add Record&rdquo; button to save the new SPF record. The DNS changes may take some time to propagate.</li>
+</ol>
+<p>Once you have added the SPF record to your domain&rsquo;s DNS settings, receiving mail servers will check it when they receive emails from your domain. This helps protect your domain from email spoofing and phishing attacks by verifying that emails are sent from authorized servers.</p>
+<p>Remember to update your SPF record whenever you add or remove mail servers or third-party email services that send emails on behalf of your domain.</p>
+<p><em>&ndash; by ChatGPT</em></p>
+
+  </div>
+</details>
+<p>This will be enough for the DNS related changes. We can move ahead with the Haraka setup now.</p>
+<h2 id="setup-haraka">Setup Haraka</h2>
+<h3 id="1-installation">1. Installation</h3>
+<p>It&rsquo;s a CLI tool and you can install it with NPM.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>sudo npm install -g Haraka
+</span></span></code></pre></div><p>Now you can use the <code>haraka</code> from your CLI. Next, create a folder which Haraka will use to start the server.</p>
+<h3 id="2-folder--files">2. Folder &amp; Files</h3>
+<p>The setup starts here. At first, Haraka needs a folder where it holds all files it requires.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>haraka -i /var/local/your-smtp-folder
+</span></span></code></pre></div><p>In Haraka&rsquo;s lingo, it is called creating the service. It gives you a few files and folders to work with. We need to tweak a few of them to work for our domain.</p>
+<p>If your email address is <code>you@example.com</code> you need to put your <code>example.com</code> to the <code>config/host_list</code> file. Just put your domain name in plain text, simple as that.</p>
+<p>You can put a subdomain as well. I like the mail domain as <code>mailer.example.com</code>.</p>
+<h3 id="3-you-need-plugins">3. You Need Plugins</h3>
+<p>Haraka uses plugins do to almost everything. Hence, to send emails you also need plugins. We need two plugins for now:</p>
+<ol>
+<li><a href="https://haraka.github.io/plugins/tls/"><code>tls</code></a> &ndash; Haraka uses port 587 to send mails. It is like port 443 of HTTP. Therefore it requires TLS for security.</li>
+<li><a href="https://haraka.github.io/plugins/auth/flat_file"><code>auth/flat_file</code></a> &ndash; This is for user credentials management. You shouldn&rsquo;t use it in production instead use <a href="https://github.com/AuspeXeu/haraka-plugin-auth-enc-file">auth-enc</a> plugin.</li>
+</ol>
+<h4 id="3a-tls-setup">3.a. TLS Setup</h4>
+<p>I won&rsquo;t go too deep into this topic but the steps below will help.</p>
+<p>I&rsquo;ve used <a href="https://zerossl.com/">ZeroSSL</a> because they&rsquo;re free and simple. You&rsquo;ve to rotate the certificates every 90 days though. But there is a way to <a href="https://github.com/zerossl/zerossl-bot">automate it</a>.</p>
+<p>Eventually, you will have three files, <code>ca_bundle.crt</code>, <code>certificate.crt</code>, and <code>private.key</code>. You need to generate a new file combining these three files.</p>
+<p>The order here is important, so <strong>follow the order</strong> of the <code>cat</code> command.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat private.key certificate.crt ca_bundle.crt &gt; config/tls/example.com.pem
+</span></span></code></pre></div><p>The <code>config</code> folder here resides in the folder which the <code>haraka</code> command generated for you on <a href="#2-folder--files">step 2</a>.</p>
+<h4 id="3b-auth-user-setup">3.b. Auth User Setup</h4>
+<p>You need to create a <code>config/auth_flat_file.ini</code> file. Put this content inside it. Don&rsquo;t forget to change <code>testpassword</code> with a stronger password.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[core]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">methods</span><span style="color:#f92672">=</span><span style="color:#e6db74">PLAIN,LOGIN,CRAM-MD5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[users]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">you@example.com</span><span style="color:#f92672">=</span><span style="color:#e6db74">testpassword</span>
+</span></span></code></pre></div><h3 id="4-check-if-all-works">4. Check If All Works</h3>
+<p>You must be done at this point. There are lots of tools to check SMTP. I&rsquo;m going to use <code>swaks</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>swaks --tls --to myfriend@gmail.com --from you@example.com --server example.com --port <span style="color:#ae81ff">587</span> --auth-user you@example.com --auth-password testpassword
+</span></span></code></pre></div><p>This command sends a test mail to <code>myfriend@gmail.com</code> from <code>you@example.com</code> using <code>example.com</code> on secure port <code>587</code> using <code>you@example.com</code>&rsquo;s credentials with password <code>testpassword</code>.</p>
+<p>Here is a service file which you can use with systemd for the Haraka process management.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-service" data-lang="service"><span style="display:flex;"><span><span style="color:#66d9ef">[Unit]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Description</span><span style="color:#f92672">=</span><span style="color:#e6db74">Running Haraka mail servers</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">After</span><span style="color:#f92672">=</span><span style="color:#e6db74">network.target</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Wants</span><span style="color:#f92672">=</span><span style="color:#e6db74">network-online.target</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Service]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Restart</span><span style="color:#f92672">=</span><span style="color:#e6db74">always</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Type</span><span style="color:#f92672">=</span><span style="color:#e6db74">simple</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">ExecStart</span><span style="color:#f92672">=</span><span style="color:#e6db74">/usr/bin/sudo /usr/bin/haraka -c /var/local/your-smtp-folder</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">[Install]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">WantedBy</span><span style="color:#f92672">=</span><span style="color:#e6db74">multi-user.target</span>
+</span></span></code></pre></div><p>Change the <code>/var/local/your-smtp-folder</code> to the location where you&rsquo;ve created the Haraka service.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>At the start I mentioned setting up an SMTP server is darn simple. Maybe you might find it a little intimidating. I understand you. I&rsquo;m a nerd who wants to know the internals. You might not. Feel free to use whatever is your preference. Easy or a more hands-on setup like this post. I wrote this for my future self and also for people who like to get intimidated. Who push to understand the systems they work with.</p>
+<p>And for those who do, you will find that setting up this may require only one hour. In my case the only time taking process was to wait to unblock port 25 &amp; 465 from Hetzner. Once it had, everything flows smoothly.</p>
+<p>If you face any issue and wants to talk to me, just hit me up on Twitter.</p>
+<p>Twitter: <a href="https://twitter.com/iAziz786">iAziz786</a></p>
+
+  </div>
+  
+  
+  
+  <footer class="terminal-post-meta">
+    <nav class="terminal-post-nav" aria-label="Post navigation">
+  
+  <div class="terminal-post-nav__item ">
+    <span class="terminal-post-nav__label">← prev</span>
+    <a href="https://iaziz786.com/blog/branding-yourself/" class="terminal-post-nav__link" rel="prev">Unleash Your Potential As a Brand</a>
+  </div>
+  
+  
+  <div class="terminal-post-nav__item terminal-post-nav__item--right ">
+    <span class="terminal-post-nav__label">next →</span>
+    <a href="https://iaziz786.com/blog/small-simple-solutions-scale/" class="terminal-post-nav__link" rel="next">Small Simple Solutions Scale</a>
+  </div>
+  
+</nav>
+    <div class="terminal-post-meta__footer">
+      <p>Last updated 2023-04-24</p>
+      <p>Spotted something broken? <a href="https://github.com/iAziz786/iAziz786.com/issues">Open an issue</a></p>
+    </div>
+  </footer>
+  
+  
+</article>
+
+  </main>
+
+  <footer class="terminal-footer">
+  <span>· 2026-06-11 ·</span>
+  
+  <nav class="terminal-footer__social" aria-label="Social links">
+    
+    <a href="https://x.com/iAziz786" target="_blank" rel="noopener noreferrer" aria-label="x.com">
+      
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+      
+    </a>
+    
+    <a href="https://github.com/iAziz786" target="_blank" rel="noopener noreferrer" aria-label="github">
+      
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      
+    </a>
+    
+    <a href="https://www.linkedin.com/in/iAziz786" target="_blank" rel="noopener noreferrer" aria-label="linkedin">
+      
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.14-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+      
+    </a>
+    
+    <a href="https://discord.gg/Atk6tXXH" target="_blank" rel="noopener noreferrer" aria-label="discord">
+      
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419z"/>
+      </svg>
+      
+    </a>
+    
+  </nav>
+  
+</footer>
+
+  <div class="terminal-keyboard-hint" aria-hidden="true">
+    / to search
+  </div>
+
+  <div 
+  class="terminal-search" 
+  data-search-overlay
+  data-search-endpoint="/index.json"
+  data-search-min-length="2"
+  data-search-max-results="10"
+  role="dialog" 
+  aria-modal="true" 
+  aria-label="Search"
+  aria-hidden="true"
+>
+  <div class="terminal-search__prompt">search:// <span class="terminal-prompt__cursor"></span></div>
+  <input 
+    type="text" 
+    class="terminal-search__input" 
+    placeholder="type to search..." 
+    autocomplete="off"
+    data-search-input
+    aria-label="Search input"
+  >
+  <ul class="terminal-search__results" data-search-results role="listbox"></ul>
+  <div class="terminal-search__help" aria-hidden="true">
+    <span>ESC to close</span>
+    <span>ENTER to select</span>
+    <span>↑↓ to navigate</span>
+  </div>
+</div>
+
+  
+  <script src="/js/main.min.d2876c997d7a78b5a0d8c790ccb181517d034fd9890d0aa85e3750265c0fcdf1.js" type="module"></script>
+</body>
+</html>

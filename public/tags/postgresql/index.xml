@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>postgresql on Mohammad Aziz</title>
+    <link>https://iaziz786.com/tags/postgresql/</link>
+    <description>Recent content in postgresql on Mohammad Aziz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://iaziz786.com/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Get a Free PostgreSQL* Database?</title>
+      <link>https://iaziz786.com/blog/free-cockroachdb-server/</link>
+      <pubDate>Sat, 02 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://iaziz786.com/blog/free-cockroachdb-server/</guid>
+      <description>Sign Up to Cockroachlabs Cloud Go to the cockroachlabs.com and create your account.
+Create a Cluster on their Cloud After successfully login you will see an option to create the cluster.
+Click on the Create Cluster. Select Serverless on the plan section. Configure other options like Cloud provider, Regions, Spend limit, and the Cluster name as you like. Next, click on the Create your free cluster. You get a cluster with 5 GB of storage space.</description>
+    </item>
+    
+  </channel>
+</rss>

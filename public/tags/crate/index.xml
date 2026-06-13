@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>crate on Mohammad Aziz</title>
+    <link>https://iaziz786.com/tags/crate/</link>
+    <description>Recent content in crate on Mohammad Aziz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 17 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://iaziz786.com/tags/crate/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Publish Your First Rust Crate?</title>
+      <link>https://iaziz786.com/blog/publish-first-rust-crate/</link>
+      <pubDate>Wed, 17 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://iaziz786.com/blog/publish-first-rust-crate/</guid>
+      <description>You Need an Account Before you start publishing any crate to crates.io, you first have to create an account.
+Go to crates.io Login with GitHub Verify your Email Then Login Create a New Token form Account Settings in the API Access section Run the command you get to the login Get Your Project Ready Add the following fields in the Cargo.toml file license or license-file description documentation homepage or repository You need to commit your work before publishing Do a dry run by running cargo publish --dry-run Fix any errors or warnings after the dry run And Publish cargo publish Let the World Use Your Crate :) </description>
+    </item>
+    
+  </channel>
+</rss>

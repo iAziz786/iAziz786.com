@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-hosted: WireGuard VPN Server on Ubuntu, with MacOS and Android Clients | Mohammad Aziz</title>
+  <meta name="description" content="You don&#39;t need to buy a VPN provider to get high performance VPN server.">
+  
+  
+  <link rel="stylesheet" href="/css/main.min.065311879e2cc021d15fafb47cd2a4af4962478558606815a14895f383a23652.css">
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="canonical" href="https://iaziz786.com/blog/self-hosted-vpn-wireguard/">
+  <meta name="color-scheme" content="light dark">
+  
+  
+  <script async event="/blog/self-hosted-vpn-wireguard/" data-api="https://pb.iaziz786.com/api/event" src="https://pb.iaziz786.com/js/pa-6qrdwCn7YGsoEu7XdJWLD.js"></script>
+  
+  
+  
+  <link rel="alternate" type="text/markdown" href="https://iaziz786.com/blog/self-hosted-vpn-wireguard/index.md" title="Mohammad Aziz">
+  
+</head>
+<body 
+  class="terminal-container"
+  data-config='{&#34;shortcuts&#34;:{&#34;a&#34;:&#34;/about/&#34;,&#34;b&#34;:&#34;/blog/&#34;,&#34;h&#34;:&#34;/&#34;,&#34;p&#34;:&#34;/projects/&#34;,&#34;w&#34;:&#34;/writing/&#34;}}'
+  
+    data-post-nav="true"
+    data-post-prev-url="https://iaziz786.com/blog/oop-is-not-design-patterns/"
+    data-post-next-url="https://iaziz786.com/blog/work-like-a-cpu/"
+  
+>
+  <header class="terminal-header">
+    <div class="terminal-prompt">
+  <span class="terminal-prompt__user">aziz</span>@<span class="terminal-prompt__host">localhost</span>:<span class="terminal-prompt__path">blog</span>$ <span class="terminal-prompt__cursor"></span>
+</div>
+    <nav class="terminal-nav" aria-label="Main navigation">
+      <ul class="terminal-nav__list">
+        
+        
+        <li>
+          <a href="/" class="terminal-nav__link" title="home">home</a>
+        </li>
+        
+        <li class="terminal-nav__separator" aria-hidden="true">|</li>
+        
+        
+        <li>
+          <a href="/blog/" class="terminal-nav__link" title="blog">blog</a>
+        </li>
+        
+        <li class="terminal-nav__separator" aria-hidden="true">|</li>
+        
+        
+        <li>
+          <a href="/projects/" class="terminal-nav__link" title="projects">projects</a>
+        </li>
+        
+        <li class="terminal-nav__separator" aria-hidden="true">|</li>
+        
+        
+        <li>
+          <a href="/writing/" class="terminal-nav__link" title="writing">writing</a>
+        </li>
+        
+        <li class="terminal-nav__separator" aria-hidden="true">|</li>
+        
+        
+        <li>
+          <a href="/about/" class="terminal-nav__link" title="about">about</a>
+        </li>
+        
+        
+      </ul>
+    </nav>
+  </header>
+
+  <main class="terminal-main">
+    
+<article class="terminal-article">
+  <header class="terminal-article__header">
+    <h1 class="terminal-article__title">Self-hosted: WireGuard VPN Server on Ubuntu, with MacOS and Android Clients</h1>
+    <div class="terminal-article__meta">
+      <div class="terminal-post-meta">
+  <time datetime="2023-05-25T00:00:00Z">2023-05-25</time>
+  <span aria-hidden="true"> · </span>
+  <span>769 words</span>
+  
+  <span aria-hidden="true"> · </span>
+  <span class="terminal-post-meta__tags">
+    #vpn #wireguard #hetzner #android #macos #ubuntu 
+  </span>
+  
+</div>
+    </div>
+  </header>
+  
+  <figure class="terminal-cover"><img src="https://iaziz786.com/blog/self-hosted-vpn-wireguard/images/grayscale-photography-of-penguin.jpg" alt="Photo by [Jean van der Meulen](https://www.pexels.com/photo/grayscale-photography-of-penguin-2078475/)" loading="lazy"><figcaption>Photo by <a href="https://www.pexels.com/photo/grayscale-photography-of-penguin-2078475/">Jean van der Meulen</a></figcaption></figure>
+
+  <div class="terminal-article__content">
+    <p>WireGuard is a modern, high-performance VPN designed to be easy to use while providing robust security. This guide will walk you through the steps to set up a WireGuard VPN server on Ubuntu, and connect to it using MacOS and Android clients.</p>
+<h3 id="setting-up-the-wireguard-vpn-server">Setting up the WireGuard VPN Server</h3>
+<ol>
+<li>
+<p><strong>Install WireGuard</strong> on your Ubuntu server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo add-apt-repository ppa:wireguard/wireguard
+</span></span><span style="display:flex;"><span>sudo apt-get update
+</span></span><span style="display:flex;"><span>sudo apt-get install wireguard
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Generate the server keys</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>umask <span style="color:#ae81ff">077</span>
+</span></span><span style="display:flex;"><span>wg genkey | tee /etc/wireguard/privatekey | wg pubkey &gt; /etc/wireguard/publickey
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Configure the VPN</strong> in <code>/etc/wireguard/wg0.conf</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>Interface<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Address <span style="color:#f92672">=</span> 10.0.0.1/24
+</span></span><span style="display:flex;"><span>ListenPort <span style="color:#f92672">=</span> <span style="color:#ae81ff">51820</span> <span style="color:#75715e"># standard port, change as you like</span>
+</span></span><span style="display:flex;"><span>PrivateKey <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>your server<span style="color:#960050;background-color:#1e0010">&#39;</span>s private key<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PostUp <span style="color:#f92672">=</span> iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+</span></span><span style="display:flex;"><span>PostDown <span style="color:#f92672">=</span> iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Enable and start the VPN</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable wg-quick@wg0
+</span></span><span style="display:flex;"><span>sudo systemctl start wg-quick@wg0
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Configuring Firewall</strong> (optional): If your firewall blocks all ports by default you have to allow UDP connections on port <strong>51820</strong> as WireGuard uses UDP for its transport protocol.</p>
+</li>
+</ol>
+<p>If you use <strong><code>ufw</code></strong> use the following commands.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ufw allow 51820/udp
+</span></span></code></pre></div><p>Remember to enable the firewall if it&rsquo;s not already enabled:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo ufw enable
+</span></span></code></pre></div><h3 id="connecting-a-macos-client">Connecting a MacOS Client</h3>
+<ol>
+<li><strong>Install WireGuard</strong> on your MacOS device. You can do this through the <a href="https://apps.apple.com/us/app/wireguard/id1451685025?mt=12">App Store</a>. Also, make sure that you have wireguard CLI install. You can do that by running homebrew command.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install wireguard-tools
+</span></span></code></pre></div><ol start="2">
+<li>
+<p><strong>Generate the client keys</strong> in terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wg genkey | tee privatekey | wg pubkey &gt; publickey
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Add the client&rsquo;s public key to the server&rsquo;s configuration</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>Peer<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>PublicKey <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>your client<span style="color:#960050;background-color:#1e0010">&#39;</span>s public key<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>AllowedIPs <span style="color:#f92672">=</span> 10.0.0.2/32
+</span></span></code></pre></div></li>
+</ol>
+<p>Restart the WireGuard service to apply the changes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl restart wg-quick@wg0
+</span></span></code></pre></div><ol start="4">
+<li>
+<p><strong>Create the client configuration</strong> in WireGuard on MacOS:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>Interface<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>PrivateKey <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>your client<span style="color:#e6db74">&#39;s private key)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Address = 10.0.0.2/32
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">DNS = 10.0.0.1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">[Peer]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">PublicKey = (your server&#39;</span>s public key<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>Endpoint <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>your server<span style="color:#960050;background-color:#1e0010">&#39;</span>s IP<span style="color:#f92672">)</span>:51820
+</span></span><span style="display:flex;"><span>AllowedIPs <span style="color:#f92672">=</span> 0.0.0.0/0
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="connecting-an-android-client">Connecting an Android Client</h3>
+<ol>
+<li>
+<p><strong>Install the WireGuard app</strong>: Open the Google Play Store on your Android device, search for WireGuard, and install the WireGuard app.</p>
+</li>
+<li>
+<p><strong>Generate a key pair</strong>: Open the WireGuard app and tap the &ldquo;+&rdquo; button to add a new tunnel. Select &ldquo;Create from scratch.&rdquo; This will create a new key pair for your Android client.</p>
+</li>
+<li>
+<p><strong>Configure the tunnel</strong>: In the new tunnel configuration:</p>
+<ul>
+<li><strong>Name</strong> your tunnel. This can be anything you like. It&rsquo;s just to identify the connection in your WireGuard app.</li>
+<li>The <strong>Private key</strong> should be automatically generated. Tap on the eye icon to view the key and the corresponding <strong>Public key</strong>. You&rsquo;ll need to add this Public key to your server&rsquo;s configuration later.</li>
+<li>For <strong>Addresses</strong>, enter the next IP address in your VPN&rsquo;s subnet. For example, if your server is <code>10.0.0.1</code> and your macOS client is <code>10.0.0.2</code>, you could use <code>10.0.0.3/32</code> for your Android client.</li>
+<li>Leave <strong>DNS servers</strong> empty for now.</li>
+<li>Under <strong>Peer</strong>, you&rsquo;ll need to add the Public key of your server, the <strong>Endpoint</strong> (your server&rsquo;s public IP address and the port WireGuard is listening on), and the <strong>Allowed IPs</strong>. For Allowed IPs, you can use <code>0.0.0.0/0</code> to route all traffic through the VPN, or use your VPN&rsquo;s subnet (<code>10.0.0.0/24</code> in this example) to only route internal VPN traffic.</li>
+</ul>
+</li>
+<li>
+<p><strong>Add the Android client to the server&rsquo;s configuration</strong>: On your server, open the WireGuard configuration file (<code>/etc/wireguard/wg0.conf</code>), and add a new <code>[Peer]</code> section for the Android client. It should look something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[Peer]
+</span></span><span style="display:flex;"><span>PublicKey = ANDROID_PUBLIC_KEY
+</span></span><span style="display:flex;"><span>AllowedIPs = 10.0.0.3/32
+</span></span></code></pre></div><p>Replace &ldquo;ANDROID_PUBLIC_KEY&rdquo; with the Public key you generated on your Android device. Save the file and exit, then restart the WireGuard service to apply the changes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>sudo systemctl restart wg-quick@wg0
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Connect</strong>: Back on your Android device, you can now tap the toggle switch to connect to the VPN. If everything is configured correctly, it should connect successfully. You can verify your connection by checking your IP address (it should be your server&rsquo;s IP address if you&rsquo;re routing all traffic through the VPN), or by trying to access a resource on your VPN&rsquo;s network.</p>
+</li>
+</ol>
+<h3 id="speed-differences">Speed Differences</h3>
+<p>Depending upon the various factors you speed might vary with the VPN. Let&rsquo;s see how does the speed looks like for me. My VPN server is hosted in <strong>Finland</strong> and I&rsquo;m using it from <strong>India</strong> so definitely there will be some latencies.</p>
+<h4 id="speed-without-vpn">Speed without VPN</h4>
+<p>I&rsquo;m getting <strong>197.32 Mbps</strong> download and <strong>143.42 Mbps</strong> upload speed out of my 200 Mbps connection without any VPN in place.</p>
+<h4 id="speed-with-vpn">Speed with VPN</h4>
+<p>I&rsquo;m getting <strong>177.80 Mbps</strong> download and <strong>66.52 Mbps</strong> upload speed out of my 200 Mbps connection with any VPN in place.</p>
+<p>👋🏼</p>
+
+  </div>
+  
+  
+  
+  <footer class="terminal-post-meta">
+    <nav class="terminal-post-nav" aria-label="Post navigation">
+  
+  <div class="terminal-post-nav__item ">
+    <span class="terminal-post-nav__label">← prev</span>
+    <a href="https://iaziz786.com/blog/oop-is-not-design-patterns/" class="terminal-post-nav__link" rel="prev">OOP is not Design Patterns</a>
+  </div>
+  
+  
+  <div class="terminal-post-nav__item terminal-post-nav__item--right ">
+    <span class="terminal-post-nav__label">next →</span>
+    <a href="https://iaziz786.com/blog/work-like-a-cpu/" class="terminal-post-nav__link" rel="next">Work Like a CPU</a>
+  </div>
+  
+</nav>
+    <div class="terminal-post-meta__footer">
+      <p>Last updated 2023-05-25</p>
+      <p>Spotted something broken? <a href="https://github.com/iAziz786/iAziz786.com/issues">Open an issue</a></p>
+    </div>
+  </footer>
+  
+  
+</article>
+
+  </main>
+
+  <footer class="terminal-footer">
+  <span>· 2026-06-11 ·</span>
+  
+  <nav class="terminal-footer__social" aria-label="Social links">
+    
+    <a href="https://x.com/iAziz786" target="_blank" rel="noopener noreferrer" aria-label="x.com">
+      
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+      
+    </a>
+    
+    <a href="https://github.com/iAziz786" target="_blank" rel="noopener noreferrer" aria-label="github">
+      
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      
+    </a>
+    
+    <a href="https://www.linkedin.com/in/iAziz786" target="_blank" rel="noopener noreferrer" aria-label="linkedin">
+      
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.14-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+      
+    </a>
+    
+    <a href="https://discord.gg/Atk6tXXH" target="_blank" rel="noopener noreferrer" aria-label="discord">
+      
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.419-2.1568 2.419z"/>
+      </svg>
+      
+    </a>
+    
+  </nav>
+  
+</footer>
+
+  <div class="terminal-keyboard-hint" aria-hidden="true">
+    / to search
+  </div>
+
+  <div 
+  class="terminal-search" 
+  data-search-overlay
+  data-search-endpoint="/index.json"
+  data-search-min-length="2"
+  data-search-max-results="10"
+  role="dialog" 
+  aria-modal="true" 
+  aria-label="Search"
+  aria-hidden="true"
+>
+  <div class="terminal-search__prompt">search:// <span class="terminal-prompt__cursor"></span></div>
+  <input 
+    type="text" 
+    class="terminal-search__input" 
+    placeholder="type to search..." 
+    autocomplete="off"
+    data-search-input
+    aria-label="Search input"
+  >
+  <ul class="terminal-search__results" data-search-results role="listbox"></ul>
+  <div class="terminal-search__help" aria-hidden="true">
+    <span>ESC to close</span>
+    <span>ENTER to select</span>
+    <span>↑↓ to navigate</span>
+  </div>
+</div>
+
+  
+  <script src="/js/main.min.d2876c997d7a78b5a0d8c790ccb181517d034fd9890d0aa85e3750265c0fcdf1.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>focus on Mohammad Aziz</title>
+    <link>https://iaziz786.com/tags/focus/</link>
+    <description>Recent content in focus on Mohammad Aziz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://iaziz786.com/tags/focus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Work Like a CPU</title>
+      <link>https://iaziz786.com/blog/work-like-a-cpu/</link>
+      <pubDate>Thu, 11 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://iaziz786.com/blog/work-like-a-cpu/</guid>
+      <description>A CPU is one of the best creations of mankind. It helps you do tasks at an unmatched speed. It is a complicated piece of hardware but at its core, it does four things:
+fetch - the instruction from the RAM. decode - the fetched instruction to the actual action it needs to perform. execute - the decoded instruction. store - the execution results for future use. A modern CPU can do this billions of times in a second.</description>
+    </item>
+    
+  </channel>
+</rss>

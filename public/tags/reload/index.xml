@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>reload on Mohammad Aziz</title>
+    <link>https://iaziz786.com/tags/reload/</link>
+    <description>Recent content in reload on Mohammad Aziz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://iaziz786.com/tags/reload/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Auto Reload Golang Applications?</title>
+      <link>https://iaziz786.com/blog/golang-auto-reload-apps/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://iaziz786.com/blog/golang-auto-reload-apps/</guid>
+      <description>You wanted to develop quick, you wanted to develop fast and there is nothing more tedious for a developer than doing the same thing again and again.
+I really HATE doing repetitive work. Probably that&amp;rsquo;s why I become a programmer to automate the boring stuff.
+Foundation (a server) I have been exploring Go, you might be aware since my previous post was written for itself. You can spin up a simple Go server with the following code.</description>
+    </item>
+    
+  </channel>
+</rss>

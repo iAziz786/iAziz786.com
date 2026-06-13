@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>anthropic on Mohammad Aziz</title>
+    <link>https://iaziz786.com/tags/anthropic/</link>
+    <description>Recent content in anthropic on Mohammad Aziz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://iaziz786.com/tags/anthropic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The $50/Million Token Problem With Fable 5</title>
+      <link>https://iaziz786.com/blog/fifty-dollar-token-problem/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://iaziz786.com/blog/fifty-dollar-token-problem/</guid>
+      <description>Anthropic dropped Claude Fable 5 yesterday. First Mythos-class model available to the public. Same tier that found and exploited vulnerabilities in every major operating system and browser earlier this year. 80.3% on SWE-Bench Pro, 29.3 on FrontierCode Diamond, beat Pokémon FireRed using nothing but raw screenshots.
+Most developers won&amp;rsquo;t need it.
+The advantage is conditional Anthropic&amp;rsquo;s own words:
+The longer and more complex the task, the larger Fable 5&amp;rsquo;s lead over our other models.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>struct on Mohammad Aziz</title>
+    <link>https://iaziz786.com/tags/struct/</link>
+    <description>Recent content in struct on Mohammad Aziz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://iaziz786.com/tags/struct/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Handle Missing Fields From A Struct in Go?</title>
+      <link>https://iaziz786.com/blog/handle-missing-struct-fields/</link>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://iaziz786.com/blog/handle-missing-struct-fields/</guid>
+      <description>Suppose you have a variable of type of the struct mentioned below which you wanted to Unmarshal.
+type Building struct { WindowCount int `json:&amp;#34;window_count&amp;#34;` Doors int `json:&amp;#34;doors&amp;#34;` } In case the data is coming from an unreliable source, you can never be sure that the value you will receive will always have the correct format. You have to be cautious when working around data like this. If you are new in Go you might be wondering what will happen you Unmarshal and incorrect value?</description>
+    </item>
+    
+  </channel>
+</rss>

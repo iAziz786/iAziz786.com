@@ -1,0 +1,32 @@
+# Allow all standard crawlers
+User-agent: *
+Allow: /
+Sitemap: https://iaziz786.com/sitemap.xml
+
+# AI Crawlers - Explicitly allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Well-known discovery paths
+User-agent: *
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /*.md

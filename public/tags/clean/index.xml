@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>clean on Mohammad Aziz</title>
+    <link>https://iaziz786.com/tags/clean/</link>
+    <description>Recent content in clean on Mohammad Aziz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://iaziz786.com/tags/clean/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Use Embedding to Write Cleaner Code in Go?</title>
+      <link>https://iaziz786.com/blog/clean-code-with-embedding-in-go/</link>
+      <pubDate>Thu, 17 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://iaziz786.com/blog/clean-code-with-embedding-in-go/</guid>
+      <description>Abstract Go is cleaner because it doesn&amp;rsquo;t support many of the features that tradition OO languages support. Less is more. Inheritance is one of those features but Go has a different style which can fulfil the necessity of inheritance. It&amp;rsquo;s called Embedding.
+What is embedding You can &amp;ldquo;borrow&amp;rdquo; the functionality of a struct or interface into another struct and interface respectively is called embedding. You can not embed an interface into a struct or vice versa.</description>
+    </item>
+    
+  </channel>
+</rss>

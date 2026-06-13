@@ -1,0 +1,9 @@
+# **_ Warning! Your custom domain is not using HTTPS yet _**
+
+# These rules will change if you change your site’s custom domains or HTTPS settings
+
+# Redirect default Netlify subdomain to primary domain
+
+https://iaziz786.netlify.com/* https://aziz.js.org/:splat 301!
+
+/blog/use-unpublished-go-modules /blog/import-local-package-in-go 301

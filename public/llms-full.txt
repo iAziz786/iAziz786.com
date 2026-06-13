@@ -1,0 +1,2148 @@
+# Mohammad Aziz
+
+> Personal blog and projects by Mohammad Aziz
+
+---
+
+
+## The $50/Million Token Problem With Fable 5
+
+Published: June 10, 2026
+URL: https://iaziz786.com/blog/fifty-dollar-token-problem/
+
+Anthropic launched their most powerful model yet. Mostly I don't need it.
+
+
+Anthropic dropped Claude Fable 5 yesterday.
+First Mythos-class model available to the public.
+Same tier that found and exploited vulnerabilities
+in every major operating system and browser earlier
+this year. 80.3% on SWE-Bench Pro, 29.3 on
+FrontierCode Diamond, beat Pokémon FireRed using
+nothing but raw screenshots.
+
+Most developers won't need it.
+
+## The advantage is conditional
+
+Anthropic's own words:
+
+> The longer and more complex the task, the larger
+> Fable 5's lead over our other models.
+
+The lead shrinks on short tasks. The kind that make
+up most development work. TrueFoundry's analysis
+confirms it. On shorter, well-scoped tasks, Fable 5
+and Opus 4.8 are close. Opus 4.8 is the sensible
+default for most production traffic.
+
+Most development work is autocomplete a function,
+explain an error, draft a test, refactor a file.
+Opus 4.8 at half the price handles that.
+
+## The math
+
+Fable 5: $10 per million input tokens,
+$50 per million output tokens. 2x Opus 4.8.
+
+One agentic call (50k input, 15k output) costs
+$1.25. Chain 12 of those for a real task, roughly
+$15. Max reasoning effort on hard FrontierCode
+tasks, closer to $20.
+
+That's a Stripe-class migration. 50 million lines
+of Ruby, refactored in a day. Not the kind of task
+most people hand to an AI.
+
+## Speed
+
+Artificial Analysis ranks Fable 5 #71 out of 152
+models. 60.3 tokens per second. Fine for long tasks,
+slower on quick ones.
+
+The reasoning-effort dial helps. Low effort, fewer
+tokens, faster answers. But then Fable 5 prices for
+Sonnet-class output.
+
+## Safeguards
+
+Karpathy on launch day: the safeguards are
+"configured to be a little too trigger happy."
+Anthropic says they'll tune them.
+
+About 5% of sessions fall back to Opus 4.8 right
+now. Fable 5 prices, sometimes Opus 4.8 answers.
+Makes sense for security researchers and
+biologists. Doesn't help with React.
+
+## The trial ends June 22
+
+Fable 5 is free on Pro, Max, Team, and Enterprise
+plans through June 22. Then it moves to usage-based
+credits. Anthropic says they'll restore it to
+standard subscriptions "as quickly as we can."
+
+The $20/month Pro plan crowd will stick with
+Opus 4.8 when the meter starts.
+
+## Who it's actually for
+
+Stripe compressed a two-month migration into a day.
+IMC aced trading-analysis evaluations across the
+board. Rakuten says "the extra thinking pays for
+itself" for autonomous operations. Anthropic's
+internal team accelerated drug discovery 10x.
+
+Enterprises running long-horizon, multi-step
+workflows where the model works for hours without
+human intervention.
+
+## The benchmarks are Anthropic's
+
+Every number comes from Anthropic's published evals.
+80.3% SWE-Bench Pro, 29.3 FrontierCode, 88.0%
+Terminal-Bench. Not independent tests. The starred
+rows for cybersecurity and biology are Mythos 5
+scores. Fable 5, with safeguards active, performs
+closer to Opus 4.8 on those tasks.
+
+Marketing is cleaner than reality.
+
+## Where this lands
+
+Fable 5 is a specialist tool. Reach for it when
+Opus 4.8 has plateaued. Long-running, multi-stage,
+complex enough that 2x pricing is justified by 10x
+time savings.
+
+For everything else, Opus 4.8 is half the price,
+faster on routine work, and doesn't have safety
+classifiers tripping over security questions.
+
+
+---
+
+## Realisation of Unfixable
+
+Published: June 9, 2026
+URL: https://iaziz786.com/blog/realisation-of-unfixable/
+
+I talked about realising how rare things in life are unfixable so I can take actions.
+
+
+Tell me, what’s in the world is unfixable?
+You will take some time to think and the answers that you come up with are the things that happens very rarely in the world. The list might contain death, passed time, environmental extinctions, entropy, etc.
+
+I bet the list isn’t that huge and that’s what the point I’m trying to make here.
+
+If the list is this small that means you can do things dude!
+
+Whenever I work on things, I use to fear that what if I hit a dead end and there is no going back from there. It’s just a feeling and far from the reality. I am a software developer, I can rarely work on things that’s not fixable. The systems that we work on are infinitely malluable. That’s why tinkering and hacking is so fun. It feels like a game but it can become a reality as well. Take Apple for example, it was Wozniak’s project that has become world’s one of the most valuable company.
+
+There are a few reasons why something feels unfixable. One reasons is I fear facing criticism that something that I create sucks.
+
+You can spend your times on things that might not work out well for you. In this case time is a scares resources.
+
+If you don’t have agency, start building and stop consuming less.
+
+If you can build personal relationship with someone capable and help them convince your vision together as a team you can do that’s unthinkable. You two (or many) don’t even know what you can create if you keep open mind. I believe that you can create highly creative and inspiring things.
+
+The story of Apple also brings one important epiphany. You need to learn to sell your idea to make it big. I don’t know about magic tricks but creating urgency out of thin air is fascinating. In order to do this you need to show people what they can’t see. This is why storytelling is important. Remember the phase “show, never tell”?
+
+
+---
+
+## Your Next Idea Isn't in Your Head, It's in Your Browser Tabs
+
+Published: April 28, 2026
+URL: https://iaziz786.com/blog/your-next-idea-isnt-in-your-head-its-in-your-browser-tabs/
+
+A nice way to get unstuck about finding good ideas
+
+
+I’m going to show you how to find great ideas, the kind that are already hiding in plain sight, right next to you.
+
+I struggle with ideas. Especially good ones.
+And I know I’m not the only one who wakes up thinking:
+
+“What should I work on?”
+
+After thinking about this a lot, I realized something simple:
+
+> An idea is just a solution to a problem.
+
+So instead of chasing ideas, start noticing problems.
+
+Here's a simple system that worked surprisingly well for me.
+
+## A Tab at a Time
+
+Look at your browser right now.
+
+Too many tabs open?
+
+Good.
+
+Pick any one of them and ask yourself:
+
+> How can I do what I’m supposed to do here faster and more accurately?
+
+This one question is powerful.
+When I started doing this, my idea list didn’t just grow, it exploded.
+
+### Capture the End Goal
+
+Don’t get stuck in what people are doing.
+Focus on what they’re trying to achieve.
+
+For example:
+
+* Gmail: People are trying to figure out what to do next
+* Slack: Teams want alignment and clarity on execution
+* OTPs: How to verify human identity
+* Phone: What needs my immediate attention
+
+It’s not about the tool. It’s about the intent.
+
+### Group Them
+
+Now take it a step further.
+
+Group similar tabs together.
+
+Same type of tools, same workflows, same purpose.
+
+Then ask the same question again.
+
+You’ll start noticing patterns and more importantly, gaps.
+
+Your goal here is simple:
+
+> Extract common problems.
+
+And trust me, there are always more than you expect.
+
+### Listen to What People Are Saying
+
+Every product has a community.
+
+Forums, Reddit, Discord, Twitter, people are constantly talking.
+
+Complaining. Suggesting. Struggling.
+
+If you want to move faster, use LLMs to scrape and summarize these conversations.
+You’ll save hours and uncover insights you would probably miss manually.
+
+## What to Actually Build (Filters)
+
+Having ideas is easy.
+Choosing the right one is hard.
+
+Here’s how to filter them:
+
+### Is There New Tech Unlocking This?
+
+Ask yourself:
+
+“Is something now possible that wasn’t possible before?”
+
+That’s where big opportunities live.
+
+AI is a perfect example, but don’t force it everywhere.
+
+Not every problem needs AI.
+Pick the right tool for the job.
+
+### Can You Actually Finish It?
+
+Let’s be honest.
+
+Most projects don’t get finished.
+
+The ratio is heavily skewed.
+
+So be picky.
+
+Don’t jump randomly between ideas.
+And on low motivation days?
+
+Do the smallest thing possible.
+
+Even fixing a typo counts.
+
+### Does It Connect With a Community?
+
+Building for a community changes everything.
+
+It gives you feedback, motivation, and direction.
+
+For me, that’s cloud and self hosting.
+That’s what drives me and led me starting my company.
+
+If you want better ideas:
+
+> Stop just browsing. Start engaging.
+
+Talk to people. Observe them. Understand them.
+
+The easier it is to interact with your audience, the more valuable insights you will get.
+
+## Final Thought
+
+Good ideas aren’t rare.
+
+They’re just overlooked.
+
+They’re sitting in your tabs, your tools, your daily frustrations.
+
+All you have to do is pay attention.
+
+---
+
+I hope you enjoy this process as much as I did.
+
+If you try it, I would genuinely love to hear what you discover.
+
+
+---
+
+## Why Urgency Is Your Friend
+
+Published: December 17, 2025
+URL: https://iaziz786.com/blog/why-urgency-is-your-friend/
+
+I finally understood why urgency is important.
+
+
+I used to be confused about why urgency is so important in founders. Why would you execute like you’re going to die tomorrow?
+
+I think it’s linked to human behaviour and how we choose to pick and work on something.
+
+See, we all have dreams; many of us dare to execute upon those dreams. I am not aware of the exact percentage, but I believe it’s somewhere between 40–50%. At least some effort is made. It’s a good number, and it is great to see when people struggle for it. What I want to highlight is the next step: how many keep working on those dreams constantly? I think the number won't even be in the single digits. It will be in decimal points that start with zero.
+
+There are two things that make this number such a drastic difference: either you lack feedback with right dopamine, or the idea—which feels novel and exciting at first—stops feeling that way. I won’t give you advice on how to get encouraging feedback, but here’s what you can do when an idea strikes you: stop everything and just work on it. Notice that time is your enemy here. If you let it hang, you are basically letting it die.
+
+> Inspiration is perishable.
+
+There is another way to let your idea grow which is more long-term: having a belief so strong that it drives you by itself. To reach this point, you need to school yourself well. This foundation must be built on strong data. It must be so strong that it almost feels like a delusion to others, but it definitely isn’t.
+
+It’s okay if the initial foundation isn't strong regarding your new spark. But it needs to polarise, either into flames or ashes; the sooner the better. If it becomes a flame, all it requires is your energy and discipline.
+
+The rest will be an amazing journey.
+
+
+---
+
+## Keep Working On Wrong Ideas
+
+Published: October 5, 2025
+URL: https://iaziz786.com/blog/keep-working-on-wrong-ideas/
+
+Here is my take on completing your personal projects.
+
+
+It’s important to ask what you should be working on.
+But since most side projects are abandoned — is that even the right question
+to start with?
+
+If you’re not pushing your work beyond the finish line, how do you know
+whether it’s good or bad? The excitement fades away, and you start
+questioning — is this a wrong idea?
+
+I want to tell you — you should **keep working on your wrong ideas**.
+
+## But why!?
+
+I don’t know — maybe I’m an idiot.
+An idiot who knows he’s not going to create something new or revolutionary.
+
+But I enjoy the process of creating software. The age of AI has only fueled that
+passion further.
+
+Now, I can clone a great open-source library, and within a few minutes of
+clauding gives me gold.
+
+I love recreating projects to understand what’s going on in the creator’s
+mind — why they made certain trade-offs, and why some approaches won’t have
+worked if I were building it myself. Those “aha” moments are addictive.
+
+My point is: now there’s one less reason to quit.
+If you get stuck, you can easily look at others’ implementations and get unstuck.
+
+Previously, it used to be so hard to even understand how a project was
+structured. Now, it’s a piece of cake.
+
+If you’re curious and know how to use AI well, you can sit for hours and watch
+your project take shape — something that used to take ages and kill your flow.
+
+## What is a wrong idea?
+
+You tell me. I won’t judge, and neither should others.
+
+> Without hard work, there are no wrong ideas.
+
+The good “wrong ideas” are the ones you **discover**, not the ones you ruminate on.
+
+And you discover them through the sheer amount of hard work you put in.
+You can’t just come on day 4 and decide it isn’t worth it
+
+## Over emphesize it
+
+If you’re a builder, overemphasize the output of your work.
+I have made the mistake of being too rational about it — it doesn’t pay as
+much as overstating it.
+
+Remember, _overemphasize_ doesn’t mean being blind about it.
+Always critique your work.
+
+This is the path to developing **self-belief**.
+
+Sure, some ideas will be garbage — but you should still complete them.
+Why miss out on the return on investment?
+
+> The wrong ideas teach you more than the good ones ever will.
+
+And that’s what matters the most — **sustain, iterate, and be in the flow**.
+
+## Build crapy things and iterate
+
+I don’t expect myself to create my best work on the first go.
+If I did, I’d be lucky — but also doubtful.
+
+Like this blog post itself — I know it has many flaws, but I wanted to get it out.
+“I’ll do it later” usually means _I’ll never do it_.
+
+This isn’t written in stone, so I’ll keep updating it whenever I find
+something I don’t like.
+
+But the mantra is clear:
+
+> It's not crappy if you're still rolling the dice. It's crappy when you stop.
+
+## Thik about the antidote
+
+Who are you doing all this for?
+At least let it be for yourself.
+
+People might not use what you build. Build for yourself.
+
+My writing might suck, and people might not read it. Write for yourself.
+
+If judgment is your problem, then building for at least _yourself_ is the solution.
+
+
+---
+
+## Boring Work Needs Tension
+
+Published: September 14, 2025
+URL: https://iaziz786.com/blog/boring-work-needs-tension/
+
+We can make our work exciting by chasing the every day tension.
+
+
+We are all moved by great movies, cinematography, and stories. Watching them is fun because you can imagine yourself resonating with a character. You are thrilled by the tension the story creates and curious how it will be resolved.
+
+Many find software development a dull job where you have to write exactly what your PM or client asks for. It’s exciting at first, but it can become boring after a few iterations.
+
+> Whatever doesn't excite you, change it.
+
+When we, as developers, push ourselves to be protagonists, we discover many problems to solve — a lot of tension to resolve. Here are a few good problems for everyday devs:
+
+* Your CI/CD takes a huge amount of time because you forgot to leverage caching.
+* You forgot to add connection pooling and your service bombarded the database, causing too many open connections.
+* You misconfigured the garbage collector and now you have a memory leak that keeps growing.
+* If it takes you more than 3 seconds to understand what you wrote last week, it’s poorly written.
+* Latency is high for your users in Mumbai because your servers are in Singapore.
+* The database becomes very slow when you start dumping data in batches.
+* You want consistent API responses for read operations for users in both Mumbai and Singapore.
+
+These are not trivial problems; they happen every day. These are our villains — irritating, unwanted, and surprising. We should eliminate them.
+
+Pick your fight. This is one way to make your day exciting. If you can't tackle these at work, do it in your personal projects.
+
+If you chase the right tension, a story will follow.
+
+
+---
+
+## OOP is not Design Patterns
+
+Published: August 8, 2025
+URL: https://iaziz786.com/blog/oop-is-not-design-patterns/
+
+It's tough to build a design pattern thinking that fits rightly at the problem that you are solving.
+
+
+The OO concepts like inheritance, polymorphism, etc. they only provide you the building blocks. They don’t provide you with the ways of structuring your code. The design patterns are good at this. Not always, but certainly can help.
+
+Using design patterns you develop a common language with your stakeholders. Instead of lengthy explanation, you just provide a name which immediately clicks to their mind.
+
+Your language might not support all OO concepts. Take Go as an example, It doesn’t support inheritance. Does this means you can’t build reusable components, flexible schema, and maintainable code? You surely can! So main take away from here would be you build on top of design patterns even if you don’t have all OO elements.
+
+You as a junior developer, you need to know that not re-inventing a lot wheels will give you leverage. You as senior engineer has responsibility that your less experienced mates are not discovering what’s already discovered. That will be a wasteful experiment.
+
+Besides there are many criticism for the design patterns altogether. I know they are not an ideal choice. I can suggest you shouldn’t force them as defaults. The patterns means repetition and using them is art. Your brains has to click and it will do it only when you have done it many times.
+
+So I guess the initial hurdle is how to come out of that initial threshold?
+
+
+---
+
+## Self-hosted: WireGuard VPN Server on Ubuntu, with MacOS and Android Clients
+
+Published: May 25, 2023
+URL: https://iaziz786.com/blog/self-hosted-vpn-wireguard/
+
+You don't need to buy a VPN provider to get high performance VPN server.
+
+
+WireGuard is a modern, high-performance VPN designed to be easy to use while providing robust security. This guide will walk you through the steps to set up a WireGuard VPN server on Ubuntu, and connect to it using MacOS and Android clients.
+
+### Setting up the WireGuard VPN Server
+
+1. **Install WireGuard** on your Ubuntu server:
+
+   ```bash
+   sudo add-apt-repository ppa:wireguard/wireguard
+   sudo apt-get update
+   sudo apt-get install wireguard
+   ```
+
+2. **Generate the server keys**:
+
+   ```bash
+   umask 077
+   wg genkey | tee /etc/wireguard/privatekey | wg pubkey > /etc/wireguard/publickey
+   ```
+
+3. **Configure the VPN** in `/etc/wireguard/wg0.conf`:
+
+   ```bash
+   [Interface]
+   Address = 10.0.0.1/24
+   ListenPort = 51820 # standard port, change as you like
+   PrivateKey = (your server's private key)
+
+   PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+   PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+   ```
+
+4. **Enable and start the VPN**:
+
+   ```bash
+   sudo systemctl enable wg-quick@wg0
+   sudo systemctl start wg-quick@wg0
+   ```
+5. **Configuring Firewall** (optional): If your firewall blocks all ports by default you have to allow UDP connections on port **51820** as WireGuard uses UDP for its transport protocol.
+
+If you use **`ufw`** use the following commands.
+
+  ```bash
+  sudo ufw allow 51820/udp
+  ```
+
+Remember to enable the firewall if it's not already enabled:
+
+  ```bash
+  sudo ufw enable
+  ```
+
+### Connecting a MacOS Client
+
+1. **Install WireGuard** on your MacOS device. You can do this through the [App Store](https://apps.apple.com/us/app/wireguard/id1451685025?mt=12). Also, make sure that you have wireguard CLI install. You can do that by running homebrew command.
+
+  ```bash
+  brew install wireguard-tools
+  ```
+
+2. **Generate the client keys** in terminal:
+
+   ```bash
+   wg genkey | tee privatekey | wg pubkey > publickey
+   ```
+
+3. **Add the client's public key to the server's configuration**:
+
+   ```bash
+   [Peer]
+   PublicKey = (your client's public key)
+   AllowedIPs = 10.0.0.2/32
+   ```
+
+Restart the WireGuard service to apply the changes:
+
+  ```bash
+  sudo systemctl restart wg-quick@wg0
+  ```
+
+4. **Create the client configuration** in WireGuard on MacOS:
+
+   ```bash
+   [Interface]
+   PrivateKey = (your client's private key)
+   Address = 10.0.0.2/32
+   DNS = 10.0.0.1
+
+   [Peer]
+   PublicKey = (your server's public key)
+   Endpoint = (your server's IP):51820
+   AllowedIPs = 0.0.0.0/0
+   ```
+
+### Connecting an Android Client
+
+1. **Install the WireGuard app**: Open the Google Play Store on your Android device, search for WireGuard, and install the WireGuard app.
+
+2. **Generate a key pair**: Open the WireGuard app and tap the "+" button to add a new tunnel. Select "Create from scratch." This will create a new key pair for your Android client.
+
+3. **Configure the tunnel**: In the new tunnel configuration:
+
+    - **Name** your tunnel. This can be anything you like. It's just to identify the connection in your WireGuard app.
+    - The **Private key** should be automatically generated. Tap on the eye icon to view the key and the corresponding **Public key**. You'll need to add this Public key to your server's configuration later.
+    - For **Addresses**, enter the next IP address in your VPN's subnet. For example, if your server is `10.0.0.1` and your macOS client is `10.0.0.2`, you could use `10.0.0.3/32` for your Android client.
+    - Leave **DNS servers** empty for now.
+    - Under **Peer**, you'll need to add the Public key of your server, the **Endpoint** (your server's public IP address and the port WireGuard is listening on), and the **Allowed IPs**. For Allowed IPs, you can use `0.0.0.0/0` to route all traffic through the VPN, or use your VPN's subnet (`10.0.0.0/24` in this example) to only route internal VPN traffic.
+
+4. **Add the Android client to the server's configuration**: On your server, open the WireGuard configuration file (`/etc/wireguard/wg0.conf`), and add a new `[Peer]` section for the Android client. It should look something like this:
+
+    ```
+    [Peer]
+    PublicKey = ANDROID_PUBLIC_KEY
+    AllowedIPs = 10.0.0.3/32
+    ```
+
+    Replace "ANDROID_PUBLIC_KEY" with the Public key you generated on your Android device. Save the file and exit, then restart the WireGuard service to apply the changes:
+
+    ```
+    sudo systemctl restart wg-quick@wg0
+    ```
+
+5. **Connect**: Back on your Android device, you can now tap the toggle switch to connect to the VPN. If everything is configured correctly, it should connect successfully. You can verify your connection by checking your IP address (it should be your server's IP address if you're routing all traffic through the VPN), or by trying to access a resource on your VPN's network.
+
+### Speed Differences
+
+Depending upon the various factors you speed might vary with the VPN. Let's see how does the speed looks like for me. My VPN server is hosted in **Finland** and I'm using it from **India** so definitely there will be some latencies.
+
+#### Speed without VPN
+
+I'm getting **197.32 Mbps** download and **143.42 Mbps** upload speed out of my 200 Mbps connection without any VPN in place.
+
+
+#### Speed with VPN
+
+I'm getting **177.80 Mbps** download and **66.52 Mbps** upload speed out of my 200 Mbps connection with any VPN in place.
+
+👋🏼
+
+
+---
+
+## Work Like a CPU
+
+Published: May 11, 2023
+URL: https://iaziz786.com/blog/work-like-a-cpu/
+
+More focused, more efficient
+
+
+A CPU is one of the best creations of mankind. It helps you do tasks at an unmatched speed.
+It is a complicated piece of hardware but at its core, it does four things:
+
+1. **fetch** - the instruction from the RAM.
+2. **decode** - the fetched instruction to the actual action it needs to perform.
+3. **execute** - the decoded instruction.
+4. **store** - the execution results for future use.
+
+A modern CPU can do this **billions** of times in a second.
+
+This makes the CPU a very focused piece of technology. You have just to tell it to get this done and it will get it done. Period.
+
+## Collect -- Your Instructions
+
+If you don't know what you are going to achieve that day, how can you identify what is causing the blocker for it?
+
+> Clarity in life is bliss.
+
+Therefore it is extremely important before you start a day you should have the tasks prepared.
+There is no retrospection if don't know what you were supposed to do. 
+
+Whatever works for you, on paper or digital format, a todo-list or a calendar event, always know your tasks.
+
+In the collect phase, you might need to research before you start executing.
+And researching can also be a task in itself.
+Focused research will require you to shut off from others.
+
+## Shut Off -- Focus Execution
+
+Once you got the clarity about the tasks at hand it's time to lose yourself in the execution.
+
+In your mind always think about the next steps that you need to do.
+Keep executing those tasks.
+One after another.
+Just like the "fetch-decode-execute" of the CPU you are in a constant loop of execution.
+
+At times you might lose focus, maybe you start thinking about that new phone that just got launched or someone has pinged you. RESIST these aberrations!
+
+## Despise -- Context Switches
+
+When a CPU does context switches it has to wait, and while it happens it doesn't do anything.
+The precious CPU time (cycles) gets lost doing nothing.
+
+This is true for humans as well. When your context switch, you shift your attention, and you lose your train of thought.
+This can increase the chances of:
+
+* making mistakes
+* decrease productivity
+* have mental fatigue
+* longer completion time, hence increasing stress.
+
+We can do multitask but we are not good at it.
+
+## Shifting -- Gears of Focus
+
+Whatever you do you can't completely avoid context switching.
+
+Sync-ups might be inevitable, discussions might be necessary and follow-ups might be required.
+When you do these at least prepare your brains that it's going to happen.
+Have a dedicated time frame in which you won't go too deep into your tasks.
+
+Keep thing things loose.
+
+## Conclusion
+
+Focusing on your work is one of the most important things.
+You should have time slices in which you work in full dedicated mode and loose mode.
+Don't mix both of them.
+
+In the dedicated mode keep executing your tasks one by one just like a CPU does.
+But also keep a dedicated time for context switching like meetings and follow-ups and do those in only those time frames.
+
+
+---
+
+## Unleash Your Potential As a Brand
+
+Published: April 28, 2023
+URL: https://iaziz786.com/blog/branding-yourself/
+
+Developing Your Ethical Framework.
+
+
+Who are you?
+
+You might state your profession to answer this.
+
+I argue, to answer this, consider yourself as a **brand**.
+
+## Why branding yourself is important?
+
+Brand value is the top priority for an organization. They are very sensitive about it. It is important because it creates _trust_. No one will transact with a company on which they don't trust.
+
+But It isn't limited to organizations only.
+> You too are trustworthy because of your brand.
+
+You don't care to think, but, your actions are getting monitored by everyone you interact with. You do it too, hence as humans, they also create an image of yourself based on your behavior in each situation.
+
+They associate your name with few bullet point about yourself in their mind.
+
+This all may look like I'm telling you to be a people pleaser, right?
+
+No, You should never do that!
+
+## How to become a brand without being a people pleaser?
+
+You need to have ethics before you start creating a brand. You cannot sail to the right destination without having the correct map.
+
+> You are result of your ethics and your honesty towards them.
+
+When you have ethics, you dictate what people think about yourself. Again, it's less about others' perception and more about taking control.
+
+It is natural to occasionally falter in upholding your ethics, but it is crucial to learn from these instances and make necessary adjustments. It's not because what others will think about you, but you cannot let down the most important person on earth -- _yourself_.
+
+> I can let down thousands of people and I don't care. But letting down the "I" is my biggest nightmare.
+
+## How to create ethics?
+
+Imagine you are on a stage, going to give a presentation about a product.
+The product is something you have been working for the last two and a half decades or your life.
+This is the most important presentation of your life because the product is _you_.
+
+Your ethics should drive the presentation for you.
+> We have found many ways to deliver great products. 
+> But we have hardly found many ways to deliver a great self.
+
+It will look like this for me:
+
+> _Ladies and gentleman, today I'm launching [MY NAME]:_
+> * _I am very competitive. I don't believe in mediocrity. Specially in things I am passionate about._
+> * _I follow "If you love something, become immersed in it" kind of mentality._
+> * _As a passionate techy, I can deliver almost all the step in a software creation flow. From the development to operation with full hands on experience._
+> * _I believe simplicity, quality, and faster iteration matter the most in software._
+> * _I believe discipline is the most important skill._
+> * _Even in my late twenties am delighted to tell you, I'm the most fit version of myself. Being healthy matters to me._
+> * _I prefer to live a minimalist life._
+>
+> -- My ethics
+
+In future posts, I will delve deeper into my personal ethics.
+In the meantime, I encourage you to develop a similar list of guiding principles.
+Go ahead, create your ethics and share with the world today.
+If you commit in public, maybe that will force you to follow your ethics.
+
+## Conclusion
+
+If you follow your ethics with true honesty, you will become an impactful brand.
+Keep your ethics list at the top of your mind.
+If anything you do doesn't align with your ethics, actively reject it.
+
+The most inspiring individuals are the one who have great ethics and adhere to it until they become a brand.
+
+
+---
+
+## Breaking Free: How I Self-Hosted My SMTP Server with Haraka
+
+Published: April 24, 2023
+URL: https://iaziz786.com/blog/self-hosted-smtp-haraka/
+
+Send thousands of emails per second at the cost of pennies.
+
+
+You use SMTP providers to programmatically send emails. I don't like these when using third-party SMTP providers:
+
+1. Sending emails is free, I won't pay a penny more than what's minimum.
+2. One small bug and you sent 10M emails. Oh no! MY MONEY!!!
+3. I'm pissed that Amazon SES rejected my request for an SMTP server. :(( 
+4. I won't know the internals--I know not everyone wants to know how SMTP works, but I do!
+
+Previously I've used [Postal][p], which is not simple but okay. Can I do better? Isn't why I'm writing this?!
+
+I found that Zerodha uses [Haraka][h] and [Karan][k]--their DevOps guy, mentioned it is easy-setup and performant.
+
+Enough Karan, I'm already convinced. Let's do this!!
+
+So I tried. I must say, it's darn simple!
+
+Before that, do you know...
+
+## 📧 The emails are sent on outbound port 25 & 465 and they are blocked by default?
+
+Get ready for an email adventure! Imagine sending an email from *you@example.com* to *myfriend@gmail.com*. By default, your server sends the email to port 25 or 465 of the receiver's email server. It's like a secret handshake between email servers, figuring out the correct address for gmail.com before delivering your message.
+
+But what if you want to host your own SMTP server to send those emails? Buckle up, because we're diving into the world of cloud providers! I've been using [Hetzner][hz], a fantastic value-for-money option. Now, most cloud providers are like overprotective parents – they block outbound ports 25 & 465 to prevent spamming.
+
+No worries, though! With Hetzner, it's like joining an exclusive club. After you pay your first bill, all you need to do is raise a ticket request, and they'll unblock those ports for you, just like that. It's like having the bouncer let you into the coolest party in town.
+
+So, gear up to host your SMTP server and send emails with freedom and style!
+
+## DNS Setup
+
+You need to DNS configuration to send the emails. The `MX` record should point to the IP of your server. When you send mail to `example.com`, the `MX` record is obtained. Wherever the MX records point it will eventually resolve to an IP address.
+
+That IP is used to send the mail on either port 25 or 465. I used ChatGPT-4 to explain you about MX record & SPF.
+
+{{< collapse summary="How do you set up an MX record?" >}}
+An MX (Mail Exchange) record is a type of DNS record that specifies the mail servers responsible for receiving emails on behalf of your domain. To set up an MX record, follow these steps:
+
+1. Log in to your domain registrar or DNS hosting provider's control panel.
+
+2. Navigate to the DNS management section.
+
+3. Create a new MX record with the following details:
+   - Name/Host: Leave this field empty, "@" or enter your domain name, depending on the requirements of your DNS provider. This ensures that the MX record is added to the root level of your domain (e.g., example.com).
+   - Type: Select "MX" as the record type.
+   - Value: Enter the fully qualified domain name (FQDN) of your mail server. For example, "mail.example.com".
+   - Priority: Assign a priority to the mail server. Lower numbers have higher priority. If you have multiple mail servers, the receiving server will attempt to deliver the email to the one with the highest priority first, and then move on to the others in case of failure.
+
+4. Save the MX record: Click on the "Save" or "Add Record" button to save the new MX record. The DNS changes may take some time to propagate.
+
+Here's an example of an MX record configuration:
+
+- Name/Host: @ (or your domain name)
+- Type: MX
+- Value: mail.example.com
+- Priority: 10
+
+If you have multiple mail servers, you can add additional MX records with different priorities. For example:
+
+- Name/Host: @ (or your domain name)
+- Type: MX
+- Value: backupmail.example.com
+- Priority: 20
+
+In this case, the receiving server would try to deliver emails to "mail.example.com" first, and if that fails, it would attempt delivery to "backupmail.example.com".
+
+After setting up your MX record, your domain will be able to receive emails through the specified mail servers. Ensure that your mail servers are properly configured to accept emails for your domain and deliver them to the appropriate mailboxes.
+
+*-- by ChatGPT*
+{{< /collapse >}}
+
+At this point, it should be enough to add the MX record but we should tackle email spoofing and phishing as well. You require SPF for that. It's one of many methods to prevent those.
+
+{{< collapse summary="What is SPF?" >}}
+Sender Policy Framework (SPF) is an email authentication protocol designed to prevent email spoofing and phishing attacks by verifying that an email message is sent from an authorized mail server.
+
+Here's how SPF helps prevent email spoofing and phishing attacks:
+
+1. Domain owner publishes an SPF record:
+The domain owner creates an SPF record in their domain's DNS settings. This record lists all the authorized mail servers (IP addresses or hostnames) that are permitted to send emails on behalf of the domain.
+
+2. Email is sent from a mail server:
+When a mail server sends an email on behalf of the domain, the email includes the sender's domain and the IP address of the sending server in the email header.
+
+3. Receiving mail server checks SPF record:
+When the receiving mail server gets the email, it checks the sender's domain for an SPF record. If the SPF record exists, the receiving server compares the sending server's IP address or hostname against the authorized mail servers listed in the SPF record.
+
+4. SPF validation result:
+There are three possible outcomes of the SPF validation:
+
+   - Pass: The sending server's IP address or hostname matches an authorized server in the SPF record. The receiving server accepts the email, and it is less likely to be flagged as spam or phishing.
+   - Fail: The sending server's IP address or hostname does not match any authorized server in the SPF record. This suggests that the email could be a spoof or phishing attempt. The receiving server may reject the email, flag it as spam, or apply additional scrutiny.
+   - Neutral or other results: In some cases, the SPF record may be misconfigured or not definitive. In these cases, the receiving server may apply other mechanisms to determine the legitimacy of the email, such as DKIM (DomainKeys Identified Mail) and DMARC (Domain-based Message Authentication, Reporting, and Conformance).
+
+By setting up an SPF record, domain owners can help protect their domain from being used in email spoofing and phishing attacks. This makes it more difficult for attackers to impersonate a legitimate domain, ultimately reducing the effectiveness of these types of attacks.
+
+*-- by ChatGPT*
+{{< /collapse >}}
+
+{{<collapse summary="How to add SPF to DNS record?">}}
+To add an SPF record to your domain's DNS settings, follow these steps:
+
+1. Log in to your domain registrar or DNS hosting provider's control panel.
+
+2. Navigate to the DNS management section.
+
+3. Create a new TXT record with the following details:
+   - Name/Host: Leave this field empty, "@" or enter your domain name, depending on the requirements of your DNS provider. This ensures that the SPF record is added to the root level of your domain (e.g., example.com).
+   - Type: Select "TXT" as the record type.
+   - Value: Add the SPF record value. The value should start with "v=spf1" and list the authorized mail servers or IP addresses, followed by an action for unauthorized servers.
+
+Here's an example of an SPF record value:
+
+```
+v=spf1 ip4:192.0.2.0/24 ip4:198.51.100.0/24 include:_spf.example.net -all
+```
+
+This SPF record value has the following components:
+
+- `v=spf1`: This indicates the SPF version being used, which is version 1.
+- `ip4:192.0.2.0/24`: This authorizes the IP addresses in the range 192.0.2.0 to 192.0.2.255 to send emails on behalf of the domain.
+- `ip4:198.51.100.0/24`: This authorizes the IP addresses in the range 198.51.100.0 to 198.51.100.255 to send emails on behalf of the domain.
+- `include:_spf.example.net`: This includes the SPF record of another domain (example.net) and authorizes its mail servers to send emails on behalf of your domain. This is useful when using third-party email services.
+- `-all`: This indicates that any mail server not listed in the SPF record is not authorized to send emails on behalf of your domain. The receiving server should mark such emails as a hard fail. If you want a soft fail, use `~all` instead.
+
+4. Save the TXT record: Click on the "Save" or "Add Record" button to save the new SPF record. The DNS changes may take some time to propagate.
+
+Once you have added the SPF record to your domain's DNS settings, receiving mail servers will check it when they receive emails from your domain. This helps protect your domain from email spoofing and phishing attacks by verifying that emails are sent from authorized servers.
+
+Remember to update your SPF record whenever you add or remove mail servers or third-party email services that send emails on behalf of your domain.
+
+*-- by ChatGPT*
+{{< /collapse >}}
+
+This will be enough for the DNS related changes. We can move ahead with the Haraka setup now.
+
+## Setup Haraka
+
+### 1. Installation
+
+It's a CLI tool and you can install it with NPM.
+
+```sh
+sudo npm install -g Haraka
+```
+
+Now you can use the `haraka` from your CLI. Next, create a folder which Haraka will use to start the server.
+
+### 2. Folder & Files
+
+The setup starts here. At first, Haraka needs a folder where it holds all files it requires.
+
+```sh
+haraka -i /var/local/your-smtp-folder
+```
+
+In Haraka's lingo, it is called creating the service. It gives you a few files and folders to work with. We need to tweak a few of them to work for our domain.
+
+If your email address is `you@example.com` you need to put your `example.com` to the `config/host_list` file. Just put your domain name in plain text, simple as that.
+
+You can put a subdomain as well. I like the mail domain as `mailer.example.com`.
+
+### 3. You Need Plugins
+
+Haraka uses plugins do to almost everything. Hence, to send emails you also need plugins. We need two plugins for now:
+
+1. [`tls`][t] -- Haraka uses port 587 to send mails. It is like port 443 of HTTP. Therefore it requires TLS for security.
+2. [`auth/flat_file`][a] -- This is for user credentials management. You shouldn't use it in production instead use [auth-enc][ae] plugin.
+
+#### 3.a. TLS Setup
+
+I won't go too deep into this topic but the steps below will help.
+
+I've used [ZeroSSL][z] because they're free and simple. You've to rotate the certificates every 90 days though. But there is a way to [automate it][za].
+
+Eventually, you will have three files, `ca_bundle.crt`, `certificate.crt`, and `private.key`. You need to generate a new file combining these three files.
+
+The order here is important, so **follow the order** of the `cat` command.
+
+```sh
+cat private.key certificate.crt ca_bundle.crt > config/tls/example.com.pem
+```
+
+The `config` folder here resides in the folder which the `haraka` command generated for you on [step 2](#2-folder--files).
+
+#### 3.b. Auth User Setup
+
+You need to create a `config/auth_flat_file.ini` file. Put this content inside it. Don't forget to change `testpassword` with a stronger password.
+
+```ini
+[core]
+methods=PLAIN,LOGIN,CRAM-MD5
+
+[users]
+you@example.com=testpassword
+```
+
+### 4. Check If All Works
+
+You must be done at this point. There are lots of tools to check SMTP. I'm going to use `swaks`.
+
+```sh
+swaks --tls --to myfriend@gmail.com --from you@example.com --server example.com --port 587 --auth-user you@example.com --auth-password testpassword
+```
+
+This command sends a test mail to `myfriend@gmail.com` from `you@example.com` using `example.com` on secure port `587` using `you@example.com`'s credentials with password `testpassword`.
+
+Here is a service file which you can use with systemd for the Haraka process management.
+
+```service
+[Unit]
+Description=Running Haraka mail servers
+After=network.target
+Wants=network-online.target
+
+[Service]
+Restart=always
+Type=simple
+ExecStart=/usr/bin/sudo /usr/bin/haraka -c /var/local/your-smtp-folder
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Change the `/var/local/your-smtp-folder` to the location where you've created the Haraka service.
+
+## Conclusion
+
+At the start I mentioned setting up an SMTP server is darn simple. Maybe you might find it a little intimidating. I understand you. I'm a nerd who wants to know the internals. You might not. Feel free to use whatever is your preference. Easy or a more hands-on setup like this post. I wrote this for my future self and also for people who like to get intimidated. Who push to understand the systems they work with.
+
+And for those who do, you will find that setting up this may require only one hour. In my case the only time taking process was to wait to unblock port 25 & 465 from Hetzner. Once it had, everything flows smoothly.
+
+If you face any issue and wants to talk to me, just hit me up on Twitter.
+
+Twitter: [iAziz786][tw]
+
+[h]: https://github.com/haraka/Haraka
+[k]: https://mrkaran.dev/
+[p]: https://github.com/postalserver/postal
+[t]: https://haraka.github.io/plugins/tls/
+[a]: https://haraka.github.io/plugins/auth/flat_file
+[ae]: https://github.com/AuspeXeu/haraka-plugin-auth-enc-file
+[z]: https://zerossl.com/
+[za]: https://github.com/zerossl/zerossl-bot
+[tw]: https://twitter.com/iAziz786
+[hz]: https://www.hetzner.com/
+[mx]: https://blog.lemlist.com/how-to-setup-mx-records/
+
+---
+
+## Small Simple Solutions Scale
+
+Published: October 2, 2022
+URL: https://iaziz786.com/blog/small-simple-solutions-scale/
+
+You don't need to complicate to scale to billions of people.
+
+
+## What kills a developer's productivity?
+
+> Over engineering, for sure.
+
+**You read tech blogs from companies which are massively bigger than you**. And make
+technical decisions trying to ~~understand~~ _copy_ their style and architecture.
+
+You are missing the point!
+
+A good presentation is like a good story to be told. A story in which they fight an obstacle.
+Most people think that the same obstacle is going to bite them in future.
+
+And a good presenter stated that this decision has "worked well for us". It means
+that it will not be fit for _everybody_ but they have happened to benefit from it.
+
+**A good engineering team start lean and simple to their current architecture**. And that should be
+the goal of any technical decision.
+
+## Have your own story to tell
+
+If you go and ask any good company what made them successful (depends on your definition)
+they will never say _because we copied that other company_.
+
+**Instead most of the time they will have their unique recipe**.
+
+> **It will be very hard to have your distinctive path without starting simple**.
+
+When you hit any roadblock with this approach at least it will be satisfying to
+know that the simplest solutions don't work. Even in that situation though, you should
+look for a solution which is again simple.
+
+I am sure if you start with this, pretty soon you will have your unique tech stack or
+maybe not so unique, which can scale easily to serve your needs.
+
+## Case Study
+
+Let's keep the name of the company till the end. But in 2016 they were serving this:
+
+- 42 Billion messages / day
+- 1.6 Billion pictures / day
+- 250 million videos / day
+
+They must have grown since then.
+
+Their tech stack looks like this.
+
+- Erlang (Programming Language)
+- FreeBSD (Operating System)
+- SoftLayer (Hosting)
+
+If you see their tech stack is a little unconventional. And this is what I am trying to
+say through this blog. Don't pick things because some shining-looking company have done it. Do what is right for you. And to find what is right for you, start simple!
+
+The company is WhatsApp by the way.
+
+### Reference
+
+https://developers.facebook.com/videos/f8-2016/a-look-at-whatsapp-engineering-for-success-at-scale/
+
+--
+
+
+---
+
+## How to Get a Free PostgreSQL* Database?
+
+Published: July 2, 2022
+URL: https://iaziz786.com/blog/free-cockroachdb-server/
+
+Relation databases are fit for more general workload than NoSQL database. Know how you can get your own  PostgreSQL* server for free.
+
+
+### Sign Up to Cockroachlabs Cloud
+
+Go to the [cockroachlabs.com](https://www.cockroachlabs.com/) and create your account.
+
+### Create a Cluster on their Cloud
+
+After successfully login you will see an option to create the cluster.
+ * Click on the _Create Cluster_.
+ * Select Serverless on the plan section.
+ * Configure other options like Cloud provider, Regions, Spend limit, and the Cluster name as you like.
+ * Next, click on the _Create your free cluster_.
+
+You get a cluster with **5 GB** of storage space.
+It is ~10x more than the offering from MongoDB Atlas.
+
+### Create the DB User
+
+After the cluster creation it will ask you to create the user.
+Enter the username you like and generate the password for that user.
+
+Copy the generated password for future use.
+
+### Get the Connection String
+
+Now that your are ready to connect to the database, click on the Connect button for the connection URL.
+It will have the `postgresql` dialect and all the other details except the password which you have copied from the previous step.
+
+> _There you have it! A PostgreSQL* cluster on cloud for free_.
+
+### *Does CockroachDB supports all the features of PostgreSQL?
+* No, there are few features which are not supported. Please refer to the [PostgreSQL Compatibility](https://www.cockroachlabs.com/docs/stable/postgresql-compatibility.html#unsupported-features) page for more info.
+
+---
+
+## One Step At a Time on Your Personal Projects
+
+Published: March 7, 2022
+URL: https://iaziz786.com/blog/sustainable-person-project-approach/
+
+Build tools for you
+
+
+## Build Tools for Daily Live
+
+I feel stuck on the personal projects that I work on. I can say with some confident that at some point you will feel or have felt the same. It just all starts with adrenaline rush which doesn't last longer.
+
+It is _very_ important that the projects you build excites you. Otherwise you will abandon it and feel guilty again!
+
+One way to keep the provocation going on is create what you need right now. Think about any mundane work and if you can automate it through coding just start doing it.
+
+> More mundane the work, bigger the drive to fix it.
+
+At the end you get a tool which helps you. Also which is created by you.
+
+## Others Can Benefit Too
+
+The problem which you are having there is a great chance others might be going through the same. If you manage to create that tool, open-souring it will help them too.
+
+
+---
+
+## How to Publish Your First Rust Crate?
+
+Published: November 17, 2021
+URL: https://iaziz786.com/blog/publish-first-rust-crate/
+
+With crates, you share your work with other developers, learn how to publish your first crate.
+
+
+## You Need an Account
+
+Before you start publishing any crate to crates.io, you first have to create an account.
+
+- Go to [crates.io](https://crates.io/)
+- Login with GitHub
+- Verify your Email
+
+## Then Login
+
+- Create a New Token form [Account Settings](https://crates.io/me) in the API Access section
+- Run the command you get to the login
+
+## Get Your Project Ready
+
+- Add the following fields in the Cargo.toml file
+  - license or license-file
+  - description
+  - documentation
+  - homepage or repository
+- You need to commit your work before publishing
+- Do a dry run by running
+
+```
+cargo publish --dry-run
+```
+
+- Fix any errors or warnings after the dry run
+
+## And Publish
+
+```
+cargo publish
+```
+
+### Let the World Use Your Crate :)
+
+
+---
+
+## How to Import Local Package in Golang?
+
+Published: May 10, 2021
+URL: https://iaziz786.com/blog/import-local-package-in-go/
+
+When you are developing a module, learn how you can import and test them in other go projects before publishing it.
+
+
+## Context
+
+While developing any go applications you might come into a situation where you need to use a module that is not yet ready to publish. The module might be living on your local machine and you wanted to get the taste of it using with other projects before shipping it. In this post, we will discuss what approach you can take to import a module that is still in development and before publishing it to the package registry.
+
+We will write a simple project which takes a string and returns a boolean whether the string is valid [IP address][1] or not. The functionality is not that important but the important part is how we integrate it into another project while _still making changes_ to the project.
+
+## Projects Layout
+
+To keep things simple, I have created two projects which live side by side. The `wip-module` project is the unpublished one and the `tester-module` is the one in which will import the unpublished `wip-module` project. You can find the folder structure on [Github][github-unpublished-link].
+
+<p></p>
+<Image src="./images/two-folders.png" />
+
+## WIP Project
+
+The `wip-module` is a simple go module that holds the implementation of checking whether the IP is valid or not. Let's look into the file:
+
+wip-module/ipchecker.go
+
+```go
+package ipchecker
+
+import (
+    "net"
+)
+
+func IsValidIP(host string) bool {
+    if ip := net.ParseIP(host); ip != nil {
+        return true
+    }
+
+    return false
+}
+```
+
+This module does not have the main package which means it was intended to be used as a library in other projects.
+
+## Tester Project
+
+This is the project which will import the `ipchecker` package. Here is how it looks:
+
+tester-module/main.go
+
+```go {hl_lines=[6]}
+package main
+
+import (
+    "fmt"
+
+    ipchecker "github.com/iAziz786/wipmodule"
+)
+
+func main() {
+    fmt.Println("valid IP = ", ipchecker.IsValidIP("127.0.0.1"))
+    fmt.Println("valid IP = ", ipchecker.IsValidIP("invalid-ip"))
+}
+
+// Output:
+// valid IP =  true
+// valid IP =  false
+```
+
+As you can see it's using the `ipchecker` package from the `github.com/iAziz786/wipmodule` module. At this point, if you run the `tester-module` program you will see an error related to the package. Let's glue them together!
+
+## Using Unpublished Modules
+
+Before we do anything let's look at the `go.mod` file of the `tester-module`.
+
+tester-module/go.mod
+
+```go
+module github.com/iAziz786/testermodule
+
+go 1.16
+
+require github.com/iAziz786/wipmodule v0.0.0-unpublished
+
+replace github.com/iAziz786/wipmodule v0.0.0-unpublished => ../wip-module
+```
+
+Since the module is not published we gave it a version (`v0.0.0-unpublished`) that does not exist yet but to make things work correctly.
+
+The next step is to replace the import behaviour for the wipmodule. We can do this by telling the go compiler to replace the import for `github.com/iAziz786/wipmodule` with the local path of the module. Since they are siblings, I can use relative path dot (`..`) notation.
+
+```sh
+go mod edit -replace=github.com/iAziz786/wipmodule@v0.0.0-published=../wip-module
+go get -d github.com/iAziz786/wipmodule@v0.0.0-published
+```
+
+This will add a replacement in the `go.mod` of the `tester-module`.
+
+tester-module/go.mod
+
+```go
+module github.com/iAziz786/testermodule
+
+go 1.16
+
+require github.com/iAziz786/wipmodule v0.0.0-unpublished
+
+replace github.com/iAziz786/wipmodule v0.0.0-unpublished => ../wip-module
+```
+
+Can you notice a replace directive at the end of the file? It adds the logic to tell `go get` to use the implementation which is one level up in the `wip-module`.
+
+Now if you will run the program in the `tester-module` you will see this output:
+
+```sh
+$ cd tester-module
+$ go run .
+
+# Output
+valid IP =  true
+valid IP =  false
+```
+
+**Note**: Make sure to remove the replace directive from go.mod of the tester module before you commit your changes, otherwise `go get` will break in non-local environment.
+
+## Conclusion
+
+We have used the golang's module [replace directive](https://golang.org/ref/mod#go-mod-file-replace) to use the local go module which is not a published module to import it into the other projects.
+
+## Reference
+
+https://golang.org/doc/modules/managing-dependencies#unpublished
+
+https://golang.org/ref/mod#go-mod-file-replace
+
+[github-unpublished-link]: https://github.com/iAziz786/unpublished-go-module
+[1]: https://en.wikipedia.org/wiki/IP_address
+
+
+---
+
+## How to Work with Arbitrary JSON in Go?
+
+Published: December 30, 2020
+URL: https://iaziz786.com/blog/golang-arbitrary-json/
+
+Many times you come across JSON which has very arbitrary in structure, Learn how you can handle them to get to in Go
+
+
+## Abstract
+
+Mostly, when you are working with data you know the schema in which you will receive that data, but there come times when you don't know exactly what will be the structure you will end up receiving. We talk about how you can handle JSON data which are arbitrary in Go.
+
+## JSON with a Fixed Structure
+
+When you receive JSON for which you already know the structure, it is pretty easy to work with. You create a `struct` and unmarshal the bytes to that struct and the JSON package will take care of the rest. Suppose you receive information about today's dinner in JSON and everyday dinner has the following structure.
+
+```go
+type Dinner struct {
+    MainCourse   string  `json:"main_course"`
+    Beverage     string  `json:"beverage"`
+    HasDessert   bool    `json:"has_dessert"`
+}
+```
+
+And you receive the following JSON value:
+
+```go
+food := []byte(`
+{
+  "main_course": "Biryani",
+  "beverage": "Coca Cola",
+  "has_dessert": true
+}
+`)
+```
+
+You just need to create a variable which can hold the value from JSON.
+
+```go
+var dinner Dinner
+```
+
+Eventually, decode the values to the `dinner` variable like this:
+
+```go
+json.Unmarshal(food, &dinner)
+```
+
+Now, you can access those values through the fields on the struct. Lucky you, you have dessert for today 😋.
+
+```go
+dinner.MainCourse   // Biryani
+dinner.HasDessert   // true
+```
+
+## JSON That You Are Not Aware
+
+Let's diverge our mind from food to shopping list :). Now assume every weekend you go to purchase some grocery and the items in the list keep changing each week. If you have to represent that into a struct, you got no luck!
+
+Like almost everything in Go where so much randomness is evolved, you have to use interfaces. More particularly an empty interface. You can represent your shopping list like this:
+
+```go
+var shoppingList interface{}
+```
+
+Because an empty interface can satisfy any type you can use that to do Unmarshaling.
+
+```go {hl_lines=[15]}
+listJSON := []byte(`
+{
+  "food": {
+    "ketchup": "1pc",
+    "noodles": "1pc",
+    "rice": "2Kg"
+  },
+  "utensils": {
+    "knives": 2,
+    "forks": 3
+  }
+}
+`)
+
+json.Unmarshal(listJSON, &shoppingList)
+```
+
+At this point `shoppingList` looks like this:
+
+```go
+shoppingList = map[string]interface{
+    "food": map[string]interface{
+        "ketchup": "1pc",
+        "noodles": "1pc",
+        "rice": "2Kg"
+    },
+    "utensils": map[string]interface{
+        "knives": 2,
+        "forks": 3
+    }
+}
+```
+
+To access the data, you can make a type assertion to `map[string]interface{}`.
+
+```go
+list := shoppingList.(map[string]interface{})
+```
+
+After that, you can access the values like a regular map. But for the values that are nested, you **need to do a type assertion again**.
+
+```go
+utensils := list["utensils"].(map[string]interface{})
+
+utensils["forks"] // 3
+```
+
+## Conclusion
+
+You can handle arbitrary JSON with the help of interfaces. You just need to pass an empty interface to the Unmarshal function and the JSON data. After a type assertion, you are good to use the arbitrary fields and their values.
+
+
+---
+
+## How to Use Embedding to Write Cleaner Code in Go?
+
+Published: December 17, 2020
+URL: https://iaziz786.com/blog/clean-code-with-embedding-in-go/
+
+Know how borrowing a type can give you clean code
+
+
+## Abstract
+
+Go is cleaner because it doesn't support many of the features that tradition OO languages support. _Less is more_. Inheritance is one of those features but Go has a different style which can fulfil the necessity of inheritance. It's called Embedding.
+
+## What is embedding
+
+You can "borrow" the functionality of a struct or interface into another struct and interface respectively is called embedding. You can not embed an interface into a struct or vice versa.
+
+## How to create embedding
+
+To create an embedding you need to put a different struct or interface into a different one without naming the field.
+
+```go {hl_lines=[6, "18-19"]}
+type Morning struct {
+  breakfast bool
+}
+
+type Routine struct {
+  Morning // ⬅️ no field name makes it embedded
+}
+
+type Director interface {
+  Direct()
+}
+
+type Producer interface {
+  Produce()
+}
+
+type Creator interface {
+  Director
+  Producer
+}
+```
+
+## Embedding In Interface
+
+Interface when embedded is the union of all the methods present in all of the interfaces combined. If method `Eat()` is present on an interface and `Sleep()` on another then embedding them into an interface with `Repeat()` method will have all, `Eat()`, `Sleep()`, and `Repeat()` methods.
+
+## Embedding In Struct
+
+Embedding in a struct is where you can see the real power of Go. Not only the fields that [defined type](https://golang.org/ref/spec#Type_definitions) has but also the methods you can access them directly. How cool is that! Let's continue with our Routine struct.
+
+```go {hl_lines=["5-7",15]}
+type Morning struct {
+  breakfast bool
+}
+
+func (m Morning) hasBreakfast() bool {
+  return m.breakfast
+}
+
+type Routine struct {
+  Morning
+}
+
+r := Routine{}
+
+r.hasBreakfast() // false
+```
+
+You also the embedded type will be a field name on the struct. For example, you can have:
+
+```go {hl_lines=[9]}
+type DailySports struct {
+  Jog            // field name Jog
+  *Swim          // field name Swim
+  sports.Cycling // field name Cycling
+  *sports.Tennis // field name Tennis
+}
+
+func (d DailySports) enrolledBySwimming() bool {
+  return d.Swim.Speed
+}
+```
+
+But you cannot have conflict while embedding. This makes sense otherwise you won't know which one to pick.
+
+```go
+struct {
+  *Swim         // ⛔ Now allowed
+  *sports.Swim  // ⛔ Not allowed
+}
+```
+
+You can do all the things you can with the promoted fields but you can not use the field name present in the defined type while constructing the struct.
+
+```go {hl_lines=[9]}
+type Morning struct {
+  breakfast bool
+}
+
+type Routine struct {
+  Morning
+}
+
+r := Routine{breakfast: true} // ⛔ Not allowed
+```
+
+## Conclusion
+
+You can use embedding to use any defined type to used inside a struct and borrow all the functionality it has. You need to check that the names don't clash otherwise you are good to go.
+
+## Reference
+
+1. https://golang.org/doc/effective_go.html#embedding
+2. https://golang.org/ref/spec#Struct_types
+
+
+---
+
+## How to Handle Missing Fields From A Struct in Go?
+
+Published: December 9, 2020
+URL: https://iaziz786.com/blog/handle-missing-struct-fields/
+
+If you want to remove the struct field which is not present while unmarshalling JSON
+
+
+Suppose you have a variable of type of the struct mentioned below which you
+wanted to `Unmarshal`.
+
+```go
+type Building struct {
+	WindowCount int `json:"window_count"`
+	Doors       int `json:"doors"`
+}
+```
+
+In case the data is coming from an unreliable source, you can never be sure
+that the value you will receive will always have the correct format. You
+have to be cautious when working around data like this. If you are new in Go
+you might be wondering what will happen you `Unmarshal` and incorrect value?
+
+## Compiler Loves Zero Values
+
+If you unmarshal the code into a variable you will get the [zero value](https://dave.cheney.net/2013/01/19/what-is-the-zero-value-and-why-is-it-useful) for the fields
+`WindowCount`, and `Doors`. Which in some case can lead to bug because
+you might have different logic for missing case.
+
+```go
+
+var b Building
+json.Unmarshal([]byte(""), &b)
+
+fmt.Printf("%+v\n", b)
+
+
+// Output:
+// {WindowCount:0 Doors:0}
+```
+
+## Pointer To Rescue 🦸
+
+If you have worked with pointers in languages like C, C++ you might have some
+opinion. You either like it or you hate it. Most people fall into the later
+group. Working with pointers in Golang is fun because things are declarative
+comparatively.
+
+_If you set field type to pointer of that type it will be `nil` in case the
+field is missing_
+
+```go {hl_lines=["2-3"]}
+type Building struct {
+	WindowCount *int `json:"window_count"`
+	Doors       *int `json:"doors"`
+}
+```
+
+Unmarshalling it has the following effect:
+
+```go {hl_lines=[2,8]}
+var b Building
+json.Unmarshal([]byte(`{"window_count": 2}`), &b)
+
+fmt.Printf("%+v\n", b)
+
+
+// Output:
+// {WindowCount:0xc000016170 Doors:<nil>}
+```
+
+The `WindowCount` holds the pointer to integer which holds the value 2. Whereas
+since `doors` is missing from the JSON string it will set to `nil` thanks to
+the zero value of pointers. You can now write your logic in case of the absence
+of that value.
+
+## Conclusion
+
+Since the field of a struct is part of the contract of the struct it can't go
+missing entirely instead you need to handle it little differently. Most preferable
+way is to convert the type to a pointer of the same type and when in some case
+the value is missing it will be set to the zero value, which is `nil`.
+
+
+---
+
+## How to Auto Reload Golang Applications?
+
+Published: November 30, 2020
+URL: https://iaziz786.com/blog/golang-auto-reload-apps/
+
+Learn how to reload golang applications without too much manual work
+
+
+You wanted to develop quick, you wanted to develop fast and there is
+nothing more tedious for a developer than doing the same thing again
+and again.
+
+I really _HATE_ doing repetitive work. Probably that's why I become a programmer to automate the boring stuff.
+
+## Foundation (a server)
+
+I have been exploring Go, you might be aware since my previous post was
+written for itself. You can spin up a simple Go server with the following
+code.
+
+```go
+package main
+
+import "net/http"
+
+func handler(w http.ResponseWriter, r *http.Request) {
+  fmt.Fprintln(w, "hello")
+}
+
+func main() {
+  http.HandleFunc("/echo", handler)
+
+  http.ListenAndServe(":3000", nil)
+}
+```
+
+The above code creates a simple server that listens on port 3000 and if
+you hit `http://localhost:3000/echo` you will receive "hello" as a message.
+
+To run the go server we should run the command below
+
+```sh
+go run .
+```
+
+I call this the "tedious code". I don't care about it but I care what it
+does for me, it runs my application.
+
+## I want changes, right now!
+
+Now, if you do any changes to the code you have run the "tedious code" again, and again, and again...
+
+You get it 🙄
+
+If you are a lazy developer you must be thinking about what is the
+the better way to do it?
+
+Your computer can help you will that for sure.
+
+## Conventional way
+
+One of the most popular ways to auto-reload your application on any kind of change is by using [air](https://github.com/cosmtrek/air).
+
+It is written in, no surprise, Go.
+
+To install head over to their [installation](https://github.com/cosmtrek/air#installation) section. Do it, so that you can follow along. If you are feeling lazy then last time when I check their docs this was the command to do it.
+
+```sh
+curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
+```
+
+Is it done? Good.
+
+This command has two parts. First, to download the binary and second, to move the binary to Go's binary path. The binary path is at `$(go env GOPATH)/bin`.
+
+With all the things in place, you might be ready to start using the `air` command. But let's verify it first. Does the below command works?
+
+```sh
+air -v
+```
+
+If it is, great! If not and you might be getting a command not found error. Most probably the Go binary is not set to your shell's path. Usually, it's fixed by adding the below command to your shell's resource file (e.g. `.zshrc`, `.bashrc`):
+
+```sh
+export PATH=$PATH:$(go env GOPATH)/bin
+```
+
+Open a new shell after adding the above line so new changes are reflected. Now the previous command should be working.
+
+The next step, run the application! Move to the application which you want to run with the auto-reload feature and just start it with the command mentioned:
+
+```sh
+air
+```
+
+This will start your application and when you make any changes it will listen to those and reload it automatically.
+
+## Unconventional way
+
+If you are/were a JavaScript developer you might be familiar with the steps mentioned onwards.
+
+Firstly, you need to install [Node.js](https://nodejs.org/en/download/).
+
+I know, you must be thinking about how Node.js can help you to reload your Go code?
+Just bear with me and you will know how.
+
+Once Node.js is installed on your system you will be able to run the
+command below.
+
+```sh
+npm install -g nodemon
+```
+
+It will install a package called nodemon in your system and you will be
+able to run it from the command line.
+
+## Command to Auto Reload
+
+Now you can start you Go application with the command mentioned below.
+
+```sh
+nodemon --exec go run . --ext go
+```
+
+Let's break it down.
+
+It will watch for any files with `.go` extension in the current directory and if
+any change in the go files will execute the `go run .` command again.
+
+## Summary
+
+You can reload your server apps or any other app which needs a constant restart to reflect the changes by using tools like [air](https://github.com/cosmtrek/air) and [nodemon](https://nodemon.io/). Although both methods get your job done I personally use the `air` cli to reload my app because I find it fast and easier to use.
+
+
+---
+
+## Merge Sort In Go
+
+Published: August 16, 2020
+URL: https://iaziz786.com/blog/merge-sort-in-go/
+
+Using divide and conquer to build merge sort in Go
+
+
+## What is sorting?
+
+Sorting is a way to organize data in certain order.
+
+What are these orders?
+
+It depends on the task and also on the type of data we are working with. For
+example, for number you can sort them in ascending or descending order of their
+values. And for text you can do the same based on the occurrence their character.
+
+## What's a "merge" sort?
+
+It is a way to sort any data in which we divide the given task in subtasks
+(in half) and ultimately _merging_ those subtasks into one which gives us the
+sorted list of the data which we want.
+
+Here is a nice [gif](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif)
+from WikiPedia for more graphical explanation.
+
+It follows the
+[divide and conquer](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm)
+design paradigm.
+
+## 👨‍💻 Let's write code
+
+Suppose we have a list of array which holds integers. We will now write some Go
+code which will sort the integers using merge sort.
+
+Since merge sort uses divide and conquer technique, it recursively do a function
+call to itself with the subtask and eventually merge the subtask into a single
+value of the sorted data.
+
+This is how the merge step looks like.
+
+### 🧪 Writing the test case first
+
+```go
+package merge_sort
+
+import (
+	"reflect"
+	"testing"
+)
+
+func TestMergeSort(t *testing.T) {
+	var tests = []struct {
+		message string
+		in  []int
+		out []int
+	}{
+		{
+			"should return single value when input is single",
+			[]int{3},
+			[]int{3},
+		},
+		{
+			"should sort values in random order",
+			[]int{3, 1},
+			[]int{1, 3},
+		},
+		{
+			"should return empty array if the input is also empty",
+			[]int{},
+			[]int{},
+		},
+		{
+			"should sort values with duplication",
+			[]int{3, 2, 3},
+			[]int{2, 3, 3},
+		},
+		{
+			"should sort values with negative cases",
+			[]int{-9, 2, 3, -3},
+			[]int{-9, -3, 2, 3},
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.message, func(t *testing.T) {
+			MergeSort(tt.in, 0, len(tt.in) - 1)
+			if reflect.DeepEqual(tt.in, tt.out) != true {
+				t.Errorf("got %q, want %q", tt.in, tt.out)
+			}
+		})
+	}
+}
+```
+
+### Merge Step
+
+```go
+// Merge left and right arrays
+// start - start index of the array
+// middle - middle index of the array
+// end - end index of the array
+func Merge(input []int, start, middle, end int) {
+	itemsAtLeftSide := middle - start + 1
+	itemsAtRightSide := end - middle
+
+	// creating arrays which holds one extra element then the
+	// currently needed because of the sentinel assignment
+	left := make([]int, itemsAtLeftSide + 1)
+	right := make([]int, itemsAtRightSide + 1)
+
+	// allocate elements in the left side of the array
+	for i := 0; i < itemsAtLeftSide; i++ {
+		left[i] = input[start + i]
+	}
+
+	// allocate elements in the right side of the array
+	for j := 0; j < itemsAtRightSide; j++ {
+		// adding one because because j index is staring from zero
+		// which in most of the cases conflict with the value in
+		// the left array, adding one removes the conflict element
+		right[j] = input[middle + j + 1]
+	}
+
+	// sentinel assignments
+	left[itemsAtLeftSide] = math.MaxInt64
+	right[itemsAtRightSide] = math.MaxInt64
+
+	for i, j, k := 0, 0, start; k <= end; k++ {
+		if left[i] <= right[j] {
+			// assign what is at the top of the left array
+			input[k] = left[i]
+			i++
+		} else {
+			// assign what is at the top of the right array
+			input[k] = right[j]
+			j++
+		}
+	}
+}
+```
+
+### The Sorting Code
+
+In merge sort the main part where we divide the task in half is simple. The real
+meat is the merging step which we have mentioned above.
+
+```go
+func MergeSort(input []int, start, end int) {
+	if start < end {
+		// getting the middle value
+		middle := (start + end) / 2
+
+		// sort whatever in the left of the array
+		MergeSort(input, start, middle)
+
+		// sort whatever in the right of the array
+		MergeSort(input, middle + 1, end)
+
+		// merge left and right sorted values
+		Merge(input, start, middle, end)
+	}
+}
+```
+
+### Playground Code 🏌️‍♂️
+
+You can reach at the playground by [following the link](https://play.golang.org/p/OEE9daILbFz).
+
+
+---
+
+## Hello Internet
+
+Published: August 1, 2020
+URL: https://iaziz786.com/blog/hello-internet/
+
+This is my first blog post about launching my first site
+
+
+Hello World! Welcome to my space on the Internet. My name is Mohammad Aziz I'm a
+software developer at [Zoop.one](https://zoop.one). My role is as Full-Stack
+Developer. That means, I wear many of hats 🎩.
+
+Nowadays, I'm reading a book by [Shaw Wang](https://twitter.com/swyx) on
+[coding career](https://twitter.com/coding_career) and inspired by the book I
+decided to do what I wanted to do since about a year. I purchased
+https://iAziz786.com and started my journey today.
+
+I will start writing about the things I learn each day at work. Maybe I won't be
+writing about them each day but after a couple of days, combining my findings
+and write about. I hope you find this a interesting place to be at and I'll try
+to provide as valuable information possible.
+
+I'm keeping this blog short for now because I'm very tired today and also
+because I need to push these codes just now.
+
+To wrap up, this is the context about the platform. I'm a JavaScript
+developer that means you can expect posts about TypeScript, Node.js, React.js
+and may more things. I'm also interested in Go but don't use it more frequently
+at work so my experience with Go is not as good as JavaScript but it's
+improving.
+
+
+---
+
+
+## Pages
+
+
+### 
+
+URL: https://iaziz786.com/about/
+
+
+Grew up in Midnapore, West Bengal, India. Small town which is growing fast.
+
+I am curious to learn how the world works. Each day I'm discovering something new. The same curiosity brought me closer to computers. I find them fascinating and no less than magic.
+
+> Do not aim for being right, aim for being less wrong.
+
+Running [selfhost.dev](https://selfhost.dev?ref=iaziz786.com&utm_source=iaziz786.com&utm_medium=referral) with my co-founders. We help people host their own stuff without losing their minds.
+
+
+
+---
+
+### 
+
+URL: https://iaziz786.com/projects/
+
+---
+layout: single
+type: projects
+ShowToc: false
+ShowBreadCrumbs: false
+ShowReadingTime: false
+ShowPostNavLinks: false
+active:
+  - id: selfhost.dev
+    name: selfhost.dev
+    date: 2023-10-15
+    tech: ruby, hetzner
+    url: https://selfhost.dev?ref=iaziz786.com&utm_source=iaziz786.com&utm_medium=referral
+    description: Server management platform for self-hosters.
+    note: Shipping weekly. Solving my own pain.
+  - id: dotfiles
+    name: dotfiles
+    date: 2024-03-10
+    tech: shell, markdown
+    url: https://github.com/iAziz786/dotfiles
+    description: Terminal environment. Neovim, tmux, zsh.
+    note: Constant tweaks. Env changes daily.
+  - id: iAziz786.com
+    name: iAziz786.com
+    date: 2025-05-03
+    tech: hugo
+    url: https://iaziz786.com
+    description: This website. Terminal aesthetic.
+    note: Just rebuilt. Dark/light system aware.
+archived:
+  - id: time
+    name: time
+    date: 2023-08-12
+    tech: go, htmx
+    url: https://time.iaziz786.com
+    description: Track your life's time.
+    note: Stable. Last commit 2023-09. Not actively dev.
+  - id: go-retry
+    name: go-retry
+    date: 2021-06-15
+    tech: go
+    url: https://github.com/iAziz786/go-retry
+    description: Retry logic for Go.
+    note: Served its purpose. Last commit 2021.
+---
+
+
+---
+
+### Search
+
+URL: https://iaziz786.com/search/
+
+---
+title: "Search" # in any language you want
+layout: "search" # is necessary
+summary: "search"
+placeholder: "Search for contents on this site"
+---
+
+
+---
+

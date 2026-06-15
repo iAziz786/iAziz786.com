@@ -4,7 +4,6 @@ slug: engineers-are-too-far-from-users
 author: Mohammad Aziz
 date: "2026-06-15"
 description: "The further an engineer sits from the user, the more likely they are to build something nobody asked for. Hence founders make this mistakes."
-draft: true
 tags:
   - software engineering
   - product

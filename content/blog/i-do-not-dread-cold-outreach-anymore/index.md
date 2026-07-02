@@ -11,7 +11,7 @@ tags:
   - agency
 ---
 
-I have started doing cold outreach to the people. Initially I use to dread it because the sheer amount of reminders and rejections. The worse is people not responding and even worse is when they say yes but they mean no. It’s kind of like being in an relationship with an undecisive person.
+I have started doing cold outreach to the people. Initially I use to dread it because the sheer amount of reminders and rejections. The worse is people not responding and even worse is when they say yes but they mean no. It’s kind of like being in an relationship with an indecisive person.
 
 I want to convince myself that doing cold outreach are a good thing. I myself find it easy to convince myself when I somehow connect it with having an agency. It means that I have full control over it because I am the force behind it hence the control is more solid; as solid as my will.
 

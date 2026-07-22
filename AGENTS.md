@@ -1,4 +1,1 @@
-# AGENTS.md
-
-- Use [Conventional Comments](https://conventionalcomments.org/) for code reviews and feedback.
-- Commits: `type(scope): description`
+Use [Conventional Comments](https://conventionalcomments.org/) for reviews. Commits: `type(scope): description`.

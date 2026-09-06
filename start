@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+read -r -p "Blog title: " title
+
+if [[ -z "${title// }" ]]; then
+    echo "Title cannot be empty" >&2
+    exit 1
+fi
+
+slug=$(echo "$title" | tr '[:upper:]' '[:lower:]' | tr -s ' ' '-' | tr -cd 'a-z0-9-')
+slug=${slug#-}
+slug=${slug%-}
+
+if [[ -z "$slug" ]]; then
+    echo "Title must contain letters or numbers" >&2
+    exit 1
+fi
+
+post_dir="content/blog/$slug"
+if [[ -e "$post_dir" ]]; then
+    echo "Already exists: $post_dir" >&2
+    exit 1
+fi
+
+hugo new "content/blog/$slug/index.md"
+mkdir -p "$post_dir/images"
+
+echo "Created $post_dir"
+exec nvim "$post_dir/index.md"

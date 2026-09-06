@@ -1,7 +1,7 @@
 ---
 title: "How to Keep Writing"
 date: 2026-09-06T19:30:37+05:30
-draft: true
+draft: false
 ---
 
 I don't quite understand why writing is intimidating process?

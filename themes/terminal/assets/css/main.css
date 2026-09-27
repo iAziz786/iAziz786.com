@@ -398,7 +398,7 @@ a:hover {
 }
 
 .terminal-post-list__link::before {
-  content: "→ ";
+  content: "";
   color: var(--color-fg-dim);
 }
 

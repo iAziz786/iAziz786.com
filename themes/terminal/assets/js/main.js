@@ -8,6 +8,7 @@ import { SearchController } from './modules/search.js';
 import { PostNavigation } from './modules/post-navigation.js';
 import { BlogListNavigation } from './modules/blog-list-navigation.js';
 import { GitHubFeed } from './modules/github-feed.js';
+import { CodeCopy } from './modules/code-copy.js';
 import { ValidationUtils } from './modules/utils.js';
 
 // ============================================================================
@@ -145,6 +146,7 @@ class Application {
 
     BlogListInitializer.create();
     GitHubFeedsInitializer.create();
+    new CodeCopy();
     ImagePolyfillInitializer.create();
   }
 }

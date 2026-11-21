@@ -1,0 +1,8 @@
+{{- /* Bar text comes from CSS and JS so it stays out of .Plain and the search index */ -}}
+<div class="terminal-code">
+  <div class="terminal-code__bar">
+    <span class="terminal-code__lang" data-lang="{{ .Type | default "code" }}"></span>
+    <button type="button" class="terminal-code__copy" data-code-copy hidden><span class="terminal-code__copy-label" aria-live="polite"></span></button>
+  </div>
+  {{ (transform.HighlightCodeBlock .).Wrapped }}
+</div>

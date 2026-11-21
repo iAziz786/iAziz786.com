@@ -3,13 +3,6 @@
   <header class="terminal-article__header">
     <h1 class="terminal-article__title">{{ .Title }}</h1>
     {{ with .Description }}
-    <style>
-      .terminal-article__description {
-        margin-top: var(--space-2);
-        font-size: var(--font-size-base);
-        color: var(--color-fg-muted);
-      }
-    </style>
     <p class="terminal-article__description">{{ . }}</p>
     {{ end }}
     <div class="terminal-article__meta">

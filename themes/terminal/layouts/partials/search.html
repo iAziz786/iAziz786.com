@@ -18,10 +18,15 @@
     class="terminal-search__input" 
     placeholder="{{ .Site.Params.terminal.searchPlaceholder | default "type to search..." }}" 
     autocomplete="off"
+    role="combobox"
+    aria-autocomplete="list"
+    aria-controls="search-results"
+    aria-expanded="false"
     data-search-input
-    aria-label="Search input"
+    aria-label="Search posts"
   >
-  <ul class="terminal-search__results" data-search-results role="listbox"></ul>
+  <p class="terminal-search__status" data-search-status aria-live="polite"></p>
+  <ul class="terminal-search__results" id="search-results" data-search-results role="listbox" aria-label="Search results"></ul>
   <div class="terminal-search__help" aria-hidden="true">
     <span>ESC to close</span>
     <span>ENTER to select</span>

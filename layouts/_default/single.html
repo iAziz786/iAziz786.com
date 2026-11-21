@@ -17,15 +17,15 @@
   </div>
   
   {{ if eq .Section "blog" }}
-  {{ if or .NextInSection .PrevInSection }}
   <footer class="terminal-post-meta">
-    {{ partial "post-nav.html" . }}
+    {{ if or .NextInSection .PrevInSection }}{{ partial "post-nav.html" . }}{{ end }}
     <div class="terminal-post-meta__footer">
-      <p>Last updated {{ .Lastmod.Format "2006-01-02" }}</p>
+      {{ if gt (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}
+      <p>Last updated <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "2006-01-02" }}</time></p>
+      {{ end }}
       <p>Spotted something broken? <a href="https://github.com/iAziz786/iAziz786.com/issues">Open an issue</a></p>
     </div>
   </footer>
-  {{ end }}
   {{ end }}
 </article>
 {{ end }}

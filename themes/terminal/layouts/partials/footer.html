@@ -1,5 +1,5 @@
 <footer class="terminal-footer">
-  <span>· {{ now.Format (.Site.Params.terminal.footerDateFormat | default "2006-01-02") }} ·</span>
+  <span>© {{ now.Year }} {{ .Site.Title }} · <a href="{{ "index.xml" | relURL }}" class="terminal-footer__rss">rss</a></span>
   {{ with .Site.Params.socialIcons }}
   <nav class="terminal-footer__social" aria-label="Social links">
     {{ range . }}

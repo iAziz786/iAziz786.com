@@ -151,7 +151,6 @@ body {
   background: var(--color-bg);
   color: var(--color-fg);
   min-block-size: 100vh;
-  transition: background var(--transition-base), color var(--transition-base);
 }
 
 a {
@@ -189,6 +188,25 @@ a:hover {
   margin-block: var(--space-5);
 }
 
+.terminal-main:focus {
+  outline: none;
+}
+
+.terminal-skip-link {
+  position: absolute;
+  inset-block-start: var(--space-2);
+  inset-inline-start: var(--space-2);
+  z-index: 1001;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-fg);
+  color: var(--color-bg);
+  transform: translateY(-200%);
+}
+
+.terminal-skip-link:focus {
+  transform: none;
+}
+
 /* ============================================================================
    4. COMPONENTS
    ============================================================================ */
@@ -199,7 +217,6 @@ a:hover {
 .terminal-prompt {
   font-size: var(--font-size-xs);
   margin-block-end: var(--space-4);
-  opacity: 0.8;
 }
 
 .terminal-prompt__user {
@@ -217,6 +234,12 @@ a:hover {
 .terminal-prompt__cursor::after {
   content: "_";
   animation: blink 1.2s infinite;
+  color: var(--color-fg);
+}
+
+/* Pending "g" chord shows before the cursor, like vim's showcmd */
+body[data-g-active="true"] .terminal-header .terminal-prompt__cursor::before {
+  content: "g";
   color: var(--color-fg);
 }
 
@@ -279,6 +302,35 @@ a:hover {
   gap: var(--space-3);
 }
 
+.terminal-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.terminal-footer__rss {
+  text-decoration: underline;
+  text-decoration-color: var(--color-fg-muted);
+  text-underline-offset: 3px;
+}
+
+/* Touch: footer icons and nav links get 44px targets */
+@media (pointer: coarse) {
+  .terminal-footer__social {
+    gap: 0;
+  }
+
+  .terminal-footer__social a {
+    min-inline-size: 44px;
+    min-block-size: 44px;
+  }
+
+  .terminal-nav__link {
+    display: inline-block;
+    padding-block: var(--space-3);
+  }
+}
+
 /* --------------------------------------------------------------------------
    Hero - Homepage hero section
    -------------------------------------------------------------------------- */
@@ -303,6 +355,7 @@ a:hover {
   color: var(--color-fg-dim);
   max-inline-size: 60ch;
   margin-block-end: var(--space-2);
+  text-wrap: pretty;
 }
 
 .terminal-hero__link {
@@ -310,14 +363,14 @@ a:hover {
 }
 
 /* Links inside running text outside posts: underlined, like .terminal-article__content a */
-:is(.terminal-hero__link, .terminal-section__footer, .terminal-project__meta, .terminal-about, .terminal-now-box, .terminal-not-found, [data-search-page]) a {
+:is(.terminal-hero__link, .terminal-section__footer, .terminal-project__meta, .terminal-about, .terminal-now-box, .terminal-not-found, .terminal-post-meta__footer, [data-search-page]) a {
   text-decoration: underline;
   text-decoration-color: var(--color-fg-muted);
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
 
-:is(.terminal-hero__link, .terminal-section__footer, .terminal-project__meta, .terminal-about, .terminal-now-box, .terminal-not-found, [data-search-page]) a:hover {
+:is(.terminal-hero__link, .terminal-section__footer, .terminal-project__meta, .terminal-about, .terminal-now-box, .terminal-not-found, .terminal-post-meta__footer, [data-search-page]) a:hover {
   text-decoration-color: currentColor;
 }
 
@@ -365,6 +418,7 @@ a:hover {
   
   .terminal-hero__image {
     align-self: center;
+    margin-left: 0;
   }
   
   .terminal-hero__image img {
@@ -584,19 +638,22 @@ a:hover {
   margin-block: var(--space-5) var(--space-2);
 }
 
-.terminal-article__content h2::before {
-  content: "# ";
+/* render-heading.html puts the #/##/### marker in a section link */
+.terminal-article__content .terminal-heading-anchor {
   color: var(--color-fg-muted);
+  text-decoration: none;
 }
 
-.terminal-article__content h3::before {
-  content: "## ";
-  color: var(--color-fg-muted);
+.terminal-article__content .terminal-heading-anchor:hover {
+  color: var(--color-fg);
 }
 
-.terminal-article__content h4::before {
-  content: "### ";
-  color: var(--color-fg-muted);
+.terminal-article__content :is(h2, h3, h4) {
+  scroll-margin-block-start: var(--space-5);
+}
+
+.terminal-post-meta__tag {
+  color: inherit;
 }
 
 .terminal-article__content :is(p, li) {
@@ -650,8 +707,8 @@ a:hover {
 
 .terminal-article__content code {
   background: var(--color-bg-selected);
-  padding-block: var(--space-1);
-  padding-inline: var(--space-2);
+  padding-block: 0.1em;
+  padding-inline: 0.3em;
   font-size: 0.9em;
   border-radius: var(--radius-md);
 }
@@ -668,6 +725,16 @@ a:hover {
   tab-size: 2;
   scrollbar-width: thin;
   scrollbar-color: var(--color-fg-muted) transparent;
+}
+
+/* Safari ignores scrollbar-color; a styled WebKit scrollbar stays visible */
+.terminal-article__content pre::-webkit-scrollbar {
+  height: 6px;
+}
+
+.terminal-article__content pre::-webkit-scrollbar-thumb {
+  background: var(--color-fg-muted);
+  border-radius: 3px;
 }
 
 /* Code blocks: render-codeblock.html wraps each fenced block */
@@ -839,10 +906,6 @@ a:hover {
   text-decoration: underline;
 }
 
-.terminal-post-nav__item--right .terminal-post-nav__link {
-  direction: rtl;
-}
-
 @media (max-width: 600px) {
   .terminal-post-nav {
     flex-direction: column;
@@ -855,10 +918,6 @@ a:hover {
     max-inline-size: 100%;
     text-align: start;
     margin-inline-start: 0;
-  }
-  
-  .terminal-post-nav__item--right .terminal-post-nav__link {
-    direction: ltr;
   }
 }
 
@@ -874,6 +933,11 @@ a:hover {
   color: var(--color-fg-dim);
   padding-block-start: var(--space-4);
   border-block-start: 1px solid var(--color-border);
+}
+
+/* post-nav already draws the divider */
+.terminal-post-nav + .terminal-post-meta__footer {
+  border-block-start: none;
 }
 
 .terminal-post-meta__footer p {
@@ -909,33 +973,16 @@ a:hover {
   color: var(--color-fg-muted);
 }
 
-.terminal-project__status {
-  font-size: 10px;
-  font-weight: 400;
-  color: var(--color-bg);
-  background: var(--color-fg-dim);
-  padding-block: var(--space-1);
-  padding-inline: var(--space-2);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border-radius: var(--radius-sm);
-}
-
-.terminal-project__status--active {
-  background: var(--color-fg);
-  color: var(--color-bg);
-}
-
-.terminal-project__status--archived,
-.terminal-project__status--abandoned {
-  background: var(--color-fg-error);
-}
-
 .terminal-project__meta {
   font-size: var(--font-size-xs);
   color: var(--color-fg-muted);
   margin-block-end: var(--space-4);
   overflow-wrap: anywhere;
+}
+
+.terminal-project__desc,
+.terminal-project__note {
+  text-wrap: pretty;
 }
 
 .terminal-project__desc {
@@ -990,6 +1037,8 @@ a:hover {
    -------------------------------------------------------------------------- */
 .terminal-about {
   margin-block: var(--space-5);
+  max-inline-size: var(--content-max-width);
+  text-wrap: pretty;
 }
 
 .terminal-about p {
@@ -1077,6 +1126,9 @@ a:hover {
 .terminal-search__link {
   display: block;
   padding-block: var(--space-3);
+  padding-inline: var(--space-2);
+  margin-inline: calc(-1 * var(--space-2));
+  border-radius: var(--radius-md);
   text-decoration: none;
   color: var(--color-fg);
   transition: background var(--transition-fast), color var(--transition-fast);
@@ -1086,9 +1138,7 @@ a:hover {
 .terminal-search__link:hover {
   background: var(--color-fg);
   color: var(--color-bg);
-  padding-inline: var(--space-2);
-  margin-inline: calc(-1 * var(--space-2));
-  border-radius: var(--radius-md);
+  text-decoration: none;
 }
 
 .terminal-search__title {
@@ -1106,10 +1156,15 @@ a:hover {
   color: var(--color-bg);
 }
 
-.terminal-search__no-results {
-  padding-block: var(--space-4);
+.terminal-search__status {
+  margin-block-start: var(--space-3);
+  font-size: var(--font-size-xs);
   color: var(--color-fg-muted);
-  font-style: italic;
+}
+
+.terminal-search__status a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .terminal-search__help {
@@ -1217,11 +1272,30 @@ kbd {
 }
 
 /* --------------------------------------------------------------------------
+   Terms - Tag index
+   -------------------------------------------------------------------------- */
+.terminal-terms {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+.terminal-terms a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-fg-muted);
+  text-underline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
    GitHub Feed - Commit display
    -------------------------------------------------------------------------- */
 .terminal-github-feed__commit {
   margin-block: var(--space-2);
   font-size: var(--font-size-xs);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .terminal-github-feed__empty {

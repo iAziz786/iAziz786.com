@@ -1,0 +1,11 @@
+{{ define "main" }}
+<section class="terminal-section" aria-labelledby="terms-heading">
+  <h1 id="terms-heading" class="terminal-section__title">{{ .Title }}</h1>
+  <p class="terminal-section__meta">// {{ len .Data.Terms }} {{ lower .Title }}</p>
+  <ul class="terminal-terms" role="list">
+    {{ range .Data.Terms.ByCount }}
+    <li><a href="{{ .Page.RelPermalink }}">#{{ .Page.LinkTitle }}</a> <span class="terminal-text-dim">{{ .Count }}</span></li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

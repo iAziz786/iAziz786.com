@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}">
+  <title>{{ if and .Title (not .IsHome) }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+  <meta name="description" content="{{ .Description | default (.Summary | plainify | htmlUnescape | truncate 160) | default .Site.Params.description }}">
   
   {{ $style := resources.Get "css/main.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
@@ -18,6 +18,9 @@
   {{ range .AlternativeOutputFormats }}
   <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
   {{ end }}
+  {{ if not .IsHome }}{{ with .Site.Home.OutputFormats.Get "rss" }}
+  <link rel="alternate" type="application/rss+xml" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+  {{ end }}{{ end }}
 </head>
 <body 
   class="terminal-container"
@@ -28,6 +31,7 @@
     {{ with .PrevInSection }}data-post-next-url="{{ .Permalink }}"{{ end }}
   {{ end }}
 >
+  <a class="terminal-skip-link" href="#main">skip to content</a>
   <header class="terminal-header">
     {{ partial "prompt.html" . }}
     <nav class="terminal-nav" aria-label="Main navigation">
@@ -46,7 +50,7 @@
     </nav>
   </header>
 
-  <main class="terminal-main">
+  <main id="main" class="terminal-main" tabindex="-1">
     {{ block "main" . }}{{ end }}
   </main>
 

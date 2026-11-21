@@ -1,0 +1,5 @@
+{{- /* The markdown depth marker (#, ##, ###) is the section link; content h1 has no marker */ -}}
+<h{{ .Level }} id="{{ .Anchor | safeURL }}">
+{{- if gt .Level 1 -}}
+<a class="terminal-heading-anchor" href="#{{ .Anchor | safeURL }}" aria-label="Link to section: {{ .PlainText | htmlUnescape }}">{{ strings.Repeat (sub .Level 1) "#" }}</a> {{ end -}}
+{{ .Text | safeHTML }}</h{{ .Level }}>

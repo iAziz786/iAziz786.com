@@ -138,11 +138,9 @@ class GitHubFeedView {
   }
 
   #renderCommit(commit) {
-    const shortMsg = commit.message.length > 45
-      ? commit.message.slice(0, 45) + '...'
-      : commit.message;
-    const escapedMsg = DOMUtils.escapeHtml(shortMsg);
-    return `<p class="terminal-github-feed__commit">[${commit.date}] ${commit.repo}: ${escapedMsg}</p>`;
+    // Full message; CSS truncates to one line with an ellipsis
+    const escapedMsg = DOMUtils.escapeHtml(commit.message);
+    return `<p class="terminal-github-feed__commit" title="${escapedMsg}">[${commit.date}] ${commit.repo}: ${escapedMsg}</p>`;
   }
 }
 

@@ -30,6 +30,7 @@ outputFormats:
     isPlainText: true
 
 params:
+  description: "Personal blog and projects by Mohammad Aziz"
   socialIcons:
     - name: "x.com"
       url: "https://x.com/iAziz786"

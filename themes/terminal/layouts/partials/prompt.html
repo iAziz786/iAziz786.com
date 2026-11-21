@@ -1,3 +1,9 @@
+{{- $path := "home" -}}
+{{- if eq .Kind "404" -}}
+  {{- $path = "404" -}}
+{{- else if not .IsHome -}}
+  {{- $path = .Section | default .Params.type | default (lower .Title) | default "home" -}}
+{{- end -}}
 <div class="terminal-prompt">
-  <span class="terminal-prompt__user">{{ .Site.Params.terminal.promptUser | default "aziz" }}</span>@<span class="terminal-prompt__host">{{ .Site.Params.terminal.promptHost | default "localhost" }}</span>:<span class="terminal-prompt__path">{{ if .IsHome }}home{{ else }}{{ .Section | default .Params.type | default "home" }}{{ end }}</span>$ <span class="terminal-prompt__cursor"></span>
+  <span class="terminal-prompt__user">{{ .Site.Params.terminal.promptUser | default "aziz" }}</span>@<span class="terminal-prompt__host">{{ .Site.Params.terminal.promptHost | default "localhost" }}</span>:<span class="terminal-prompt__path">{{ $path }}</span>$ <span class="terminal-prompt__cursor"></span>
 </div>

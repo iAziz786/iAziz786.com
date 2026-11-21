@@ -9,12 +9,14 @@ export class SearchView {
   #element;
   #input;
   #results;
+  #closeButton;
   #focusManager;
 
   constructor(element) {
     this.#element = element;
     this.#input = DOMUtils.queryRequired(element, '[data-search-input]', 'Search input required');
     this.#results = DOMUtils.queryRequired(element, '[data-search-results]', 'Search results required');
+    this.#closeButton = element.querySelector('[data-search-close]');
     this.#focusManager = DOMUtils.createFocusManager();
   }
 
@@ -153,5 +155,9 @@ export class SearchView {
 
   onElementKeydown(handler) {
     this.#element.addEventListener('keydown', handler);
+  }
+
+  onCloseClick(handler) {
+    this.#closeButton?.addEventListener('click', handler);
   }
 }

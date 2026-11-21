@@ -46,6 +46,16 @@ class SearchInitializer {
     const controller = new SearchController(element);
     controller.init();
 
+    // Nav link and buttons open the overlay in place; without JS the link goes to /search/
+    document.addEventListener('click', (event) => {
+      const trigger = event.target.closest('[data-search-open], a[href="/search/"]');
+      if (!trigger || event.metaKey || event.ctrlKey || event.shiftKey) return;
+      event.preventDefault();
+      controller.open();
+    });
+
+    if (document.querySelector('[data-search-page]')) controller.open();
+
     return {
       open: () => controller.open(),
       close: () => controller.close()
@@ -147,6 +157,10 @@ class Application {
     BlogListInitializer.create();
     GitHubFeedsInitializer.create();
     new CodeCopy();
+    const notFoundPath = (() => {
+      try { return decodeURIComponent(window.location.pathname); } catch { return window.location.pathname; }
+    })();
+    document.querySelectorAll('[data-not-found-path]').forEach((el) => { el.textContent = notFoundPath; });
     ImagePolyfillInitializer.create();
   }
 }

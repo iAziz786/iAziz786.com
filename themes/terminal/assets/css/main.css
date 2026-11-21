@@ -309,6 +309,18 @@ a:hover {
   margin-block-start: var(--space-4);
 }
 
+/* Links inside running text outside posts: underlined, like .terminal-article__content a */
+:is(.terminal-hero__link, .terminal-section__footer, .terminal-project__meta, .terminal-about, .terminal-now-box, .terminal-not-found, [data-search-page]) a {
+  text-decoration: underline;
+  text-decoration-color: var(--color-fg-muted);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+:is(.terminal-hero__link, .terminal-section__footer, .terminal-project__meta, .terminal-about, .terminal-now-box, .terminal-not-found, [data-search-page]) a:hover {
+  text-decoration-color: currentColor;
+}
+
 .terminal-hero__meta {
   margin-block-start: var(--space-6);
   color: var(--color-fg-muted);
@@ -396,6 +408,7 @@ a:hover {
 
 .terminal-post-list__title {
   flex: 1;
+  min-inline-size: 0;
 }
 
 .terminal-post-list__link {
@@ -403,14 +416,45 @@ a:hover {
   text-decoration: none;
 }
 
+/* The whole row is the tap target */
+.terminal-post-list__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
 .terminal-post-list__link::before {
   content: "";
   color: var(--color-fg-dim);
 }
 
-.terminal-post-list__link:hover {
+.terminal-post-list__item:hover {
+  background: var(--color-bg-hover);
+}
+
+.terminal-post-list__item:hover .terminal-post-list__link {
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.terminal-post-list__desc {
+  display: block;
+  margin-block-start: var(--space-1);
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-dim);
+  text-wrap: pretty;
+}
+
+.terminal-post-list__year {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-fg-dim);
+  font-variant-numeric: tabular-nums;
+  margin-block: var(--space-6) var(--space-2);
+}
+
+.terminal-post-list__year:first-child {
+  margin-block-start: 0;
 }
 
 /* Selected state - vim-like navigation */
@@ -440,7 +484,11 @@ a:hover {
 }
 
 .terminal-post-list__item.is-selected .terminal-post-list__date {
-  color: var(--color-fg-dim);
+  color: var(--color-fg);
+}
+
+.terminal-post-list__item.is-selected .terminal-post-list__desc {
+  color: var(--color-fg);
 }
 
 .terminal-post-list__item.is-selected .terminal-post-list__meta {
@@ -842,8 +890,9 @@ a:hover {
   border-radius: var(--radius-md);
 }
 
-.terminal-project--archived {
-  opacity: 0.6;
+/* Archived: the badge and section carry the state; text keeps AA contrast */
+.terminal-project--archived .terminal-project__header {
+  color: var(--color-fg-dim);
 }
 
 .terminal-project__header {
@@ -886,6 +935,7 @@ a:hover {
   font-size: var(--font-size-xs);
   color: var(--color-fg-muted);
   margin-block-end: var(--space-4);
+  overflow-wrap: anywhere;
 }
 
 .terminal-project__desc {
@@ -970,10 +1020,33 @@ a:hover {
   display: block;
 }
 
+.terminal-search__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-block-end: var(--space-4);
+}
+
 .terminal-search__prompt {
   font-size: var(--font-size-xs);
   color: var(--color-fg-muted);
-  margin-block-end: var(--space-4);
+}
+
+.terminal-search__close {
+  font: inherit;
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-dim);
+  background: none;
+  border: 0;
+  min-block-size: 44px;
+  min-inline-size: 44px;
+  padding-inline: var(--space-2);
+  cursor: pointer;
+}
+
+.terminal-search__close:hover {
+  color: var(--color-fg);
 }
 
 .terminal-search__input {
@@ -1058,7 +1131,89 @@ a:hover {
   inset-inline-end: var(--space-4);
   font-size: var(--font-size-xs);
   color: var(--color-fg-muted);
-  opacity: 0.5;
+}
+
+/* Keyboard-only hints mean nothing on touch screens and cover text there */
+@media (hover: none) and (pointer: coarse) {
+  .terminal-keyboard-hint,
+  .terminal-search__help {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Buttons, keys, and the search page
+   -------------------------------------------------------------------------- */
+.terminal-button {
+  font: inherit;
+  color: var(--color-bg);
+  background: var(--color-fg);
+  border: 0;
+  border-radius: var(--radius-sm);
+  min-block-size: 44px;
+  padding-inline: var(--space-4);
+  margin-inline-end: var(--space-3);
+  cursor: pointer;
+}
+
+.terminal-button:hover {
+  background: var(--color-fg-dim);
+}
+
+kbd {
+  font: inherit;
+  font-size: var(--font-size-xs);
+  padding-inline: var(--space-1);
+  border: 1px solid var(--color-border);
+  border-block-end-width: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.terminal-keys {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--space-2) var(--space-5);
+  align-items: baseline;
+}
+
+.terminal-keys dd {
+  color: var(--color-fg-dim);
+}
+
+/* --------------------------------------------------------------------------
+   Not Found - 404 page
+   -------------------------------------------------------------------------- */
+.terminal-not-found__command {
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  color: var(--color-fg-dim);
+  overflow-wrap: anywhere;
+}
+
+.terminal-not-found__command::before {
+  content: "$";
+  color: var(--color-fg-muted);
+  margin-inline-end: var(--space-2);
+}
+
+.terminal-not-found__error {
+  color: var(--color-fg-error);
+  margin-block: var(--space-2) var(--space-6);
+  overflow-wrap: anywhere;
+}
+
+.terminal-not-found__links {
+  list-style: none;
+  margin-block-start: var(--space-3);
+}
+
+.terminal-not-found__links li + li {
+  margin-block-start: var(--space-2);
+}
+
+.terminal-not-found__links li::before {
+  content: "▸ ";
+  color: var(--color-fg-muted);
 }
 
 /* --------------------------------------------------------------------------

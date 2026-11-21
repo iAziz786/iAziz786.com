@@ -1,5 +1,5 @@
 {{ define "main" }}
-
+<h1 class="terminal-sr-only">{{ .Title | default "Projects" }}</h1>
 {{ if .Params.active }}
 <section class="terminal-section" aria-labelledby="active-heading">
   <h2 id="active-heading" class="terminal-section__title">Active</h2>
@@ -12,7 +12,7 @@
       </h3>
       <div class="terminal-project__meta">
         {{ .date }} · {{ .tech }}
-        {{ if .url }} · <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .url }}</a>{{ end }}
+        {{ with .url }} · <a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ index (split . "?") 0 | replaceRE "^https?://" "" }}</a>{{ end }}
       </div>
       <p class="terminal-project__desc">{{ .description }}</p>
       <p class="terminal-project__note">{{ .note }}</p>
@@ -35,7 +35,7 @@
       </h3>
       <div class="terminal-project__meta">
         {{ .date }} · {{ .tech }}
-        {{ if .url }} · <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .url }}</a>{{ end }}
+        {{ with .url }} · <a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ index (split . "?") 0 | replaceRE "^https?://" "" }}</a>{{ end }}
       </div>
       <p class="terminal-project__desc">{{ .description }}</p>
       <p class="terminal-project__note">{{ .note }}</p>

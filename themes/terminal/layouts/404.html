@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="terminal-section terminal-not-found" aria-labelledby="not-found-heading">
+  <h1 id="not-found-heading" class="terminal-not-found__command">cd <span data-not-found-path>this-page</span></h1>
+  <p class="terminal-not-found__error">bash: cd: <span data-not-found-path>this-page</span>: No such file or directory</p>
+  <p>The page moved or never existed. Try one of these:</p>
+  <ul class="terminal-not-found__links" role="list">
+    <li><a href="/blog/">blog</a>: every post, newest first</li>
+    <li><a href="/search/">search</a>: find a post by word</li>
+    <li><a href="/">home</a></li>
+  </ul>
+</section>
+{{ end }}

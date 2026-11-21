@@ -35,7 +35,8 @@
         {{ $menuLen := len .Site.Menus.main }}
         {{ range $i, $item := .Site.Menus.main }}
         <li>
-          <a href="{{ $item.URL }}" class="terminal-nav__link{{ if eq $.RelPermalink $item.URL }} terminal-nav__link--active{{ end }}" title="{{ $item.Name }}">{{ $item.Name }}</a>
+          {{ $active := or (eq $.RelPermalink $item.URL) (and (ne $item.URL "/") (hasPrefix $.RelPermalink $item.URL)) }}
+          <a href="{{ $item.URL }}" class="terminal-nav__link{{ if $active }} terminal-nav__link--active{{ end }}"{{ if $active }} aria-current="page"{{ end }}>{{ $item.Name }}</a>
         </li>
         {{ if ne (add $i 1) $menuLen }}
         <li class="terminal-nav__separator" aria-hidden="true">|</li>

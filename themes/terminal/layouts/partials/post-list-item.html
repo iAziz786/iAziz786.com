@@ -1,0 +1,13 @@
+{{- /* One post row. The link stretches over the whole row (see .terminal-post-list__link::after). */ -}}
+{{- with .page -}}
+<li class="terminal-post-list__item"{{ if $.selectable }} data-blog-list-item{{ end }}>
+  <time class="terminal-post-list__date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format $.dateFormat }}</time>
+  <span class="terminal-post-list__title">
+    <a href="{{ .RelPermalink }}" class="terminal-post-list__link">{{ .Title }}</a>
+    {{ with .Description | default .Summary | plainify | htmlUnescape }}
+    <span class="terminal-post-list__desc">{{ . | truncate 120 }}</span>
+    {{ end }}
+  </span>
+  <span class="terminal-post-list__meta">{{ .WordCount }} words</span>
+</li>
+{{- end -}}

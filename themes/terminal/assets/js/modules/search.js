@@ -32,8 +32,9 @@ export class SearchController {
   // --------------------------------------------------------------------------
 
   async init() {
-    await this.#service.load();
+    // Bind first: the overlay can open (and must close) before the index loads
     this.#bindEvents();
+    await this.#service.load();
   }
 
   #validateElement(element) {
@@ -55,6 +56,7 @@ export class SearchController {
     this.#view.onInputFocus(() => this.#setMode(SearchMode.INSERT));
     this.#view.onResultsClick((e) => this.#handleResultClick(e));
     this.#view.onElementKeydown((e) => this.#view.trapFocus(e));
+    this.#view.onCloseClick(() => this.close());
   }
 
   // --------------------------------------------------------------------------
@@ -62,6 +64,7 @@ export class SearchController {
   // --------------------------------------------------------------------------
 
   open() {
+    if (this.#state.isOpen) return;
     this.#state.setOpen(true);
     this.#view.show();
     this.#setMode(SearchMode.INSERT);

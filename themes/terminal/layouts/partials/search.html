@@ -9,7 +9,10 @@
   aria-label="{{ .Site.Params.terminal.searchLabel | default "Search" }}"
   aria-hidden="true"
 >
-  <div class="terminal-search__prompt">search:// <span class="terminal-prompt__cursor"></span></div>
+  <div class="terminal-search__bar">
+    <div class="terminal-search__prompt">search:// <span class="terminal-prompt__cursor"></span></div>
+    <button type="button" class="terminal-search__close" data-search-close aria-label="Close search">[esc]</button>
+  </div>
   <input 
     type="text" 
     class="terminal-search__input" 

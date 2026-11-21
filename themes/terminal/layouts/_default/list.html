@@ -1,6 +1,6 @@
 {{ define "main" }}
 <section class="terminal-section" aria-labelledby="list-heading">
-  <h2 id="list-heading" class="terminal-section__title">{{ .Title }}</h2>
+  <h1 id="list-heading" class="terminal-section__title">{{ .Title }}</h1>
   
   {{ $wordCount := 0 }}
   {{ if eq .Section "blog" }}
@@ -16,17 +16,15 @@
     {{ end }}
   </p>
   
-  <ul class="terminal-post-list" role="list" data-blog-list>
-    {{ range .Pages }}
-    <li class="terminal-post-list__item" data-blog-list-item>
-      <time class="terminal-post-list__date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2006-01-02" }}</time>
-      <span class="terminal-post-list__title">
-        {{ $permalink := .Permalink }}
-        {{ with .File }}<a href="{{ $permalink }}" class="terminal-post-list__link">./{{ .ContentBaseName }}</a>{{ end }}
-      </span>
-      <span class="terminal-post-list__meta">{{ .WordCount }} words</span>
-    </li>
+  <div data-blog-list>
+    {{ range .Pages.GroupByDate "2006" }}
+    <h2 class="terminal-post-list__year">{{ .Key }}</h2>
+    <ul class="terminal-post-list" role="list">
+      {{ range .Pages }}
+      {{ partial "post-list-item.html" (dict "page" . "dateFormat" "01-02" "selectable" true) }}
+      {{ end }}
+    </ul>
     {{ end }}
-  </ul>
+  </div>
 </section>
 {{ end }}

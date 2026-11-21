@@ -81,11 +81,11 @@ menu:
       name: projects
       url: /projects/
       weight: 3
-    - identifiers: writing
-      name: writing
-      url: /writing/
-      weight: 4
     - identifiers: about
       name: about
       url: /about/
       weight: 5
+    - identifiers: search
+      name: search
+      url: /search/
+      weight: 6

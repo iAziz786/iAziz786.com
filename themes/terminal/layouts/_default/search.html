@@ -1,0 +1,24 @@
+{{ define "main" }}
+<section class="terminal-section" aria-labelledby="search-heading" data-search-page>
+  <h1 id="search-heading" class="terminal-section__title">{{ .Title }}</h1>
+
+  <p>
+    <button type="button" class="terminal-button" data-search-open>open search</button>
+    <span class="terminal-text-dim">or press <kbd>/</kbd> on any page</span>
+  </p>
+  <noscript><p class="terminal-text-dim">Search needs JavaScript. All posts are listed on the <a href="/blog/">blog</a> page.</p></noscript>
+
+  <h2 class="terminal-section__title terminal-mt-6">Keyboard</h2>
+  <dl class="terminal-keys">
+    <dt><kbd>/</kbd></dt><dd>search</dd>
+    <dt><kbd>g</kbd> <kbd>h</kbd></dt><dd>go home</dd>
+    <dt><kbd>g</kbd> <kbd>b</kbd></dt><dd>go to blog</dd>
+    <dt><kbd>g</kbd> <kbd>p</kbd></dt><dd>go to projects</dd>
+    <dt><kbd>g</kbd> <kbd>a</kbd></dt><dd>go to about</dd>
+    <dt><kbd>h</kbd> <kbd>l</kbd></dt><dd>previous / next post, on a post</dd>
+    <dt><kbd>j</kbd> <kbd>k</kbd></dt><dd>scroll down / up; move through the blog list</dd>
+    <dt><kbd>g</kbd> <kbd>g</kbd> / <kbd>G</kbd></dt><dd>top / bottom of the page</dd>
+    <dt><kbd>esc</kbd></dt><dd>close search</dd>
+  </dl>
+</section>
+{{ end }}
